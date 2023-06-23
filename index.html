@@ -7,12 +7,12 @@ layout: default
   {% assign postsSorted = site.posts | sort: "week-num" %}
   {% for post in postsSorted"%}
       <div class="inline-block w-[27.3%] mb-[3%] ml-[2%] bg-zinc-600 h-96">
-      <a href="{{post.url}}" class="w-[100%]">
+      <a href="{{post.url | relative_url}}" class="w-[100%]">
       <div class="h-[20%]">
         <h1 class="text-center text-gray-300 text-xl mt-7">Week {{post.week-num}}:</h1>
         <h2 class="text-center text-gray-100 text-2xl">{{post.title}}</h2>
       </div>
-        <img src="./assets/images/{{post.front-image}}" alt="lightbulb image" class="block h-[50%] mt-[10%] object-center mx-auto">
+      <img src="{{'assets/images/'| append: post.front-image | relative_url }}" alt="lightbulb image" class="block h-[50%] mt-[10%] object-center mx-auto">
         
       </a>
     </div>
