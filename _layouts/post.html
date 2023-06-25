@@ -1,10 +1,12 @@
 ---
-layout: default
+layout: defaultnav
 ---
 
 <div class="m-12">
-    <h1 class="my-8 text-3xl text-gray-900">{{ page.title }}</h1>
-    <div class="w-[70%]">
+    <h1 class="mt-8 text-4xl font-bold text-gray-900">{{ page.title }}</h1>
+    <h2 class="text-xl">{{ page.date | date_to_long_string: "ordinal"  }}</h2>
+
+    <div class="mt-[2%] w-[70%]">
         {{ content }}
     </div>
 </div>

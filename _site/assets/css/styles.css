@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-.current {
-    color: green;
+@layer components {
+    .link {
+      @apply text-blue-400 underline;
+    }
+  }
+  
+.notvisible {
+    opacity: 0;
+    transition: all 1s;
+    transform: translateX(-100%)
+}
+
+.navbar {
+    opacity: 0;
+    transition: all 1s;
+    margin-top: 2px;
+}
+
+.appear {
+    opacity: 1;
+    transform: translateX(0)
+
+}
+.navappear {
+    opacity: 1;
+    position: fixed;
+    top: 0px; 
+    margin-top: 0px;
 }

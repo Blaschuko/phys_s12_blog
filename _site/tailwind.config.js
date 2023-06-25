@@ -7,11 +7,17 @@ module.exports = {
     '_posts/**/*.html',
     '*.markdown',
     'index.html',
-    'about.html'
+    'about.html',
+    'assets/css/styles.css',
+    '_layouts/default.html',
 ],
 theme: {
-    extend: {},
-  },
+  extend: {
+    margin: {
+      'p': '2%',
+    }
+  }
+},
   plugins: [],
 }
 
