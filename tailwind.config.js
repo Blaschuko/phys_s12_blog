@@ -15,6 +15,7 @@ theme: {
   extend: {
     margin: {
       'p': '2%',
+      'p2': '4%',
     }
   }
 },

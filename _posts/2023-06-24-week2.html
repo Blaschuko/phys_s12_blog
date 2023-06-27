@@ -6,26 +6,35 @@ front-image: week2.png
 ---
 
 <h2 class="text-xl underline">Concept</h2> 
-<p class="mb-p link">Laser cutting is an extremely useful technique to cut simple materials, such as cardboard. This week, we learnt how to operate a laser cutter and we were assigned to create a press-fit construction. To accomplish this, I decided to use a CAD software called Fusion360. I already had experience using it, and the only way to do parametric accurate modeling in the other software option, Blender, is by using the addon <a class="link" href="https://www.cadsketcher.com/">CAD Sketcher</a></p>
+<p class="mb-p">Laser cutting is an extremely useful technique to cut simple materials, such as cardboard. This week, we learnt how to operate a laser cutter and we were assigned to create a press-fit construction. To accomplish this, I decided to use a CAD software called Fusion360. I already had experience using it, and the only way to do parametric accurate modeling in the other software option, Blender, is by using the addon <a class="link" href="https://www.cadsketcher.com/">CAD Sketcher</a>. CAD Sketcher is an extremely new tool, and while it is true it has a huge community supporting it, I don't think that it has enough features to be used in big projects.</p>
+<p class="mb-p">After chosing which software I was going to use, I modeled some simple press-fit squares to know how much material the laser burns when cutting through cardboard. This is called laser kerf. I found out that a good value for the laser kerf was <span class="hl">0.8 mm</span>, which is less than I expected it to be. This meant I had to make my press-fit joints a little bit less tighter than I thought.</p>
 
+<img src="{{'/assets/images/pressfittest.jpg' | relative_url}}" class="mb-[1%] inline-block max-h-[432px] w-[49%]" alt="Picture of two press-fit cardboard squares">
+<img src="{{'/assets/images/pressfittestmodel.png' | relative_url}}" class="w-[49%] align-top inline-block">
+<p class="w-fit hl mb-p">Click to download the <a class="link" href="{{'/assets/stl/press-fit-stl.stl' | relative_url}}">.STL File</a></p>
+<p class="mb-p">As you can probably see in the joints, the cardboard is slightly bent, and I had to do some force to get them to fit together. While that can be good for long-lasting designs, it is not what I'm looking for. After disassembling and assembling it a few times, the cardboard would probably break. </p>
+<p>Later on, I started thinking about what kind of press-fit "structure" I was going to create. At first, I thought about doing something like a puzzle, but then I decided to go for something much more unique: the Eiffel Tower. I looked up some sketches online, and decided to get to work.</p>
 
+<h2 class="text-xl mt-[30px] underline">Modeling</h2>
 
+<p class="mb-p">The first thing I did was to search online for a reference image. I don't intend the model to be identical to the real Eiffel Tower, but I do expect it to look alike.</p>
 
+<a target="_blank" href="https://www.wikihow.com/Draw-the-Eiffel-Tower"><img class="inline-block w-[50%] mb-p" src="{{'/assets/images/eiffeltowersketch.jpg' | relative_url}}"></a>
 
-<p class="mb-p">This site was created with the help of a static site generator: <strong>Jekyll</strong>. Static site generators are really useful when content looks similar, which is exactly the case of a blog. That is why I decided to use Jekyll for this project. </p>
-<p class="mb-p">To style the site, I'm using <a href="https://tailwindcss.com" class="text-blue-400 underline" target="_blank">TailwindCSS</a>, which a css framework that is extremely useful for rapidly building a good-looking website. It works pretty much like a modern version of bootstrap. </p>
-<p class="mb-p">I think that the most interesting development choice of this project is using <strong>Github Actions</strong> to compile and deploy the website. I had never used Github Actions, but there are many useful ressources only to learn how to use them. They can be extremely useful to automate things such as, in this case, the Jekyll build of my website. You'll find bellow a picture of what an "action" looks like. </p>
-<img src="{{'/assets/images/githubactions.png' | relative_url}}" alt="Screenshot of a Github Action">
+<p class="mb-p">I then began to think about how I could join the different parts of the structure. The best idea I came up with was to cut 4 separate "legs", and then join all four of them using press-fit squares placed in between them. I used splines to model the legs, which made designing them really easy. You can see the layout of the design below. </p>
+<img src="{{'/assets/images/eiffeltowerlayout.png' | relative_url}}" class="w-[50%] mb-p">
+<p class="w-fit hl mb-p2">Click to download the <a class="link" href="{{'/assets/stl/eiffel-tower-stl.stl' | relative_url}}">.STL File</a></p>
 
+<h2 class="text-xl underline">Laser Cutting</h2> 
 
-<h2 class="text-xl mt-[30px] underline">Final Project Idea #1</h2> 
-<p>My first idea for the final project is to design a <strong>thrust vector control mount </strong> (TVC) for model rockets. TVC allows rockets to change the direction of its thrust, and therefore its flight trajectory.</p>
-<a class="mb-p" href="https://bps.space/"><img src="{{'/assets/images/tvcexample.jpg'| relative_url}}" class="inline"> </a> <p class="text-sm">3D model of a TVC mount made by <a href="https://www.youtube.com/@BPSspace" class="link" target="_blank">bps.space</a></p>
+<p class="mb-p">After finishing the design, I exported the sketch as a <span class="hl">.dxf</span> file and loaded it into the laser cutter's computer using an SD card. The next step was to send it to the actual laser cutter, and then finally chosing the point in space where it should start cutting (to avoid cutting outside the cardboard, which would be a pretty bad thing!). </p>
 
-<p>To achieve a successfull project, I would need to succesfully develop a gimbal capable of holding a model rocket thruster, and a flight computer capable of detecting the orientation of the rocket (and therefore corret the trajectory).</p>
+<img src="{{'assets/images/lasercutter.jpg' | relative_url}}" class="w-[50%]" alt="Picture of the laser cutting">
+<p class="mb-p italic text-right w-[50%]">Picture of the laser cutter</p>
 
-<h2 class="text-xl mt-[30px] underline">Final Project Idea #2</h2>
+<p class="mb-p">The minute I got the pieces out of the laser cutter, I realized that I should have made the design bigger. I designed the model to be <span class="hl">22 cm</span> tall, which I thought would be a good height, but I quickly realized that having small values means having tiny amounts of material near the joints. The joints are therefore quite fragile. Nevertheless, everything fitted perfectly and the design turned out exactly like I wanted it to be.</p>
+<img src="{{'assets/images/eiffeltowerfinished.jpg' | relative_url}}" class="w-[30%]">
+<p class="mb-p2 italic text-right w-[30%]">Finished Eiffel Tower</p>
 
-<p>My second final project idea is to design and build a <strong>3D printed RC car</strong>. This project would require a lot of material testing (to make sure the different parts of the car are strong enough to sustain high speeds), and a lot of research to find the right components. 
-    That is I'm more inclined to pursue my first idea, which would only require simple components (such as servos).</p>
-<img src="{{'/assets/images/rccarexample.jpg' | relative_url}}" class="inline mt-5" width="50%"><p class="text-sm">Example of a 3d printed car made by <a href="https://www.youtube.com/watch?v=r2UDc4A8huY" class="text-blue-400 underline" target="_blank">Engineering Nonsense</a></p>    
+<h2 class="text-xl underline">Conclusion</h2>
+<p>By working on this project, I learned how to use a laser cutter, deepened my CAD skills, and <span class="hl">visited Paris</span>! Next time, I will make larger designs and make sure there is enough material near the joints so the structure can be as strong as possible.</p>

@@ -4,15 +4,15 @@ layout: default
 ---
 
 <div class="grid justify-items-center items-center h-screen">
-  <div class="m-auto text-5xl font-bold">
+  <div class="m-auto text-5xl font-bold text-center">
     <h1 class="text-white">Welcome to <a href="./about.html" class="text-violet-700 hover:underline">Blas Kozicki</a>'s Porfolio</h1>
     <a href="https://nathanmelenbrink.github.io/intro-dig-fab/index.html" class="underline text-white hover:text-white/75">Intro to Digital Fabrication</a>
   </div>
 </div>
 
-<nav class="navbar flex w-full flex-nowrap bg-zinc-500/100 text-gray-300 text-xl">
+<nav class="navbar flex w-full flex-nowrap bg-zinc-400/40 text-gray-700 text-xl">
   {% for route in site.data.routes %}
-      <a href="{{ route.path | relative_url}}" class="{% if page.url == route.path %}text-gray-800{%endif%} py-3 px-8">{{route.name}}</a>
+      <a href="{{ route.path | relative_url}}" class="{% if page.url == route.path %}text-gray-800 underline {%endif%} py-3 px-8">{{route.name}}</a>
   {% endfor %}
 </nav>
 
@@ -20,7 +20,7 @@ layout: default
   {% assign postsSorted = site.posts | sort: "week-num" %}
   {% for post in postsSorted"%}
   <!-- inline-block -->
-      <div class="notvisible inline-block w-[27.3%] mb-[3%] ml-[2%] bg-zinc-600/50 hover:bg-zinc-600/20 h-96 rounded-2xl">
+      <div class="notvisible inline-block shadow-2xl w-[27.3%] mb-[3%] ml-[2%] bg-zinc-600/50 hover:bg-zinc-600/20 h-96 rounded-2xl">
       <a href="{{post.url | relative_url}}" class="w-[100%]">
       <div class="h-[20%]">
         <h1 class="text-center text-gray-300 text-xl mt-7">Week {{post.week-num}}:</h1>
