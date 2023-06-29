@@ -15,45 +15,45 @@
     
 </nav>  
     <div class="m-12">
-    <h1 class="mt-8 text-4xl font-bold text-gray-900">3D Modeling Household Objects</h1>
-    <h2 class="text-xl">26th June 2023</h2>
-
-    <div class="mt-[2%] mb-p text-base w-[70%]">
+    
+    <div class="mt-[2%] mb-p text-base w-[70%] mx-auto ">
+        <h1 class="mt-8 text-4xl font-bold text-gray-900">3D Modeling Household Objects</h1>
+        <h2 class="text-xl mb-12">26th June 2023</h2>
         <h2 class="text-xl underline"><strong>1)</strong> Modeling a lamp</h2> 
 
 <p class="mb-p">The first household object I decided to model was a lamp. My goal is to succesfully model a good-looking lamp without using any tutorials, and therefore test my 3D modeling skills.</p>
 
 <p class="mb-p">I started modeling the base, which I made with 2 circles (one with a fixed diameter of <span class="hl">120 mm</span>, and the other with a fixed offset of <span class="hl">-12.5 mm</span>). I also added a smaller circle off-center, which is where the arm of the lamp will come out of.</p>
-<img src="/phys_s12_blog/assets/images/lampModel/step1.png" class="mb-p w-[50%]">
+<img src="/phys_s12_blog/assets/images/lampModel/step1.png" class="img">
 
 <p class="mb-p">I then extruded the outer circle <span class="hl">30 mm</span> and the inner circle (without the off-centered circle) <span class="hl">20 mm</span>. To make it look better, I used a fillet with a <span class="hl">rolling ball corner type</span>. </p>
 
-<img src="/phys_s12_blog/assets/images/lampModel/step2.png" class="mb-p2 w-[50%]">
+<img src="/phys_s12_blog/assets/images/lampModel/step2.png" class="img">
 
 <p class="mb-p italic"><span class="font-bold">Side note: </span> Adding appearances to 3D models can make them look a lot better (even if it's just a visual thing, it can make modeling much more pleasing). You will find bellow a picture of that same base with a wood appearance, and you'll notice that it looks a lot better.</p>
 
-<img src="/phys_s12_blog/assets/images/lampModel/step2wood.png" class="mb-p2 w-[50%]">
+<img src="/phys_s12_blog/assets/images/lampModel/step2wood.png" class="img2">
 
 
 <p class="mb-p">I then started to work on the arm. I started by sketching a <span class="hl">path</span>, which will be followed by a <span class="hl">profile</span> (a circle in this case) to create the 3D arm. I created the path using the <span class="hl">spline tool</span> and eyeballing the general shape (it's really hard to measure curved objects, and I never intended to have an exact replica of my lamp).</p> 
 
-<img src="/phys_s12_blog/assets/images/lampModel/step3.png" class="mb-p2 w-[50%]">
+<img src="/phys_s12_blog/assets/images/lampModel/step3.png" class="img2">
 
 <p class="mb-p">After finishing the path, I used the <span class="hl">sweep tool</span> to generate a 3D model of the path using the off-cetered hole we sketched earlier as a profile.</p>
 
-<img src="/phys_s12_blog/assets/images/lampModel/step4.png" class="mb-p2 w-[50%]">
+<img src="/phys_s12_blog/assets/images/lampModel/step4.png" class="img2">
 
 <p class="mb-p">The next step was undoubtedly the hardest part of the modeling process: the lampshade. I knew I wanted to do some kind of triangle, but I didn't know where to start. After taking a look at the different tools Fusion has, I decided to use the <splan class="hl">revolve tool</splan>. The revolve tool replicates a profile along an axis, which is exactly what I needed. I first created a point in the center of the end-part of the arm and created a perpendicular axis between that point and the arm (see image below, it's pretty hard to explain!). </p>
 
-<img src="/phys_s12_blog/assets/images/lampModel/step5.png" class="mb-p2 w-[50%]">
+<img src="/phys_s12_blog/assets/images/lampModel/step5.png" class="img2">
 
 <p class="mb-p">Using that axis, I created a plane which I used to create a sketch. The sketch is essentially a straight line with a <span class="hl">75 degree angle</span> and a length of <span class="hl">70 mm</span>. </p>
 
-<img src="/phys_s12_blog/assets/images/lampModel/step6.png" class="mb-p2 w-[50%]">
+<img src="/phys_s12_blog/assets/images/lampModel/step6.png" class="img2">
 
 <p class="mb-p">Finally, I used the revolve tool to replicate that sketch along the axis we created earlier. I used a <span class="hl">360 degree angle</span> to make a full circle, and therefore have a closed lampshade. </p>
 
-<img src="/phys_s12_blog/assets/images/lampModel/finished.png" class="mb-p2 w-[50%]">
+<img src="/phys_s12_blog/assets/images/lampModel/finished.png" class="img2">
 
 <p class="text-lg mb-[5%]">If you want to take a look at the design, you can download the <a href="/phys_s12_blog/assets/stl/lamp-stl.stl" class="link">.stl file</a> or the Fusion360 <a href="/phys_s12_blog/assets/stl/lamp-f3d.f3d" class="link">.f3d file</a>.</p>
 
@@ -62,62 +62,67 @@
 
 <p class="mb-p">The second object I'm going to model is a pencil sharpener. This time, I will try to replicate my real pencil sharpener as accurately as possible. That is why I'm going to use a caliper, which I strongly encourage anyone who wants to accurately model something to use.</p>
 
-<img src="/phys_s12_blog/assets/images/sharpenerModel/caliper.jpg" class="mb-p2 w-[50%]">
+<img src="/phys_s12_blog/assets/images/sharpenerModel/caliper.jpg" class="img2">
 
 <p class="mb-p">After taking a few measurements (you will find the measurements bellow) I sketched a simple top-down view of the sharpener.</p>
 
-<div class="mb-p2">
+<div class="mb-p text-center">
     <img src="/phys_s12_blog/assets/images/sharpenerModel/measurement1.jpg" class="inline-block mr-[3%] mb-[1%] w-[25%]">
     <img src="/phys_s12_blog/assets/images/sharpenerModel/measurement2.jpg" class="inline-block mr-[3%] mb-[1%] w-[25%]">
     <img src="/phys_s12_blog/assets/images/sharpenerModel/measurement3.jpg" class="inline-block mb-[1%] w-[25%]">
-    <p class="inline-block text-center mr-[3%] w-[25%] hl">32.5 mm</p>
-    <p class="inline-block text-center mr-[3%] w-[25%] hl">37.6 mm</p>
-    <p class="inline-block text-center w-[25%] hl">39.1 mm</p>
+</div>
+
+<div class="mb-p2 text-center">    
+        <p class="inline-block text-center mr-[3%] w-[25%] hl">32.5 mm</p>
+        <p class="inline-block text-center mr-[3%] w-[25%] hl">37.6 mm</p>
+        <p class="inline-block text-center w-[25%] hl">39.1 mm</p>
 </div>
 
 
 
-<img src="/phys_s12_blog/assets/images/sharpenerModel/topdownsketch.png" class="w-[35%]">
-<p class="mb-p italic text-right w-[35%]">Top-down sketch</p>
+<img src="/phys_s12_blog/assets/images/sharpenerModel/topdownsketch.png" class="w-[35%] mx-auto">
+<p class="mb-p italic text-right mx-auto w-[35%]">Top-down sketch</p>
 
 <p class="mb-p">I then did the same thing from a side-view. </p>
 
-<div class="mb-p2">
+<div class="mb-p2 text-center">
     <img src="/phys_s12_blog/assets/images/sharpenerModel/measurement4.jpg" class="inline-block mr-[3%] mb-[1%] w-[35%]">
     <img src="/phys_s12_blog/assets/images/sharpenerModel/measurement5.jpg" class="inline-block mr-[3%] mb-[1%] w-[35%]">
     <p class="inline-block text-center mr-[3%] w-[35%] hl">21.47 mm ≈ 21.5 mm</p>
     <p class="inline-block text-center mr-[3%] w-[35%] hl">25.69 mm ≈ 25.7 mm</p>
 </div>
-<img src="/phys_s12_blog/assets/images/sharpenerModel/sidesketch.png" class=" inline-block w-[45%] mr-[5%]">
-<img src="/phys_s12_blog/assets/images/sharpenerModel/step1.png" class="inline-block w-[45%]">
+<div class="text-center">
+    <img src="/phys_s12_blog/assets/images/sharpenerModel/sidesketch.png" class="inline-block w-[45%] mr-[5%]">
+    <img src="/phys_s12_blog/assets/images/sharpenerModel/step1.png" class="inline-block w-[45%]">
+</div>
 
 <p class="mb-p italic text-right w-[43%]">Side sketch</p>
 
 <p class="mb-p">Now that we have this basic sketch, we can begin to create more detailed lines in the two different sketches and then extrude them to create a 3D model.</p>
 
-<img src="/phys_s12_blog/assets/images/sharpenerModel/modelingvideo.gif" class="mb-p w-[75%]">
+<img src="/phys_s12_blog/assets/images/sharpenerModel/modelingvideo.gif" class="mb-p w-[75%] mx-auto">
 
 <p class="mb-p">We can then join the two ellipses we just created using the <span class="hl">loft tool</span>, which <span class="italic">"creates a transitional shape shape between two or more sketch profiles or planar faces". </span></p>
 
-<img src="/phys_s12_blog/assets/images/sharpenerModel/step2.png" class="mb-p w-[50%]">
+<img src="/phys_s12_blog/assets/images/sharpenerModel/step2.png" class="img">
 
 <p class="mb-p">I then went back to the back-side sketch and added two circles with the dimensions I got using the caliper</p>
 
-<div class="mb-p">
+<div class="mb-p text-center ">
     <img src="/phys_s12_blog/assets/images/sharpenerModel/measurement6.jpg" class="inline-block mr-[3%] mb-[1%] w-[35%]">
     <img src="/phys_s12_blog/assets/images/sharpenerModel/measurement7.jpg" class="inline-block mr-[3%] mb-[1%] w-[35%]">
     <p class="inline-block text-center mr-[3%] w-[35%] hl">11.34 mm ≈ 11.3 mm</p>
     <p class="inline-block text-center mr-[3%] w-[35%] hl">8.1 mm</p>
 </div>
-<img src="/phys_s12_blog/assets/images/sharpenerModel/step3.png" class="mb-p w-[50%]">
+<img src="/phys_s12_blog/assets/images/sharpenerModel/step3.png" class="img">
 
 <p class="mb-p">To create the hole, I started by creating an offset plane from those two circles with a distance of <span class="hl">15 mm</span>. I created a sketch on that plane, projected the two circles we just created, and then created two new circles with an offset of <span class="hl">-4 mm</span> for the big circle and <span class="hl">-2.5 mm</span> for the smaller one. We can now use the same tool we used before, loft, to reproduce the same effect we used earlier, but this time to cut into our existing model.</p>
 
-<img src="/phys_s12_blog/assets/images/sharpenerModel/step4.png" class="mb-p w-[50%]">
+<img src="/phys_s12_blog/assets/images/sharpenerModel/step4.png" class="img">
 
 <p class="mb-p">To make it look better, I used the <span class="hl">fillet tool</span> to round the edges and added a black material to the model. We could add even more detail to the ouside of the pencil sharpener (some lines and depth) but I don't think it is worth, given that we would re-use the tools used in this model and the previous one. You'll find an image of the finished version bellow, along with some links to download the file in case you want to use/modify the model.</p>
 
-<img src="/phys_s12_blog/assets/images/sharpenerModel/finished.png" class="mb-p2 w-[50%]">
+<img src="/phys_s12_blog/assets/images/sharpenerModel/finished.png" class="img">
 
 <p class="text-lg mb-[5%]">If you want to take a look at the design, you can download the <a href="/phys_s12_blog/assets/stl/sharpener-stl.stl" class="link">.stl file</a> or the Fusion360 <a href="/phys_s12_blog/assets/stl/sharpener-f3d.f3d" class="link">.f3d file</a>.</p>
 

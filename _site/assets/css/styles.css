@@ -9,6 +9,12 @@
     .hl {
         @apply bg-slate-700/20 rounded-md px-1
     }
+    .img {
+        @apply mb-p w-[50%] mx-auto
+    }
+    .img2 {
+        @apply mb-p2 w-[50%] mx-auto
+    }
   }
   
 .notvisible {
