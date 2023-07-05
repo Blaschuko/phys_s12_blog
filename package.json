@@ -6,9 +6,12 @@
   "dependencies": {
     "tailwindcss": "^3.3.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"jekyll serve --livereload\" \"tailwindcss build -i ./assets/css/styles.css -o ./assets/css/dist-style.css --watch\""
   },
   "repository": {
     "type": "git",
