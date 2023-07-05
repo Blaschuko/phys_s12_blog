@@ -574,6 +574,10 @@ video {
   margin-right: auto;
 }
 
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
 .mb-\[1\%\] {
   margin-bottom: 1%;
 }
@@ -636,10 +640,6 @@ video {
 
 .mt-\[5\%\] {
   margin-top: 5%;
-}
-
-.mb-12 {
-  margin-bottom: 3rem;
 }
 
 .block {
@@ -941,6 +941,10 @@ video {
 .text-violet-700 {
   --tw-text-opacity: 1;
   color: rgb(109 40 217 / var(--tw-text-opacity));
+}
+
+.text-violet-700\/80 {
+  color: rgb(109 40 217 / 0.8);
 }
 
 .text-white {
