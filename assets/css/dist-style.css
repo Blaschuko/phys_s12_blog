@@ -522,6 +522,40 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .link {
   font-style: italic;
   --tw-text-opacity: 1;
@@ -596,10 +630,6 @@ video {
 
 .mb-p2 {
   margin-bottom: 4%;
-}
-
-.ml-\[2\%\] {
-  margin-left: 2%;
 }
 
 .ml-\[2\.5\%\] {
@@ -730,8 +760,8 @@ video {
   width: 75%;
 }
 
-.w-\[95\%\] {
-  width: 95%;
+.w-\[80\%\] {
+  width: 80%;
 }
 
 .w-fit {
@@ -741,6 +771,14 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[27\.5\%\] {
+  width: 27.5%;
+}
+
+.w-\[90\%\] {
+  width: 90%;
 }
 
 .transform {
@@ -769,6 +807,30 @@ video {
 
 .justify-items-center {
   justify-items: center;
+}
+
+.gap-11 {
+  gap: 2.75rem;
+}
+
+.gap-\[1\/8\] {
+  gap: 1/8;
+}
+
+.gap-\[12\.5\%\] {
+  gap: 12.5%;
+}
+
+.gap-\[2\.5\%\] {
+  gap: 2.5%;
+}
+
+.gap-\[10\%\] {
+  gap: 10%;
+}
+
+.gap-\[5\%\] {
+  gap: 5%;
 }
 
 .rounded-2xl {
@@ -941,10 +1003,6 @@ video {
 .text-violet-700 {
   --tw-text-opacity: 1;
   color: rgb(109 40 217 / var(--tw-text-opacity));
-}
-
-.text-violet-700\/80 {
-  color: rgb(109 40 217 / 0.8);
 }
 
 .text-white {

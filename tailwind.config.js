@@ -6,7 +6,7 @@ module.exports = {
     '_layouts/post.html',
     '_posts/**/*.html',
     '*.markdown',
-    'index.html',
+    '*.html',
     'about.html',
     'assets/css/styles.css',
     '_layouts/default.html',
