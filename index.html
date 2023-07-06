@@ -12,7 +12,7 @@ layout: default
 
 <nav class="navbar flex w-full flex-nowrap bg-zinc-400/40 text-gray-700 text-xl">
   {% for route in site.data.routes %}
-      <a href="{{ route.path | relative_url}}" class="{% if page.url == route.path %}text-gray-800 underline {%endif%} py-3 px-8">{{route.name}}</a>
+      <a href="{{ route.path | relative_url}}" class="{% if page.url == route.path %}text-gray-800 underline {% endif %} py-3 px-8">{{ route.name }}</a>
   {% endfor %}
 </nav>
 <div class="w-[90%] mx-auto">

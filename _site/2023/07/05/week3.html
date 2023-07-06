@@ -19,39 +19,50 @@
         <h1 class="mt-8 text-4xl font-bold text-gray-900">Electronics and Tools </br>(or how to build a Mini-Fountain)</h1>
         <h2 class="text-xl mb-12">5th July 2023</h2>
 
-        <h2 class="text-xl underline">Concept</h2> 
-<p class="mb-p">Laser cutting is an extremely useful technique to cut simple materials, such as cardboard. This week, we learned how to operate a laser cutter and we were assigned to create a press-fit construction. To accomplish this, I decided to use a CAD software called Fusion360. I already had experience using it, and the only way to do parametric accurate modeling in the other software option, Blender, is by using the addon <a class="link" href="https://www.cadsketcher.com/">CAD Sketcher</a>. CAD Sketcher is an extremely new tool, and while it is true it has a huge community supporting it, I don't think that it has enough features to be used in big projects.</p>
-<p class="mb-p">After choosing which software I was going to use, I modeled some simple press-fit squares to know how much material the laser burns when cutting through cardboard. This is called laser kerf. I found out that a good value for the laser kerf was <span class="hl">0.8 mm</span>, which is less than I expected it to be. This meant I had to make my press-fit joints smaller than I initially thought.</p>
+        <h2 class="text-xl underline">Idea and objectives</h2> 
+<p class="mb-p">This week we learned about <strong>Motors</strong>, <strong>Electronics</strong>, and <strong>Microcontrollers</strong>. To create something using all of those new concepts, I decided to create a water fountain. I knew from the begining it wasn't going to be an easy task, but I encountered a lot more problems than I initially expected.</p>
 
-<img src="/phys_s12_blog/assets/images/pressfittest.jpg" class="mb-[1%] inline-block max-h-[432px] w-[49%]" alt="Picture of two press-fit cardboard squares">
-<img src="/phys_s12_blog/assets/images/pressfittestmodel.png" class="w-[49%] align-top inline-block">
-<p class="w-fit hl mb-p">Click to download the <a class="link" href="/phys_s12_blog/assets/stl/press-fit-stl.stl">.STL File</a></p>
-<p class="mb-p">As you can probably see in the joints, the cardboard is slightly bent, and I had to do some force to get them to fit together. While that can be good for long-lasting designs, it is not what I'm looking for. After disassembling and assembling it a few times, the cardboard would probably break. </p>
-<p>Later on, I started thinking about what kind of press-fit "structure" I was going to create. At first, I thought about doing something like a puzzle, but then I decided to go for something much more unique: the Eiffel Tower. I looked up some sketches online and decided to start modeling.</p>
+<p class="font-bold">The main challenges of this project are: </p>
+<ul class="ml-[5%] mb-p list-disc">
+    <li>Fabricating a watertight container</li>
+    <li>Controlling and using a water pump</li>
+    <li>Ataching the different parts of the project (water container, pump, electronics, etc)</li>
+</ul>
 
-<h2 class="text-xl mt-[30px] underline">Modeling</h2>
+<p class="mb-p">I started by drawing some sketches. I drew a boat-like shape, and a small structure on top of it which holds a small water pump (which I had found in the lab last week). I added some dimensions to have an idea of how the thing would actually look, and then modeled it with Fusion360.</p>
 
-<p class="mb-p">The first thing I did was to search online for a reference image. I don't intend the model to be identical to the real Eiffel Tower, but I do expect it to look alike.</p>
+<img src="/phys_s12_blog/assets/images/fountainsketch.jpg" class="inline-block mr-[2.5%] mb-p w-[45%]">
+<img src="/phys_s12_blog/assets/images/fountaincad.png" class="inline-block w-[45%]">
+<img src="/phys_s12_blog/assets/images/fountaincad.gif" class="w-[50%] mx-auto">
 
-<a target="_blank" href="https://www.wikihow.com/Draw-the-Eiffel-Tower"><img class="inline-block w-[50%] mb-p" src="/phys_s12_blog/assets/images/eiffeltowersketch.jpg"></a>
+<p class="w-[50%] mx-auto hl text-center mb-p">Click to download the <a class="link" href="/phys_s12_blog/assets/stl/MiniFountain.f3d">.f3d File</a></p>
+<p class="mb-p">The main idea is to have an <span class="hl">acrylic base</span> (with a boat-like shape) that can serve as a water container. A secondary <span class="hl">smaller base</span> would hold a <span class="hl">water pump</span> in place, along with all the required electronics (<span class="hl">esp32, batteries, motor driver</span>). The two bases will be attached with <span class="hl">two aluminum rods</span> and <span class="hl">M6 screws</span> (more on that later). </p>
+<h2 class="text-xl mt-[30px] underline">Prototyping</h2>
+<p class="mb-p">After finishing the CAD model, I laser-cutted the whole thing with cardboard to make sure everything would fit correctly, as I didn't want to waste acrylic. It was important to test if the water pump holder fitted, if the container dimension's were decent, and have a rough idea of how the fountain would look in real life. </p>
+<img class="w-[45%] inline-block mb-p mr-[2.5%]" src="/phys_s12_blog/assets/images/fountainprotopieces.jpg">
+<img class="w-[45%] inline-block mb-p" src="/phys_s12_blog/assets/images/fountainprotoholder.jpg">
 
-<p class="mb-p">I then began to think about how I could join the different parts of the structure. The best idea I came up with was to cut 4 separate "legs", and then join all four of them using press-fit squares placed in between them. I used splines to model the legs, which made designing them really easy. You can see the layout of the design below. </p>
-<img src="/phys_s12_blog/assets/images/eiffeltowerlayout.png" class="w-[50%] mb-p">
-<p class="w-fit hl mb-p2">Click to download the <a class="link" href="/phys_s12_blog/assets/stl/eiffel-tower-stl.stl">.STL File</a></p>
+<p class="mb-p">I then decided to use a highly advanced chemical compound to join all the pieces together: <span class="hl">hot glue</span>.</p>
+<img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/fountainproto.jpg">   
 
-<h2 class="text-xl underline">Laser Cutting</h2> 
+<p class="mb-p">The next step was to join the two "bases". As I said earlier, we are going to use aluminum rods. The problem is that the lab only had very long aluminum rods. I therefore had to cut one in half to create two smaller ones using a hand saw.</p>
 
-<p class="mb-p">After finishing the design, I exported the sketch as a <span class="hl">.dxf</span> file and loaded it into the laser cutter's computer using an SD card. The next step was to send it to the actual laser cutter, and then finally, chose the point in space where it should start cutting (to avoid cutting outside the cardboard, which would be a pretty bad thing!). </p>
+<img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/fountainrods.jpg">
 
-<img src="/phys_s12_blog/assets/images/lasercutter.jpg" class="w-[50%]" alt="Picture of the laser cutting">
-<p class="mb-p italic text-right w-[50%]">Picture of the laser cutter</p>
+<p class="mb-p">The next challenge was to figure out how to attach the rods to the top-base (which holds the water pump and the electronics). Last week we were taught how to thread the inside of a hole, and the rods I'm using happen to be hollow, so I used a M6 screw drill tip to thread the end of each aluminum rod. Finding a fitting screw was quite a challenge, and I ended up switching to the imperial system to find an appropiate screw (I basically went through every single screw in the lab to find the right one).</p>
 
-<p class="mb-p">The moment I got the pieces out of the laser cutter, I realized that I should have made the design bigger. I designed the model to be <span class="hl">22 cm</span> tall, which I thought would be a good height, but I quickly realized that having small values means having tiny amounts of material near the joints. The joints are therefore quite fragile. Nevertheless, everything fitted perfectly and the design turned out exactly like I wanted it to be.</p>
-<img src="/phys_s12_blog/assets/images/eiffeltowerfinished.jpg" class="w-[30%]">
-<p class="mb-p2 italic text-right w-[30%]">Finished Eiffel Tower</p>
+<img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/fountainbaserods.jpg">
 
-<h2 class="text-xl underline">Conclusion</h2>
-<p>By working on this project, I learned how to use a laser cutter, deepened my CAD skills, and <span class="hl">visited Paris</span>! Next time, I will make larger designs and make sure there is enough material near the joints so the structure can be as strong as possible.</p>
+<p class="mb-p">I finally laser-cutted the structure in acrylic, clamped it together, and glued it with epoxy. After waiting approximately 30 minutes, I glued the "ramp" to the rest of the structure, which was impossible to do before the rest of the structure was glued together.</p>
+
+<img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/fountainclamps.jpg">
+
+<p class="mb-p">The last step is to assemble all the electronics. The design is pretty simple, as most of the complexity will be software-side. 3 AA Batteries are connected to the 4.5V (1.5V each battery) and GND pins of an ESP32. The ESP32 controls a L9110 motor driver with the pins 12 and 13 (the motor driver is also connected to 4.5v and GND). Finally, than motor driver is connected to the water pump  with two small terminals. To keep things simple (and mainly due to a lack of time), I zip tied all the components.</p>
+
+<img class="inline-block w-[45%] mr-[2.5%] mb-p" src="/phys_s12_blog/assets/images/fountainschematic.png">
+<img class="inline-block w-[45%] mb-p" src="/phys_s12_blog/assets/images/fountainelectronics.jpg">
+
+
     </div>
 </div>
 

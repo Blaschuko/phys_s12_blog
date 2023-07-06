@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"jekyll serve --livereload\" \"tailwindcss build -i ./assets/css/styles.css -o ./assets/css/dist-style.css --watch\""
+    "start": "concurrently \"jekyll serve --livereload\" \"npx tailwindcss build -i ./assets/css/styles.css -o ./assets/css/dist-style.css --watch\""
   },
   "repository": {
     "type": "git",
