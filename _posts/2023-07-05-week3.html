@@ -1,9 +1,11 @@
 ---
 layout: post
 week-num: 3
-title: "Electronics and Tools </br>(or how to build a Mini-Fountain)"
+title: "Electronics and Tools</br>(or how to build a Mini-Fountain)"
+tab_title: "Mini-Fountain"
 front-image: week3.png
 ---
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 
 <h2 class="text-xl underline">Idea and objectives</h2> 
 <p class="mb-p">This week we learned about <strong>Motors</strong>, <strong>Electronics</strong>, and <strong>Microcontrollers</strong>. To create something using all of those new concepts, I decided to create a water fountain. I knew from the begining it wasn't going to be an easy task, but I encountered a lot more problems than I initially expected.</p>
@@ -39,12 +41,44 @@ front-image: week3.png
 
 <img class="w-[50%] mb-p" src="{{'/assets/images/fountainbaserods.jpg' | relative_url}}">
 
-<p class="mb-p">I finally laser-cutted the structure in acrylic, clamped it together, and glued it with epoxy. After waiting approximately 30 minutes, I glued the "ramp" to the rest of the structure, which was impossible to do before the rest of the structure was glued together.</p>
+<h2 class="text-xl mt-[30px] underline">Final build</h2>
+
+<p class="mb-p">I laser-cutted the structure in acrylic, clamped it together, and glued it with epoxy. After waiting approximately 30 minutes, I glued the "ramp" to the rest of the structure, which was impossible to do before the rest of the structure was glued together.</p>
 
 <img class="w-[50%] mb-p" src="{{'/assets/images/fountainclamps.jpg' | relative_url}}">
 
-<p class="mb-p">The last step is to assemble all the electronics. The design is pretty simple, as most of the complexity will be software-side. 3 AA Batteries are connected to the 4.5V (1.5V each battery) and GND pins of an ESP32. The ESP32 controls a L9110 motor driver with the pins 12 and 13 (the motor driver is also connected to 4.5v and GND). Finally, than motor driver is connected to the water pump  with two small terminals. To keep things simple (and mainly due to a lack of time), I zip tied all the components.</p>
+<p class="mb-p">After assembling everything, I realized that due to a pretty low contact surface, it was not going to be possible to glue the two aluminum rods to the base using epoxy. This is the kind of thing that I should've planned beforehand, but because my lack of experience, didn't think of. I ultimately decided to drill two holes through the base of the fountain (which was extremly hard to do, mainly because of clamping issues) and attach the rods using screws. After threading the inside of the rods again, which was a really tedious task, I was finally able to attach the rods. All in all, this problem was a big setback with delayed the project more than I expected. </p>
+
+<p class="mb-p">The next step is to assemble all the electronics. <span class="hl">3 AA batteries</span> are connected to the 5V (4.5V in total, 1.5V each battery) and GND pins of an <span class="hl">ESP32</span>, aswell as the VCC and GND pins of a motor driver (I used the <span class="hl">L9110</span>). The ESP32 is connected to the A-IA pin of the motor driver (<span class="hl">make sure the esp32 pin supports PWM, I used pin 12</span>), which controls the speed of the motor. The motor driver is then connected to the water pump using two terminals and the wires that come with the motor. To easly manage power, I used solder to add two extra outputs to the batteries. This was necessary because as we just discussed, <strong>two</strong> components need both VCC and GND inputs.  To keep things simple (and mainly due to a lack of time), I zip tied all the components. Before assembling the components, I quickly threw together a schematic in Eagle (fusion360) to have an idea of what the electronics would roughly look like (see image below).</p>
 
 <img class="inline-block w-[45%] mr-[2.5%] mb-p" src="{{'/assets/images/fountainschematic.png' | relative_url}}">
 <img class="inline-block w-[45%] mb-p" src="{{'/assets/images/fountainelectronics.jpg' | relative_url}}">
 
+<p class="mb-p">The final thing we need to do to have a working fountain, is to program our microcontroller. I will use the arduino programming language. I wrote a simple program that varies the speed of the pump over time using a sine wave, and uploaded it to the esp32 to finally test the water fountain. </p>
+
+<pre class="code prettyprint">
+
+#define A1A 12  // pin 12 is defined for A1A, which controls the speed of the motor
+
+void setup() {
+  pinMode(A1A, OUTPUT);
+}
+
+void loop() {
+  runMotor(A1A, 180, 255);
+  delay(1);
+}
+
+// Variables for calculations regarding motor speed
+float value;
+float interpolatedValue;
+
+// Function that drives motor with a speed interpolated from 'min' to 'max' using a sine wave
+// Inputs: pin, minimumSpeed (0-255), maximumSpeed (0-255)
+void runMotor(int pin, int min, int max) {
+  value = sin(millis() / 1000.0);
+  interpolatedValue = map(abs(value * 100), 0, 100, min, max);
+  analogWrite(pin, 255 - interpolatedValue);
+}
+
+</pre>

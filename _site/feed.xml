@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/phys_s12_blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/phys_s12_blog/" rel="alternate" type="text/html" /><updated>2023-07-06T01:38:46-04:00</updated><id>http://localhost:4000/phys_s12_blog/feed.xml</id><title type="html">Blas Kozicki PHYS S-12 2023 Blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Electronics and Tools &amp;lt;/br&amp;gt;(or how to build a Mini-Fountain)</title><link href="http://localhost:4000/phys_s12_blog/2023/07/05/week3.html" rel="alternate" type="text/html" title="Electronics and Tools &amp;lt;/br&amp;gt;(or how to build a Mini-Fountain)" /><published>2023-07-05T00:00:00-04:00</published><updated>2023-07-05T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/05/week3</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/05/week3.html">&lt;h2 class=&quot;text-xl underline&quot;&gt;Idea and objectives&lt;/h2&gt; 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/phys_s12_blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/phys_s12_blog/" rel="alternate" type="text/html" /><updated>2023-07-14T18:38:29-04:00</updated><id>http://localhost:4000/phys_s12_blog/feed.xml</id><title type="html">Blas Kozicki PHYS S-12 2023 Blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Electronics and Tools&amp;lt;/br&amp;gt;(or how to build a Mini-Fountain)</title><link href="http://localhost:4000/phys_s12_blog/2023/07/05/week3.html" rel="alternate" type="text/html" title="Electronics and Tools&amp;lt;/br&amp;gt;(or how to build a Mini-Fountain)" /><published>2023-07-05T00:00:00-04:00</published><updated>2023-07-05T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/05/week3</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/05/week3.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 class=&quot;text-xl underline&quot;&gt;Idea and objectives&lt;/h2&gt; 
 &lt;p class=&quot;mb-p&quot;&gt;This week we learned about &lt;strong&gt;Motors&lt;/strong&gt;, &lt;strong&gt;Electronics&lt;/strong&gt;, and &lt;strong&gt;Microcontrollers&lt;/strong&gt;. To create something using all of those new concepts, I decided to create a water fountain. I knew from the begining it wasn&apos;t going to be an easy task, but I encountered a lot more problems than I initially expected.&lt;/p&gt;
 
 &lt;p class=&quot;font-bold&quot;&gt;The main challenges of this project are: &lt;/p&gt;
@@ -32,14 +34,47 @@
 
 &lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/fountainbaserods.jpg&quot;&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;I finally laser-cutted the structure in acrylic, clamped it together, and glued it with epoxy. After waiting approximately 30 minutes, I glued the &quot;ramp&quot; to the rest of the structure, which was impossible to do before the rest of the structure was glued together.&lt;/p&gt;
+&lt;h2 class=&quot;text-xl mt-[30px] underline&quot;&gt;Final build&lt;/h2&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;I laser-cutted the structure in acrylic, clamped it together, and glued it with epoxy. After waiting approximately 30 minutes, I glued the &quot;ramp&quot; to the rest of the structure, which was impossible to do before the rest of the structure was glued together.&lt;/p&gt;
 
 &lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/fountainclamps.jpg&quot;&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;The last step is to assemble all the electronics. The design is pretty simple, as most of the complexity will be software-side. 3 AA Batteries are connected to the 4.5V (1.5V each battery) and GND pins of an ESP32. The ESP32 controls a L9110 motor driver with the pins 12 and 13 (the motor driver is also connected to 4.5v and GND). Finally, than motor driver is connected to the water pump  with two small terminals. To keep things simple (and mainly due to a lack of time), I zip tied all the components.&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;After assembling everything, I realized that due to a pretty low contact surface, it was not going to be possible to glue the two aluminum rods to the base using epoxy. This is the kind of thing that I should&apos;ve planned beforehand, but because my lack of experience, didn&apos;t think of. I ultimately decided to drill two holes through the base of the fountain (which was extremly hard to do, mainly because of clamping issues) and attach the rods using screws. After threading the inside of the rods again, which was a really tedious task, I was finally able to attach the rods. All in all, this problem was a big setback with delayed the project more than I expected. &lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;The next step is to assemble all the electronics. &lt;span class=&quot;hl&quot;&gt;3 AA batteries&lt;/span&gt; are connected to the 5V (4.5V in total, 1.5V each battery) and GND pins of an &lt;span class=&quot;hl&quot;&gt;ESP32&lt;/span&gt;, aswell as the VCC and GND pins of a motor driver (I used the &lt;span class=&quot;hl&quot;&gt;L9110&lt;/span&gt;). The ESP32 is connected to the A-IA pin of the motor driver (&lt;span class=&quot;hl&quot;&gt;make sure the esp32 pin supports PWM, I used pin 12&lt;/span&gt;), which controls the speed of the motor. The motor driver is then connected to the water pump using two terminals and the wires that come with the motor. To easly manage power, I used solder to add two extra outputs to the batteries. This was necessary because as we just discussed, &lt;strong&gt;two&lt;/strong&gt; components need both VCC and GND inputs.  To keep things simple (and mainly due to a lack of time), I zip tied all the components. Before assembling the components, I quickly threw together a schematic in Eagle (fusion360) to have an idea of what the electronics would roughly look like (see image below).&lt;/p&gt;
 
 &lt;img class=&quot;inline-block w-[45%] mr-[2.5%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/fountainschematic.png&quot;&gt;
-&lt;img class=&quot;inline-block w-[45%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/fountainelectronics.jpg&quot;&gt;</content><author><name></name></author><summary type="html">Idea and objectives This week we learned about Motors, Electronics, and Microcontrollers. To create something using all of those new concepts, I decided to create a water fountain. I knew from the begining it wasn&apos;t going to be an easy task, but I encountered a lot more problems than I initially expected.</summary></entry><entry><title type="html">3D Modeling Household Objects</title><link href="http://localhost:4000/phys_s12_blog/2023/06/26/week25.html" rel="alternate" type="text/html" title="3D Modeling Household Objects" /><published>2023-06-26T00:00:00-04:00</published><updated>2023-06-26T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/06/26/week25</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/06/26/week25.html">&lt;h2 class=&quot;text-xl underline&quot;&gt;&lt;strong&gt;1)&lt;/strong&gt; Modeling a lamp&lt;/h2&gt; 
+&lt;img class=&quot;inline-block w-[45%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/fountainelectronics.jpg&quot;&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;The final thing we need to do to have a working fountain, is to program our microcontroller. I will use the arduino programming language. I wrote a simple program that varies the speed of the pump over time using a sine wave, and uploaded it to the esp32 to finally test the water fountain. &lt;/p&gt;
+
+&lt;pre class=&quot;code prettyprint&quot;&gt;
+
+#define A1A 12  // pin 12 is defined for A1A, which controls the speed of the motor
+
+void setup() {
+  pinMode(A1A, OUTPUT);
+}
+
+void loop() {
+  runMotor(A1A, 180, 255);
+  delay(1);
+}
+
+// Variables for calculations regarding motor speed
+float value;
+float interpolatedValue;
+
+// Function that drives motor with a speed interpolated from &apos;min&apos; to &apos;max&apos; using a sine wave
+// Inputs: pin, minimumSpeed (0-255), maximumSpeed (0-255)
+void runMotor(int pin, int min, int max) {
+  value = sin(millis() / 1000.0);
+  interpolatedValue = map(abs(value * 100), 0, 100, min, max);
+  analogWrite(pin, 255 - interpolatedValue);
+}
+
+&lt;/pre&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">3D Modeling Household Objects</title><link href="http://localhost:4000/phys_s12_blog/2023/06/26/week25.html" rel="alternate" type="text/html" title="3D Modeling Household Objects" /><published>2023-06-26T00:00:00-04:00</published><updated>2023-06-26T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/06/26/week25</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/06/26/week25.html">&lt;h2 class=&quot;text-xl underline&quot;&gt;&lt;strong&gt;1)&lt;/strong&gt; Modeling a lamp&lt;/h2&gt; 
 
 &lt;p class=&quot;mb-p&quot;&gt;The first household object I decided to model was a lamp. My goal is to succesfully model a good-looking lamp without using any tutorials, and therefore test my 3D modeling skills.&lt;/p&gt;
 
