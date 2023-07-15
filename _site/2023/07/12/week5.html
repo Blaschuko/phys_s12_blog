@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>3D Printing | Blas Kozicki</title>
+    <link rel="stylesheet" href="/phys_s12_blog/assets/css/dist-style.css">
+  </head>
+  <body class="bg-slate-300">
+    <nav class="flex relative w-full flex-nowrap bg-zinc-400/40 text-gray-700 text-xl">
+    <!-- <h2 class="inline text-gray-400/80 bg-amber-300/40 rounded-sm py-3 px-10">PHYS S-12 Intro to Digital Fabrication</h2> -->
+    
+        <a href="/phys_s12_blog/" class=" py-3 px-8">Home</a>
+    
+        <a href="/phys_s12_blog/about.html" class=" py-3 px-8">About</a>
+    
+</nav>  
+    <div class="m-12">
+    <div class="mx-auto mt-[2%] mb-p text-lg w-[70%]">
+        <h1 class="mt-8 text-4xl font-bold text-gray-900">3D Scanning and Printing, legos!</h1>
+        <h2 class="text-xl mb-12">12th July 2023</h2>
+
+        <h2 class="text-xl underline">3D Scanning</h2> 
+
+<p class="mb-p">3D CAD can be very useful to accurately design things, but trying to replicate a complex real-world shape can be quite challenging. 3D scanning is a very useful technology which can create a 3D model of a physical model by scanning it using many different techniques. In our lab, there is a <a href="www.revopoint3d.com" class="link">RevoPoint scanner</a>, which is supposedly very accurate.</p>
+
+<p class="mb-p">The software to control the camera has a "body" option, so I naturally started by trying to 3D scan my face (who wouldn't?). </p>
+
+<img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/3dfacescan.jpg">
+
+<p class="mb-p">My main face traits were fairly detailed, but the camera really struggled with my hair (which makes sense honestly). After trying to scan my whole face multiple times, I gave up, as I was not willing to shave my hair to have a good result.</p>
+
+<p class="mb-p"> While I was looking through random things in the lab, I found a box filled with Lego pieces. Ever since I was a kid, I've loved Lego. Here's a short stop-motion clip I made when I was 12 years old: </p>
+
+<img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/stopmotion.gif">
+
+<p class="mb-p">There was this really interesting skeleton Horse, which had a cool shape that would be really hard to replicate with CAD.</p>
+
+<img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/legohorse.jpg">
+
+<p class="mb-p">There's a small rotating base in the lab that is really useful to scan objects, as it rotates them in a slow and consistent way so that the scanner can keep track of the object and at the same time get measurements from every side of it. It is possible to do it by hand, by moving the camera around the object, but I don't recommend it because the camera can very easly loose track of the object, and once that happens it's extremely hard for it to "retrack" the object. This problem happened to me more that once, and I was forced to restart the scan each time.</p>
+
+<img class="w-[50%]" src="/phys_s12_blog/assets/images/3dscansetup.jpg">
+<p class="mb-p italic text-right w-[50%]">Picture of the setup I used to scan the lego horse</p>
+
+<p class="mb-p">The result of the scan is called a <span class="hl">cloud point</span>, which as its name implies, is a cloud of points, and not a 3D model. The result therefore has to be processed to be converted to a 3d mesh (.stl file for example). The RevoPoint software has many options to edit the result, which I used mainly to remove small floating meshes. But other than that, the output file is ready to use to either view it in your computer, or <strong>3D print it</strong>.</p>
+
+<img class="w-[50%] mb-p2" src="/phys_s12_blog/assets/images/3dscanresult.png">
+
+<h2 class="text-xl underline">3D Printing</h2> 
+
+<p class="mbp-">The thing I was looking forward the most this week was <strong>3D printing</strong>. This technique is very useful, and is what I intend to use to fabricate a big chunck of my final project. The lab has quite a few Prusa MK3 printers, which are very capable. Although they are not very fast, the waiting is definitely worth the result. The worflow to use them is as easy as exporting a 3D model as a mesh, "<span class="hl">slicing</span>" it with the help of a slicing software (such as <a href="https://www.prusa3d.com/page/prusaslicer_424/" class="link">Prusa Slicer</a>), and sending the <span class="hl">gcode</span> (set of instructions) to the printer. </p>
+
+    </div>
+</div>
+
+
+  </body>
+</html>
