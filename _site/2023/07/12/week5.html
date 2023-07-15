@@ -19,37 +19,102 @@
         <h1 class="mt-8 text-4xl font-bold text-gray-900">3D Scanning and Printing, legos!</h1>
         <h2 class="text-xl mb-12">12th July 2023</h2>
 
-        <h2 class="text-xl underline">3D Scanning</h2> 
+        <h2 class="text-xl underline">3D Scanning</h2>
 
-<p class="mb-p">3D CAD can be very useful to accurately design things, but trying to replicate a complex real-world shape can be quite challenging. 3D scanning is a very useful technology which can create a 3D model of a physical model by scanning it using many different techniques. In our lab, there is a <a href="www.revopoint3d.com" class="link">RevoPoint scanner</a>, which is supposedly very accurate.</p>
+<p class="mb-p">3D CAD can be very useful to <span class="hl">accurately design</span> things, but trying to replicate a
+  <span class="hl">complex real-world shape
+  </span> can be quite challenging. 3D scanning is a very useful technology which can create a 3D model of a physical
+  model by scanning it using many different techniques. In our lab, there is a <a href="www.revopoint3d.com"
+    class="link">RevoPoint scanner</a>, which is (supposedly) very accurate.</p>
 
-<p class="mb-p">The software to control the camera has a "body" option, so I naturally started by trying to 3D scan my face (who wouldn't?). </p>
+<p class="mb-p">The software to control the camera has a "body" option, so I naturally started by trying to 3D scan my
+  face (who wouldn't?). </p>
 
 <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/3dfacescan.jpg">
 
-<p class="mb-p">My main face traits were fairly detailed, but the camera really struggled with my hair (which makes sense honestly). After trying to scan my whole face multiple times, I gave up, as I was not willing to shave my hair to have a good result.</p>
+<p class="mb-p">My main face traits were fairly detailed, but the camera really struggled with my hair (which makes
+  sense honestly). After trying to scan my whole face multiple times, I gave up, as I was not willing to shave my hair
+  to have a good result.</p>
 
-<p class="mb-p"> While I was looking through random things in the lab, I found a box filled with Lego pieces. Ever since I was a kid, I've loved Lego. Here's a short stop-motion clip I made when I was 12 years old: </p>
+<p class="mb-p"> While I was looking through random things in the lab, I found a box filled with Lego pieces. Ever since
+  I was a kid, I've loved Lego. Here's a short stop-motion clip I made when I was 12 years old: </p>
 
 <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/stopmotion.gif">
 
-<p class="mb-p">There was this really interesting skeleton Horse, which had a cool shape that would be really hard to replicate with CAD.</p>
+<p class="mb-p">There was this really interesting skeleton Horse, which had a cool shape that would be really hard to
+  replicate with CAD, so I decided to scan it.</p>
 
 <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/legohorse.jpg">
 
-<p class="mb-p">There's a small rotating base in the lab that is really useful to scan objects, as it rotates them in a slow and consistent way so that the scanner can keep track of the object and at the same time get measurements from every side of it. It is possible to do it by hand, by moving the camera around the object, but I don't recommend it because the camera can very easly loose track of the object, and once that happens it's extremely hard for it to "retrack" the object. This problem happened to me more that once, and I was forced to restart the scan each time.</p>
+<p class="mb-p">There's a small rotating base in the lab that is really useful to scan objects, as it rotates them in a
+  slow and consistent way so that the scanner can keep track of the object and at the same time get measurements from
+  every side of it. It is possible to do it by hand, by moving the camera around the object, but I don't recommend it
+  because the camera can very easly loose track of the object, and once that happens it's extremely hard for it to
+  "retrack" the object. This problem happened to me more that once, and I was forced to restart the scan each time.</p>
 
 <img class="w-[50%]" src="/phys_s12_blog/assets/images/3dscansetup.jpg">
-<p class="mb-p italic text-right w-[50%]">Picture of the setup I used to scan the lego horse</p>
+<p class="mb-p italic text-right w-[50%] text-base">Picture of the setup I used to scan the lego horse</p>
 
-<p class="mb-p">The result of the scan is called a <span class="hl">cloud point</span>, which as its name implies, is a cloud of points, and not a 3D model. The result therefore has to be processed to be converted to a 3d mesh (.stl file for example). The RevoPoint software has many options to edit the result, which I used mainly to remove small floating meshes. But other than that, the output file is ready to use to either view it in your computer, or <strong>3D print it</strong>.</p>
+<p class="mb-p">The result of the scan is called a <span class="hl">cloud point</span>, which as its name implies, is a
+  cloud of points, and not a 3D model. The result therefore has to be processed to be converted to a 3d mesh (.stl file
+  for example). The RevoPoint software has many options to edit the result, which I used mainly to remove small floating
+  meshes. But other than that, the output file is ready to use to either view it in your computer, or <strong>3D print
+    it</strong>.</p>
 
 <img class="w-[50%] mb-p2" src="/phys_s12_blog/assets/images/3dscanresult.png">
 
-<h2 class="text-xl underline">3D Printing</h2> 
+<h2 class="text-xl underline">3D Printing</h2>
 
-<p class="mbp-">The thing I was looking forward the most this week was <strong>3D printing</strong>. This technique is very useful, and is what I intend to use to fabricate a big chunck of my final project. The lab has quite a few Prusa MK3 printers, which are very capable. Although they are not very fast, the waiting is definitely worth the result. The worflow to use them is as easy as exporting a 3D model as a mesh, "<span class="hl">slicing</span>" it with the help of a slicing software (such as <a href="https://www.prusa3d.com/page/prusaslicer_424/" class="link">Prusa Slicer</a>), and sending the <span class="hl">gcode</span> (set of instructions) to the printer. </p>
+<p class="">The thing I was most looking forward to this week was <strong>3D printing</strong>. This fabrication
+  method is what I intend to use to build a big chunck of my final project. There are two main types manufacturing: </p>
+<ul class="list-disc mb-p ml-[5%]">
+  <li><span class="hl">Substractive manufacturing</span>: raw material is cut to produce a desired shape and size</li>
+  <li><span class="hl">Additive manufacturing</span>: material is joined/deposited/solidified by (generally) a machine
+    layer by layer, such as 3D printers</li>
+</ul>
 
+<p class="mb-p">The lab has quite a few Prusa MK3 printers,
+  which are very capable and can print medium-sized objects. Although they are not very fast, the result is definitely
+  worth the waiting. The worflow to use them is as easy as exporting a 3D model as a mesh, "<span
+    class="hl">slicing</span>" it with the help of a slicing software (such as <a
+    href="https://www.prusa3d.com/page/prusaslicer_424/" class="link">Prusa Slicer</a>), and sending the <span
+    class="hl">gcode</span> (set of instructions) to the printer.</p>
+
+<img class="w-[50%]" src="/phys_s12_blog/assets/images/3dexport.png">
+<p class="mb-p italic text-right w-[50%] text-base">Exporting the 3D model as a mesh to the slicer</p>
+
+<p class="mb-p">The slicer's job is to generate a file containing all the places the printer has to go, based on your 3D
+  mesh. It therefore needs to know exactly what printer you're using, what material (PLA in my case), and a lot of other
+  things.</p>
+<p class="mb-p">Some objects have big slopes that impossible to print, because it's not possible to print in mid-air.
+  That is what <span class="hl">supports</span> are for. They provide a surface for the printer to put material, and
+  then are easly removable once the print is done (or at least they are supposed to be...). </p>
+
+<img class="w-[45%] mr-[2.5%] inline-block" src="/phys_s12_blog/assets/images/slicing.gif">
+<img class="w-[45%] inline-block" src="/phys_s12_blog/assets/images/slicingsupports.gif">
+<p class="mb-p inline-block italic text-right w-[45%] mr-[2.5%] text-base">Slicer with no supports enabled</p>
+<p class="mb-p inline-block italic text-right w-[45%] text-base">Slicer with default supports enabled</p>
+
+<p class="mb-p">The slicer also tells you how long the print will take, and how much material it will use. You can find
+  the time required for this print in the image below. </p>
+
+<img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/slicertimes.png">
+
+<p class="mb-p">The next day I went to the lab to see the result, and found myself with a black plastic brick. </p>
+
+<img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finishedprint.jpg">
+
+<p class="mb-p">The support was <strong>extremely</strong> hard to remove. It took me more than one hour with the
+  help of a small screw driver to get rid of it. It was so difficult to remove the support, and I had to do so much
+  force, that two of the breaks of the horse unfortunatly broke. This first print served me as a lesson to <span
+    class="hl">always test different orientations when slicing</span> the model, as I could've probably used a lot let
+  supports if I had printed it side-ways, intead of upright. Nevertheless, the result was actually much better than I
+  expected, but of course had some errors.</p>
+
+<img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/horseresult.jpg">
+
+<p class="mb-p">I am definitely very happy with the results, but most I importantly learned a lot of useful and
+  interesting things, which I am sure will use in my final project.</p>
     </div>
 </div>
 

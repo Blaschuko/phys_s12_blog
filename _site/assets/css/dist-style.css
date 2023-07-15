@@ -694,6 +694,38 @@ video {
   margin-top: 5%;
 }
 
+.mb-\[10\%\] {
+  margin-bottom: 10%;
+}
+
+.mb-\[50\%\] {
+  margin-bottom: 50%;
+}
+
+.-mt-\[50\%\] {
+  margin-top: -50%;
+}
+
+.-mt-\[20\%\] {
+  margin-top: -20%;
+}
+
+.-mt-\[10\%\] {
+  margin-top: -10%;
+}
+
+.mt-\[15\%\] {
+  margin-top: 15%;
+}
+
+.mt-\[12\%\] {
+  margin-top: 12%;
+}
+
+.mt-\[11\%\] {
+  margin-top: 11%;
+}
+
 .block {
   display: block;
 }

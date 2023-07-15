@@ -1,82 +1,186 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/phys_s12_blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/phys_s12_blog/" rel="alternate" type="text/html" /><updated>2023-07-15T15:50:29-04:00</updated><id>http://localhost:4000/phys_s12_blog/feed.xml</id><title type="html">Blas Kozicki PHYS S-12 2023 Blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">3D Scanning and Printing, legos!</title><link href="http://localhost:4000/phys_s12_blog/2023/07/12/week5.html" rel="alternate" type="text/html" title="3D Scanning and Printing, legos!" /><published>2023-07-12T00:00:00-04:00</published><updated>2023-07-12T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/12/week5</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/12/week5.html">&lt;h2 class=&quot;text-xl underline&quot;&gt;3D Scanning&lt;/h2&gt; 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/phys_s12_blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/phys_s12_blog/" rel="alternate" type="text/html" /><updated>2023-07-15T18:04:33-04:00</updated><id>http://localhost:4000/phys_s12_blog/feed.xml</id><title type="html">Blas Kozicki PHYS S-12 2023 Blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">3D Scanning and Printing, legos!</title><link href="http://localhost:4000/phys_s12_blog/2023/07/12/week5.html" rel="alternate" type="text/html" title="3D Scanning and Printing, legos!" /><published>2023-07-12T00:00:00-04:00</published><updated>2023-07-12T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/12/week5</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/12/week5.html">&lt;h2 class=&quot;text-xl underline&quot;&gt;3D Scanning&lt;/h2&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;3D CAD can be very useful to accurately design things, but trying to replicate a complex real-world shape can be quite challenging. 3D scanning is a very useful technology which can create a 3D model of a physical model by scanning it using many different techniques. In our lab, there is a &lt;a href=&quot;www.revopoint3d.com&quot; class=&quot;link&quot;&gt;RevoPoint scanner&lt;/a&gt;, which is supposedly very accurate.&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;3D CAD can be very useful to &lt;span class=&quot;hl&quot;&gt;accurately design&lt;/span&gt; things, but trying to replicate a
+  &lt;span class=&quot;hl&quot;&gt;complex real-world shape
+  &lt;/span&gt; can be quite challenging. 3D scanning is a very useful technology which can create a 3D model of a physical
+  model by scanning it using many different techniques. In our lab, there is a &lt;a href=&quot;www.revopoint3d.com&quot;
+    class=&quot;link&quot;&gt;RevoPoint scanner&lt;/a&gt;, which is (supposedly) very accurate.&lt;/p&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;The software to control the camera has a &quot;body&quot; option, so I naturally started by trying to 3D scan my face (who wouldn&apos;t?). &lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;The software to control the camera has a &quot;body&quot; option, so I naturally started by trying to 3D scan my
+  face (who wouldn&apos;t?). &lt;/p&gt;
 
 &lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/3dfacescan.jpg&quot;&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;My main face traits were fairly detailed, but the camera really struggled with my hair (which makes sense honestly). After trying to scan my whole face multiple times, I gave up, as I was not willing to shave my hair to have a good result.&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;My main face traits were fairly detailed, but the camera really struggled with my hair (which makes
+  sense honestly). After trying to scan my whole face multiple times, I gave up, as I was not willing to shave my hair
+  to have a good result.&lt;/p&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt; While I was looking through random things in the lab, I found a box filled with Lego pieces. Ever since I was a kid, I&apos;ve loved Lego. Here&apos;s a short stop-motion clip I made when I was 12 years old: &lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt; While I was looking through random things in the lab, I found a box filled with Lego pieces. Ever since
+  I was a kid, I&apos;ve loved Lego. Here&apos;s a short stop-motion clip I made when I was 12 years old: &lt;/p&gt;
 
 &lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/stopmotion.gif&quot;&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;There was this really interesting skeleton Horse, which had a cool shape that would be really hard to replicate with CAD.&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;There was this really interesting skeleton Horse, which had a cool shape that would be really hard to
+  replicate with CAD, so I decided to scan it.&lt;/p&gt;
 
 &lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/legohorse.jpg&quot;&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;There&apos;s a small rotating base in the lab that is really useful to scan objects, as it rotates them in a slow and consistent way so that the scanner can keep track of the object and at the same time get measurements from every side of it. It is possible to do it by hand, by moving the camera around the object, but I don&apos;t recommend it because the camera can very easly loose track of the object, and once that happens it&apos;s extremely hard for it to &quot;retrack&quot; the object. This problem happened to me more that once, and I was forced to restart the scan each time.&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;There&apos;s a small rotating base in the lab that is really useful to scan objects, as it rotates them in a
+  slow and consistent way so that the scanner can keep track of the object and at the same time get measurements from
+  every side of it. It is possible to do it by hand, by moving the camera around the object, but I don&apos;t recommend it
+  because the camera can very easly loose track of the object, and once that happens it&apos;s extremely hard for it to
+  &quot;retrack&quot; the object. This problem happened to me more that once, and I was forced to restart the scan each time.&lt;/p&gt;
 
 &lt;img class=&quot;w-[50%]&quot; src=&quot;/phys_s12_blog/assets/images/3dscansetup.jpg&quot;&gt;
-&lt;p class=&quot;mb-p italic text-right w-[50%]&quot;&gt;Picture of the setup I used to scan the lego horse&lt;/p&gt;
+&lt;p class=&quot;mb-p italic text-right w-[50%] text-base&quot;&gt;Picture of the setup I used to scan the lego horse&lt;/p&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;The result of the scan is called a &lt;span class=&quot;hl&quot;&gt;cloud point&lt;/span&gt;, which as its name implies, is a cloud of points, and not a 3D model. The result therefore has to be processed to be converted to a 3d mesh (.stl file for example). The RevoPoint software has many options to edit the result, which I used mainly to remove small floating meshes. But other than that, the output file is ready to use to either view it in your computer, or &lt;strong&gt;3D print it&lt;/strong&gt;.&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;The result of the scan is called a &lt;span class=&quot;hl&quot;&gt;cloud point&lt;/span&gt;, which as its name implies, is a
+  cloud of points, and not a 3D model. The result therefore has to be processed to be converted to a 3d mesh (.stl file
+  for example). The RevoPoint software has many options to edit the result, which I used mainly to remove small floating
+  meshes. But other than that, the output file is ready to use to either view it in your computer, or &lt;strong&gt;3D print
+    it&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;img class=&quot;w-[50%] mb-p2&quot; src=&quot;/phys_s12_blog/assets/images/3dscanresult.png&quot;&gt;
 
-&lt;h2 class=&quot;text-xl underline&quot;&gt;3D Printing&lt;/h2&gt; 
+&lt;h2 class=&quot;text-xl underline&quot;&gt;3D Printing&lt;/h2&gt;
 
-&lt;p class=&quot;mbp-&quot;&gt;The thing I was looking forward the most this week was &lt;strong&gt;3D printing&lt;/strong&gt;. This technique is very useful, and is what I intend to use to fabricate a big chunck of my final project. The lab has quite a few Prusa MK3 printers, which are very capable. Although they are not very fast, the waiting is definitely worth the result. The worflow to use them is as easy as exporting a 3D model as a mesh, &quot;&lt;span class=&quot;hl&quot;&gt;slicing&lt;/span&gt;&quot; it with the help of a slicing software (such as &lt;a href=&quot;https://www.prusa3d.com/page/prusaslicer_424/&quot; class=&quot;link&quot;&gt;Prusa Slicer&lt;/a&gt;), and sending the &lt;span class=&quot;hl&quot;&gt;gcode&lt;/span&gt; (set of instructions) to the printer. &lt;/p&gt;</content><author><name></name></author><summary type="html">3D Scanning</summary></entry><entry><title type="html">Electronics and Tools&amp;lt;/br&amp;gt;(or how to build a Mini-Fountain)</title><link href="http://localhost:4000/phys_s12_blog/2023/07/05/week3.html" rel="alternate" type="text/html" title="Electronics and Tools&amp;lt;/br&amp;gt;(or how to build a Mini-Fountain)" /><published>2023-07-05T00:00:00-04:00</published><updated>2023-07-05T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/05/week3</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/05/week3.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
+&lt;p class=&quot;&quot;&gt;The thing I was most looking forward to this week was &lt;strong&gt;3D printing&lt;/strong&gt;. This fabrication
+  method is what I intend to use to build a big chunck of my final project. There are two main types manufacturing: &lt;/p&gt;
+&lt;ul class=&quot;list-disc mb-p ml-[5%]&quot;&gt;
+  &lt;li&gt;&lt;span class=&quot;hl&quot;&gt;Substractive manufacturing&lt;/span&gt;: raw material is cut to produce a desired shape and size&lt;/li&gt;
+  &lt;li&gt;&lt;span class=&quot;hl&quot;&gt;Additive manufacturing&lt;/span&gt;: material is joined/deposited/solidified by (generally) a machine
+    layer by layer, such as 3D printers&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h2 class=&quot;text-xl underline&quot;&gt;Idea and objectives&lt;/h2&gt; 
-&lt;p class=&quot;mb-p&quot;&gt;This week we learned about &lt;strong&gt;Motors&lt;/strong&gt;, &lt;strong&gt;Electronics&lt;/strong&gt;, and &lt;strong&gt;Microcontrollers&lt;/strong&gt;. To create something using all of those new concepts, I decided to create a water fountain. I knew from the begining it wasn&apos;t going to be an easy task, but I encountered a lot more problems than I initially expected.&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;The lab has quite a few Prusa MK3 printers,
+  which are very capable and can print medium-sized objects. Although they are not very fast, the result is definitely
+  worth the waiting. The worflow to use them is as easy as exporting a 3D model as a mesh, &quot;&lt;span
+    class=&quot;hl&quot;&gt;slicing&lt;/span&gt;&quot; it with the help of a slicing software (such as &lt;a
+    href=&quot;https://www.prusa3d.com/page/prusaslicer_424/&quot; class=&quot;link&quot;&gt;Prusa Slicer&lt;/a&gt;), and sending the &lt;span
+    class=&quot;hl&quot;&gt;gcode&lt;/span&gt; (set of instructions) to the printer.&lt;/p&gt;
+
+&lt;img class=&quot;w-[50%]&quot; src=&quot;/phys_s12_blog/assets/images/3dexport.png&quot;&gt;
+&lt;p class=&quot;mb-p italic text-right w-[50%] text-base&quot;&gt;Exporting the 3D model as a mesh to the slicer&lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;The slicer&apos;s job is to generate a file containing all the places the printer has to go, based on your 3D
+  mesh. It therefore needs to know exactly what printer you&apos;re using, what material (PLA in my case), and a lot of other
+  things.&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;Some objects have big slopes that impossible to print, because it&apos;s not possible to print in mid-air.
+  That is what &lt;span class=&quot;hl&quot;&gt;supports&lt;/span&gt; are for. They provide a surface for the printer to put material, and
+  then are easly removable once the print is done (or at least they are supposed to be...). &lt;/p&gt;
+
+&lt;img class=&quot;w-[45%] mr-[2.5%] inline-block&quot; src=&quot;/phys_s12_blog/assets/images/slicing.gif&quot;&gt;
+&lt;img class=&quot;w-[45%] inline-block&quot; src=&quot;/phys_s12_blog/assets/images/slicingsupports.gif&quot;&gt;
+&lt;p class=&quot;mb-p inline-block italic text-right w-[45%] mr-[2.5%] text-base&quot;&gt;Slicer with no supports enabled&lt;/p&gt;
+&lt;p class=&quot;mb-p inline-block italic text-right w-[45%] text-base&quot;&gt;Slicer with default supports enabled&lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;The slicer also tells you how long the print will take, and how much material it will use. You can find
+  the time required for this print in the image below. &lt;/p&gt;
+
+&lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/slicertimes.png&quot;&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;The next day I went to the lab to see the result, and found myself with a black plastic brick. &lt;/p&gt;
+
+&lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/finishedprint.jpg&quot;&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;The support was &lt;strong&gt;extremely&lt;/strong&gt; hard to remove. It took me more than one hour with the
+  help of a small screw driver to get rid of it. It was so difficult to remove the support, and I had to do so much
+  force, that two of the breaks of the horse unfortunatly broke. This first print served me as a lesson to &lt;span
+    class=&quot;hl&quot;&gt;always test different orientations when slicing&lt;/span&gt; the model, as I could&apos;ve probably used a lot let
+  supports if I had printed it side-ways, intead of upright. Nevertheless, the result was actually much better than I
+  expected, but of course had some errors.&lt;/p&gt;
+
+&lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/horseresult.jpg&quot;&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;I am definitely very happy with the results, but most I importantly learned a lot of useful and
+  interesting things, which I am sure will use in my final project.&lt;/p&gt;</content><author><name></name></author><summary type="html">3D Scanning</summary></entry><entry><title type="html">Electronics and Tools&amp;lt;/br&amp;gt;(or how to build a Mini-Fountain)</title><link href="http://localhost:4000/phys_s12_blog/2023/07/05/week3.html" rel="alternate" type="text/html" title="Electronics and Tools&amp;lt;/br&amp;gt;(or how to build a Mini-Fountain)" /><published>2023-07-05T00:00:00-04:00</published><updated>2023-07-05T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/05/week3</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/05/week3.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 class=&quot;text-xl underline&quot;&gt;Idea and objectives&lt;/h2&gt;
+&lt;p class=&quot;mb-p&quot;&gt;This week we learned about &lt;strong&gt;Motors&lt;/strong&gt;, &lt;strong&gt;Electronics&lt;/strong&gt;, and
+  &lt;strong&gt;Microcontrollers&lt;/strong&gt;. To create something using all of those new concepts, I decided to create a water
+  fountain. I knew from the begining it wasn&apos;t going to be an easy task, but I encountered a lot more problems than I
+  initially expected.&lt;/p&gt;
 
 &lt;p class=&quot;font-bold&quot;&gt;The main challenges of this project are: &lt;/p&gt;
 &lt;ul class=&quot;ml-[5%] mb-p list-disc&quot;&gt;
-    &lt;li&gt;Fabricating a watertight container&lt;/li&gt;
-    &lt;li&gt;Controlling and using a water pump&lt;/li&gt;
-    &lt;li&gt;Ataching the different parts of the project (water container, pump, electronics, etc)&lt;/li&gt;
+  &lt;li&gt;Fabricating a watertight container&lt;/li&gt;
+  &lt;li&gt;Controlling and using a water pump&lt;/li&gt;
+  &lt;li&gt;Ataching the different parts of the project (water container, pump, electronics, etc)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;I started by drawing some sketches. I drew a boat-like shape, and a small structure on top of it which holds a small water pump (which I had found in the lab last week). I added some dimensions to have an idea of how the thing would actually look, and then modeled it with Fusion360.&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;I started by drawing some sketches. I drew a boat-like shape, and a small structure on top of it which
+  holds a small water pump (which I had found in the lab last week). I added some dimensions to have an idea of how the
+  thing would actually look, and then modeled it with Fusion360.&lt;/p&gt;
 
 &lt;img src=&quot;/phys_s12_blog/assets/images/fountainsketch.jpg&quot; class=&quot;inline-block mr-[2.5%] mb-p w-[45%]&quot;&gt;
 &lt;img src=&quot;/phys_s12_blog/assets/images/fountaincad.png&quot; class=&quot;inline-block w-[45%]&quot;&gt;
 &lt;img src=&quot;/phys_s12_blog/assets/images/fountaincad.gif&quot; class=&quot;w-[50%] mx-auto&quot;&gt;
 
-&lt;p class=&quot;w-[50%] mx-auto hl text-center mb-p&quot;&gt;Click to download the &lt;a class=&quot;link&quot; href=&quot;/phys_s12_blog/assets/stl/MiniFountain.f3d&quot;&gt;.f3d File&lt;/a&gt;&lt;/p&gt;
-&lt;p class=&quot;mb-p&quot;&gt;The main idea is to have an &lt;span class=&quot;hl&quot;&gt;acrylic base&lt;/span&gt; (with a boat-like shape) that can serve as a water container. A secondary &lt;span class=&quot;hl&quot;&gt;smaller base&lt;/span&gt; would hold a &lt;span class=&quot;hl&quot;&gt;water pump&lt;/span&gt; in place, along with all the required electronics (&lt;span class=&quot;hl&quot;&gt;esp32, batteries, motor driver&lt;/span&gt;). The two bases will be attached with &lt;span class=&quot;hl&quot;&gt;two aluminum rods&lt;/span&gt; and &lt;span class=&quot;hl&quot;&gt;M6 screws&lt;/span&gt; (more on that later). &lt;/p&gt;
+&lt;p class=&quot;w-[50%] mx-auto hl text-center mb-p&quot;&gt;Click to download the &lt;a class=&quot;link&quot;
+    href=&quot;/phys_s12_blog/assets/stl/MiniFountain.f3d&quot;&gt;.f3d File&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;The main idea is to have an &lt;span class=&quot;hl&quot;&gt;acrylic base&lt;/span&gt; (with a boat-like shape) that can serve
+  as a water container. A secondary &lt;span class=&quot;hl&quot;&gt;smaller base&lt;/span&gt; would hold a &lt;span class=&quot;hl&quot;&gt;water pump&lt;/span&gt;
+  in place, along with all the required electronics (&lt;span class=&quot;hl&quot;&gt;esp32, batteries, motor driver&lt;/span&gt;). The two
+  bases will be attached with &lt;span class=&quot;hl&quot;&gt;two aluminum rods&lt;/span&gt; and &lt;span class=&quot;hl&quot;&gt;M6 screws&lt;/span&gt; (more on
+  that later). &lt;/p&gt;
+  &lt;iframe class=&quot;mb-p2&quot; src=&quot;https://icloud83866.autodesk360.com/shares/public/SHd38bfQT1fb47330c994103620c2994fc57?mode=embed&quot; width=&quot;640&quot; height=&quot;480&quot; allowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot; mozallowfullscreen=&quot;true&quot;  frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 &lt;h2 class=&quot;text-xl mt-[30px] underline&quot;&gt;Prototyping&lt;/h2&gt;
-&lt;p class=&quot;mb-p&quot;&gt;After finishing the CAD model, I laser-cutted the whole thing with cardboard to make sure everything would fit correctly, as I didn&apos;t want to waste acrylic. It was important to test if the water pump holder fitted, if the container dimension&apos;s were decent, and have a rough idea of how the fountain would look in real life. &lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;After finishing the CAD model, I laser-cutted the whole thing with cardboard to make sure everything
+  would fit correctly, as I didn&apos;t want to waste acrylic. It was important to test if the water pump holder fitted, if
+  the container dimension&apos;s were decent, and have a rough idea of how the fountain would look in real life. &lt;/p&gt;
 &lt;img class=&quot;w-[45%] inline-block mb-p mr-[2.5%]&quot; src=&quot;/phys_s12_blog/assets/images/fountainprotopieces.jpg&quot;&gt;
 &lt;img class=&quot;w-[45%] inline-block mb-p&quot; src=&quot;/phys_s12_blog/assets/images/fountainprotoholder.jpg&quot;&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;I then decided to use a highly advanced chemical compound to join all the pieces together: &lt;span class=&quot;hl&quot;&gt;hot glue&lt;/span&gt;.&lt;/p&gt;
-&lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/fountainproto.jpg&quot;&gt;   
+&lt;p class=&quot;mb-p&quot;&gt;I then decided to use a highly advanced chemical compound to join all the pieces together: &lt;span
+    class=&quot;hl&quot;&gt;hot glue&lt;/span&gt;.&lt;/p&gt;
+&lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/fountainproto.jpg&quot;&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;The next step was to join the two &quot;bases&quot;. As I said earlier, we are going to use aluminum rods. The problem is that the lab only had very long aluminum rods. I therefore had to cut one in half to create two smaller ones using a hand saw.&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;The next step was to join the two &quot;bases&quot;. As I said earlier, we are going to use aluminum rods. The
+  problem is that the lab only had very long aluminum rods. I therefore had to cut one in half to create two smaller
+  ones using a hand saw.&lt;/p&gt;
 
 &lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/fountainrods.jpg&quot;&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;The next challenge was to figure out how to attach the rods to the top-base (which holds the water pump and the electronics). Last week we were taught how to thread the inside of a hole, and the rods I&apos;m using happen to be hollow, so I used a M6 screw drill tip to thread the end of each aluminum rod. Finding a fitting screw was quite a challenge, and I ended up switching to the imperial system to find an appropiate screw (I basically went through every single screw in the lab to find the right one).&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;The next challenge was to figure out how to attach the rods to the top-base (which holds the water pump
+  and the electronics). Last week we were taught how to thread the inside of a hole, and the rods I&apos;m using happen to be
+  hollow, so I used a M6 screw drill tip to thread the end of each aluminum rod. Finding a fitting screw was quite a
+  challenge, and I ended up switching to the imperial system to find an appropiate screw (I basically went through every
+  single screw in the lab to find the right one).&lt;/p&gt;
 
 &lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/fountainbaserods.jpg&quot;&gt;
 
 &lt;h2 class=&quot;text-xl mt-[30px] underline&quot;&gt;Final build&lt;/h2&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;I laser-cutted the structure in acrylic, clamped it together, and glued it with epoxy. After waiting approximately 30 minutes, I glued the &quot;ramp&quot; to the rest of the structure, which was impossible to do before the rest of the structure was glued together.&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;I laser-cutted the structure in acrylic, clamped it together, and glued it with epoxy. After waiting
+  approximately 30 minutes, I glued the &quot;ramp&quot; to the rest of the structure, which was impossible to do before the rest
+  of the structure was glued together.&lt;/p&gt;
 
 &lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/fountainclamps.jpg&quot;&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;After assembling everything, I realized that due to a pretty low contact surface, it was not going to be possible to glue the two aluminum rods to the base using epoxy. This is the kind of thing that I should&apos;ve planned beforehand, but because my lack of experience, didn&apos;t think of. I ultimately decided to drill two holes through the base of the fountain (which was extremly hard to do, mainly because of clamping issues) and attach the rods using screws. After threading the inside of the rods again, which was a really tedious task, I was finally able to attach the rods. All in all, this problem was a big setback with delayed the project more than I expected. &lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;After assembling everything, I realized that due to a pretty low contact surface, it was not going to be
+  possible to glue the two aluminum rods to the base using epoxy. This is the kind of thing that I should&apos;ve planned
+  beforehand, but because my lack of experience, didn&apos;t think of. I ultimately decided to drill two holes through the
+  base of the fountain (which was extremly hard to do, mainly because of clamping issues) and attach the rods using
+  screws. After threading the inside of the rods again, which was a really tedious task, I was finally able to attach
+  the rods. All in all, this problem was a big setback with delayed the project more than I expected. &lt;/p&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;The next step is to assemble all the electronics. &lt;span class=&quot;hl&quot;&gt;3 AA batteries&lt;/span&gt; are connected to the 5V (4.5V in total, 1.5V each battery) and GND pins of an &lt;span class=&quot;hl&quot;&gt;ESP32&lt;/span&gt;, aswell as the VCC and GND pins of a motor driver (I used the &lt;span class=&quot;hl&quot;&gt;L9110&lt;/span&gt;). The ESP32 is connected to the A-IA pin of the motor driver (&lt;span class=&quot;hl&quot;&gt;make sure the esp32 pin supports PWM, I used pin 12&lt;/span&gt;), which controls the speed of the motor. The motor driver is then connected to the water pump using two terminals and the wires that come with the motor. To easly manage power, I used solder to add two extra outputs to the batteries. This was necessary because as we just discussed, &lt;strong&gt;two&lt;/strong&gt; components need both VCC and GND inputs.  To keep things simple (and mainly due to a lack of time), I zip tied all the components. Before assembling the components, I quickly threw together a schematic in Eagle (fusion360) to have an idea of what the electronics would roughly look like (see image below).&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;The next step is to assemble all the electronics. &lt;span class=&quot;hl&quot;&gt;3 AA batteries&lt;/span&gt; are connected
+  to the 5V (4.5V in total, 1.5V each battery) and GND pins of an &lt;span class=&quot;hl&quot;&gt;ESP32&lt;/span&gt;, aswell as the VCC and
+  GND pins of a motor driver (I used the &lt;span class=&quot;hl&quot;&gt;L9110&lt;/span&gt;). The ESP32 is connected to the A-IA pin of the
+  motor driver (&lt;span class=&quot;hl&quot;&gt;make sure the esp32 pin supports PWM, I used pin 12&lt;/span&gt;), which controls the speed
+  of the motor. The motor driver is then connected to the water pump using two terminals and the wires that come with
+  the motor. To easly manage power, I used solder to add two extra outputs to the batteries. This was necessary because
+  as we just discussed, &lt;strong&gt;two&lt;/strong&gt; components need both VCC and GND inputs. To keep things simple (and mainly
+  due to a lack of time), I zip tied all the components. Before assembling the components, I quickly threw together a
+  schematic in Eagle (fusion360) to have an idea of what the electronics would roughly look like (see image below).&lt;/p&gt;
 
 &lt;img class=&quot;inline-block w-[45%] mr-[2.5%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/fountainschematic.png&quot;&gt;
 &lt;img class=&quot;inline-block w-[45%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/fountainelectronics.jpg&quot;&gt;
 
-&lt;p class=&quot;mb-p&quot;&gt;The final thing we need to do to have a working fountain, is to program our microcontroller. I will use the arduino programming language. I wrote a simple program that varies the speed of the pump over time using a sine wave, and uploaded it to the esp32 to finally test the water fountain. &lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;The final thing we need to do to have a working fountain, is to program our microcontroller. I will use
+  the arduino programming language. I wrote a simple program that varies the speed of the pump over time using a sine
+  wave, and uploaded it to the esp32 to finally test the water fountain. &lt;/p&gt;
 
 &lt;pre class=&quot;code prettyprint&quot;&gt;
 
@@ -139,8 +243,9 @@ void runMotor(int pin, int min, int max) {
 
 &lt;img src=&quot;/phys_s12_blog/assets/images/lampModel/finished.png&quot; class=&quot;mb-p2 w-[50%]&quot;&gt;
 
-&lt;p class=&quot;text-lg mb-[5%]&quot;&gt;If you want to take a look at the design, you can download the &lt;a href=&quot;/phys_s12_blog/assets/stl/lamp-stl.stl&quot; class=&quot;link&quot;&gt;.stl file&lt;/a&gt; or the Fusion360 &lt;a href=&quot;/phys_s12_blog/assets/stl/lamp-f3d.f3d&quot; class=&quot;link&quot;&gt;.f3d file&lt;/a&gt;.&lt;/p&gt;
+&lt;p class=&quot;text-lg mb-[5%]&quot;&gt;If you want to take a look at the design, you can download the &lt;a href=&quot;/phys_s12_blog/assets/stl/lamp-stl.stl&quot; class=&quot;link&quot;&gt;.stl file&lt;/a&gt; or the Fusion360 &lt;a href=&quot;/phys_s12_blog/assets/stl/lamp-f3d.f3d&quot; class=&quot;link&quot;&gt;.f3d file&lt;/a&gt;, or you can interact with it below!&lt;/p&gt;
 
+&lt;iframe src=&quot;https://icloud83866.autodesk360.com/shares/public/SHd38bfQT1fb47330c99418829d72994de6f?mode=embed&quot; width=&quot;800&quot; height=&quot;600&quot; allowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot; mozallowfullscreen=&quot;true&quot;  frameborder=&quot;0&quot; class=&quot;mb-p2&quot;&gt;&lt;/iframe&gt;
 
 &lt;h2 class=&quot;text-xl underline&quot;&gt;&lt;strong&gt;2)&lt;/strong&gt; Modeling a pencil sharpener&lt;/h2&gt;
 
@@ -203,7 +308,9 @@ void runMotor(int pin, int min, int max) {
 
 &lt;img src=&quot;/phys_s12_blog/assets/images/sharpenerModel/finished.png&quot; class=&quot;mb-p2 w-[50%]&quot;&gt;
 
-&lt;p class=&quot;text-lg mb-[5%]&quot;&gt;If you want to take a look at the design, you can download the &lt;a href=&quot;/phys_s12_blog/assets/stl/sharpener-stl.stl&quot; class=&quot;link&quot;&gt;.stl file&lt;/a&gt; or the Fusion360 &lt;a href=&quot;/phys_s12_blog/assets/stl/sharpener-f3d.f3d&quot; class=&quot;link&quot;&gt;.f3d file&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">1) Modeling a lamp</summary></entry><entry><title type="html">Laser cutting: visiting Paris with cardboard</title><link href="http://localhost:4000/phys_s12_blog/2023/06/24/week2.html" rel="alternate" type="text/html" title="Laser cutting: visiting Paris with cardboard" /><published>2023-06-24T00:00:00-04:00</published><updated>2023-06-24T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/06/24/week2</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/06/24/week2.html">&lt;h2 class=&quot;text-xl underline&quot;&gt;Concept&lt;/h2&gt; 
+&lt;p class=&quot;text-lg mb-[5%]&quot;&gt;If you want to take a look at the design, you can download the &lt;a href=&quot;/phys_s12_blog/assets/stl/sharpener-stl.stl&quot; class=&quot;link&quot;&gt;.stl file&lt;/a&gt; or the Fusion360 &lt;a href=&quot;/phys_s12_blog/assets/stl/sharpener-f3d.f3d&quot; class=&quot;link&quot;&gt;.f3d file&lt;/a&gt;, or you can interact with it below!&lt;/p&gt;
+
+&lt;iframe src=&quot;https://icloud83866.autodesk360.com/shares/public/SHd38bfQT1fb47330c9966d561ffb5d2eae5?mode=embed&quot; width=&quot;640&quot; height=&quot;480&quot; allowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot; mozallowfullscreen=&quot;true&quot;  frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</content><author><name></name></author><summary type="html">1) Modeling a lamp</summary></entry><entry><title type="html">Laser cutting: visiting Paris with cardboard</title><link href="http://localhost:4000/phys_s12_blog/2023/06/24/week2.html" rel="alternate" type="text/html" title="Laser cutting: visiting Paris with cardboard" /><published>2023-06-24T00:00:00-04:00</published><updated>2023-06-24T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/06/24/week2</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/06/24/week2.html">&lt;h2 class=&quot;text-xl underline&quot;&gt;Concept&lt;/h2&gt; 
 &lt;p class=&quot;mb-p&quot;&gt;Laser cutting is an extremely useful technique to cut simple materials, such as cardboard. This week, we learned how to operate a laser cutter and we were assigned to create a press-fit construction. To accomplish this, I decided to use a CAD software called Fusion360. I already had experience using it, and the only way to do parametric accurate modeling in the other software option, Blender, is by using the addon &lt;a class=&quot;link&quot; href=&quot;https://www.cadsketcher.com/&quot;&gt;CAD Sketcher&lt;/a&gt;. CAD Sketcher is an extremely new tool, and while it is true it has a huge community supporting it, I don&apos;t think that it has enough features to be used in big projects.&lt;/p&gt;
 &lt;p class=&quot;mb-p&quot;&gt;After choosing which software I was going to use, I modeled some simple press-fit squares to know how much material the laser burns when cutting through cardboard. This is called laser kerf. I found out that a good value for the laser kerf was &lt;span class=&quot;hl&quot;&gt;0.8 mm&lt;/span&gt;, which is less than I expected it to be. This meant I had to make my press-fit joints smaller than I initially thought.&lt;/p&gt;
 

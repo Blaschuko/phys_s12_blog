@@ -21,54 +21,92 @@
 
         <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 
-<h2 class="text-xl underline">Idea and objectives</h2> 
-<p class="mb-p">This week we learned about <strong>Motors</strong>, <strong>Electronics</strong>, and <strong>Microcontrollers</strong>. To create something using all of those new concepts, I decided to create a water fountain. I knew from the begining it wasn't going to be an easy task, but I encountered a lot more problems than I initially expected.</p>
+<h2 class="text-xl underline">Idea and objectives</h2>
+<p class="mb-p">This week we learned about <strong>Motors</strong>, <strong>Electronics</strong>, and
+  <strong>Microcontrollers</strong>. To create something using all of those new concepts, I decided to create a water
+  fountain. I knew from the begining it wasn't going to be an easy task, but I encountered a lot more problems than I
+  initially expected.</p>
 
 <p class="font-bold">The main challenges of this project are: </p>
 <ul class="ml-[5%] mb-p list-disc">
-    <li>Fabricating a watertight container</li>
-    <li>Controlling and using a water pump</li>
-    <li>Ataching the different parts of the project (water container, pump, electronics, etc)</li>
+  <li>Fabricating a watertight container</li>
+  <li>Controlling and using a water pump</li>
+  <li>Ataching the different parts of the project (water container, pump, electronics, etc)</li>
 </ul>
 
-<p class="mb-p">I started by drawing some sketches. I drew a boat-like shape, and a small structure on top of it which holds a small water pump (which I had found in the lab last week). I added some dimensions to have an idea of how the thing would actually look, and then modeled it with Fusion360.</p>
+<p class="mb-p">I started by drawing some sketches. I drew a boat-like shape, and a small structure on top of it which
+  holds a small water pump (which I had found in the lab last week). I added some dimensions to have an idea of how the
+  thing would actually look, and then modeled it with Fusion360.</p>
 
 <img src="/phys_s12_blog/assets/images/fountainsketch.jpg" class="inline-block mr-[2.5%] mb-p w-[45%]">
 <img src="/phys_s12_blog/assets/images/fountaincad.png" class="inline-block w-[45%]">
 <img src="/phys_s12_blog/assets/images/fountaincad.gif" class="w-[50%] mx-auto">
 
-<p class="w-[50%] mx-auto hl text-center mb-p">Click to download the <a class="link" href="/phys_s12_blog/assets/stl/MiniFountain.f3d">.f3d File</a></p>
-<p class="mb-p">The main idea is to have an <span class="hl">acrylic base</span> (with a boat-like shape) that can serve as a water container. A secondary <span class="hl">smaller base</span> would hold a <span class="hl">water pump</span> in place, along with all the required electronics (<span class="hl">esp32, batteries, motor driver</span>). The two bases will be attached with <span class="hl">two aluminum rods</span> and <span class="hl">M6 screws</span> (more on that later). </p>
+<p class="w-[50%] mx-auto hl text-center mb-p">Click to download the <a class="link"
+    href="/phys_s12_blog/assets/stl/MiniFountain.f3d">.f3d File</a></p>
+<p class="mb-p">The main idea is to have an <span class="hl">acrylic base</span> (with a boat-like shape) that can serve
+  as a water container. A secondary <span class="hl">smaller base</span> would hold a <span class="hl">water pump</span>
+  in place, along with all the required electronics (<span class="hl">esp32, batteries, motor driver</span>). The two
+  bases will be attached with <span class="hl">two aluminum rods</span> and <span class="hl">M6 screws</span> (more on
+  that later). </p>
+  <iframe class="mb-p2" src="https://icloud83866.autodesk360.com/shares/public/SHd38bfQT1fb47330c994103620c2994fc57?mode=embed" width="640" height="480" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0"></iframe>
 <h2 class="text-xl mt-[30px] underline">Prototyping</h2>
-<p class="mb-p">After finishing the CAD model, I laser-cutted the whole thing with cardboard to make sure everything would fit correctly, as I didn't want to waste acrylic. It was important to test if the water pump holder fitted, if the container dimension's were decent, and have a rough idea of how the fountain would look in real life. </p>
+
+<p class="mb-p">After finishing the CAD model, I laser-cutted the whole thing with cardboard to make sure everything
+  would fit correctly, as I didn't want to waste acrylic. It was important to test if the water pump holder fitted, if
+  the container dimension's were decent, and have a rough idea of how the fountain would look in real life. </p>
 <img class="w-[45%] inline-block mb-p mr-[2.5%]" src="/phys_s12_blog/assets/images/fountainprotopieces.jpg">
 <img class="w-[45%] inline-block mb-p" src="/phys_s12_blog/assets/images/fountainprotoholder.jpg">
 
-<p class="mb-p">I then decided to use a highly advanced chemical compound to join all the pieces together: <span class="hl">hot glue</span>.</p>
-<img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/fountainproto.jpg">   
+<p class="mb-p">I then decided to use a highly advanced chemical compound to join all the pieces together: <span
+    class="hl">hot glue</span>.</p>
+<img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/fountainproto.jpg">
 
-<p class="mb-p">The next step was to join the two "bases". As I said earlier, we are going to use aluminum rods. The problem is that the lab only had very long aluminum rods. I therefore had to cut one in half to create two smaller ones using a hand saw.</p>
+<p class="mb-p">The next step was to join the two "bases". As I said earlier, we are going to use aluminum rods. The
+  problem is that the lab only had very long aluminum rods. I therefore had to cut one in half to create two smaller
+  ones using a hand saw.</p>
 
 <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/fountainrods.jpg">
 
-<p class="mb-p">The next challenge was to figure out how to attach the rods to the top-base (which holds the water pump and the electronics). Last week we were taught how to thread the inside of a hole, and the rods I'm using happen to be hollow, so I used a M6 screw drill tip to thread the end of each aluminum rod. Finding a fitting screw was quite a challenge, and I ended up switching to the imperial system to find an appropiate screw (I basically went through every single screw in the lab to find the right one).</p>
+<p class="mb-p">The next challenge was to figure out how to attach the rods to the top-base (which holds the water pump
+  and the electronics). Last week we were taught how to thread the inside of a hole, and the rods I'm using happen to be
+  hollow, so I used a M6 screw drill tip to thread the end of each aluminum rod. Finding a fitting screw was quite a
+  challenge, and I ended up switching to the imperial system to find an appropiate screw (I basically went through every
+  single screw in the lab to find the right one).</p>
 
 <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/fountainbaserods.jpg">
 
 <h2 class="text-xl mt-[30px] underline">Final build</h2>
 
-<p class="mb-p">I laser-cutted the structure in acrylic, clamped it together, and glued it with epoxy. After waiting approximately 30 minutes, I glued the "ramp" to the rest of the structure, which was impossible to do before the rest of the structure was glued together.</p>
+<p class="mb-p">I laser-cutted the structure in acrylic, clamped it together, and glued it with epoxy. After waiting
+  approximately 30 minutes, I glued the "ramp" to the rest of the structure, which was impossible to do before the rest
+  of the structure was glued together.</p>
 
 <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/fountainclamps.jpg">
 
-<p class="mb-p">After assembling everything, I realized that due to a pretty low contact surface, it was not going to be possible to glue the two aluminum rods to the base using epoxy. This is the kind of thing that I should've planned beforehand, but because my lack of experience, didn't think of. I ultimately decided to drill two holes through the base of the fountain (which was extremly hard to do, mainly because of clamping issues) and attach the rods using screws. After threading the inside of the rods again, which was a really tedious task, I was finally able to attach the rods. All in all, this problem was a big setback with delayed the project more than I expected. </p>
+<p class="mb-p">After assembling everything, I realized that due to a pretty low contact surface, it was not going to be
+  possible to glue the two aluminum rods to the base using epoxy. This is the kind of thing that I should've planned
+  beforehand, but because my lack of experience, didn't think of. I ultimately decided to drill two holes through the
+  base of the fountain (which was extremly hard to do, mainly because of clamping issues) and attach the rods using
+  screws. After threading the inside of the rods again, which was a really tedious task, I was finally able to attach
+  the rods. All in all, this problem was a big setback with delayed the project more than I expected. </p>
 
-<p class="mb-p">The next step is to assemble all the electronics. <span class="hl">3 AA batteries</span> are connected to the 5V (4.5V in total, 1.5V each battery) and GND pins of an <span class="hl">ESP32</span>, aswell as the VCC and GND pins of a motor driver (I used the <span class="hl">L9110</span>). The ESP32 is connected to the A-IA pin of the motor driver (<span class="hl">make sure the esp32 pin supports PWM, I used pin 12</span>), which controls the speed of the motor. The motor driver is then connected to the water pump using two terminals and the wires that come with the motor. To easly manage power, I used solder to add two extra outputs to the batteries. This was necessary because as we just discussed, <strong>two</strong> components need both VCC and GND inputs.  To keep things simple (and mainly due to a lack of time), I zip tied all the components. Before assembling the components, I quickly threw together a schematic in Eagle (fusion360) to have an idea of what the electronics would roughly look like (see image below).</p>
+<p class="mb-p">The next step is to assemble all the electronics. <span class="hl">3 AA batteries</span> are connected
+  to the 5V (4.5V in total, 1.5V each battery) and GND pins of an <span class="hl">ESP32</span>, aswell as the VCC and
+  GND pins of a motor driver (I used the <span class="hl">L9110</span>). The ESP32 is connected to the A-IA pin of the
+  motor driver (<span class="hl">make sure the esp32 pin supports PWM, I used pin 12</span>), which controls the speed
+  of the motor. The motor driver is then connected to the water pump using two terminals and the wires that come with
+  the motor. To easly manage power, I used solder to add two extra outputs to the batteries. This was necessary because
+  as we just discussed, <strong>two</strong> components need both VCC and GND inputs. To keep things simple (and mainly
+  due to a lack of time), I zip tied all the components. Before assembling the components, I quickly threw together a
+  schematic in Eagle (fusion360) to have an idea of what the electronics would roughly look like (see image below).</p>
 
 <img class="inline-block w-[45%] mr-[2.5%] mb-p" src="/phys_s12_blog/assets/images/fountainschematic.png">
 <img class="inline-block w-[45%] mb-p" src="/phys_s12_blog/assets/images/fountainelectronics.jpg">
 
-<p class="mb-p">The final thing we need to do to have a working fountain, is to program our microcontroller. I will use the arduino programming language. I wrote a simple program that varies the speed of the pump over time using a sine wave, and uploaded it to the esp32 to finally test the water fountain. </p>
+<p class="mb-p">The final thing we need to do to have a working fountain, is to program our microcontroller. I will use
+  the arduino programming language. I wrote a simple program that varies the speed of the pump over time using a sine
+  wave, and uploaded it to the esp32 to finally test the water fountain. </p>
 
 <pre class="code prettyprint">
 
