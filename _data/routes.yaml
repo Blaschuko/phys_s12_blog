@@ -2,3 +2,5 @@
   path: /
 - name: About
   path: /about.html
+- name: Final Poject
+  path: /finalproject.html

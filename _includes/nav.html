@@ -1,6 +1,6 @@
 <nav class="flex relative w-full flex-nowrap bg-zinc-400/40 text-gray-700 text-xl">
     <!-- <h2 class="inline text-gray-400/80 bg-amber-300/40 rounded-sm py-3 px-10">PHYS S-12 Intro to Digital Fabrication</h2> -->
     {% for route in site.data.routes %}
-        <a href="{{ route.path | relative_url}}" class="{% if page.url == route.path %}text-gray-800 underline {%endif%} py-3 px-8">{{route.name}}</a>
+        <a href="{{ route.path | relative_url}}" class="cursor-pointer {% if page.url == route.path %}text-gray-800 underline {%endif%} py-3 px-8">{{route.name}}</a>
     {% endfor %}
 </nav>
