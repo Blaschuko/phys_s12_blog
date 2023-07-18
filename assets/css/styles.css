@@ -10,7 +10,7 @@
         @apply bg-slate-700/20 rounded-md px-1
     }
     .code {
-        @apply text-base bg-slate-400/20
+        @apply text-base bg-slate-400/20 mb-p
     }
   }
   

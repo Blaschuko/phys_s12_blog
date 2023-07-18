@@ -1,0 +1,422 @@
+---
+layout: post
+week-num: 6
+title: "Input devices, a.k.a. sensors"
+tab_title: "Sensors"
+front-image: week6.png
+---
+
+
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+<h2 class="text-xl underline">MPU6050</h2>
+
+<!-- https://maker.pro/arduino/tutorial/how-to-interface-arduino-and-the-mpu-6050-sensor -->
+
+
+<p class="mb-p">The MPU6050 is an IMU (Inertial measurement unit) that has a 3-axis gyroscope and a 3-axis
+  accelerometer. It can measure the velocity and orientation of an object, and comes with a Digital Motion Processor
+  (DMP). The DMP is an extremely useful feature which allows us to fuse the data of the gyroscopes and the
+  accelerometers to compute an orientation. This can be done manually without the DMP, but it will never be as accurate,
+  as this tiny computer is specifically designed to fuse them as best and as quickly as possibe using many different
+  filters. This feature is pretty difficult to interface from scrath with code, but fortunately there are some libraries
+  that handle the hard work for you, so you don't have to worry about the really low-level code.</p>
+
+<p class="mb-p">
+  The pinout of the MPU6050 is pretty simple: one VCC pin that can be connected to 3.3V or 5V, one GND pin, two pins for
+  I2C communication SDA and SCl (read more about this <a class="link"
+    href="https://en.wikipedia.org/wiki/I%C2%B2C">here</a>), one
+  interrupt pin, and then two pins that we're not gonna use for this project.
+</p>
+
+<p class="mb-p">
+  The interrupt pin is used to tell our microcontroller that the MPU6050 has new data available, and therefore that it
+  should read it. I'm using an ESP32 which doesn't have default I2C pins, but your microcontroller probably
+  does
+  have so you should search your board online and look for a picture of the pinout, to figure out where you should
+  connect the SDA and SCL pins. The same things applies for the interrupt pin. The Arduino Uno only has a few
+  interrupt-capable pins, so you should make sure the one you're using works.
+</p>
+
+
+<img class="w-[50%]" src="{{'/assets/images/mpu6050.jpg' | relative_url}}">
+<p class="mb-p italic text-right w-[50%] text-base">MPU6050 connected to an ESP32 with a breadboard</p>
+
+<p class="mb-p">
+  After wiring everything up, I started working on the software. I first installed a <a
+    href="https://github.com/ElectronicCats/mpu6050" class="link">library to interface with the MPU6050</a>. I then used
+  one of the examples to make sure it worked. I struggeled a lot trying to figure out how to change the default SDA and
+  SCL pins, but evetually got it working by adding the following line of code before initializing the mpu:
+</p>
+
+<pre class="code prettyprint mb-p">
+  Wire.begin(I2C_SDA_PIN, I2C_SCL_PIN);
+  Wire.setClock(400000); 
+</pre>
+
+<p class="mb-p">I simplified the example code to only get the yaw, pitch, and roll data (read more about this in my <a
+    href="{{'/finalproject.html' | relative_url}}" class="link">final project</a> page) from the DMP. </p>
+
+<pre class="code prettyprint mb-p">
+  // I2C device class (I2Cdev) demonstration Arduino sketch for MPU6050 class using DMP (MotionApps v2.0)
+  // 6/21/2012 by Jeff Rowberg <jeff@rowberg.net>
+  
+  #include "Wire.h"
+  #include "MPU6050_6Axis_MotionApps20.h"
+  
+  MPU6050 mpu;
+  
+  #define INTERRUPT_PIN 18 // Set your interrupt pin here
+  // My esp32 doesn't have default SDA and SCL pins, so I have to manually set them
+  // If you are using another board like an arduino, you have to replace those pins with the default ones
+  #define I2C_SDA_PIN 16 
+  #define I2C_SCL_PIN 17
+  
+  // MPU control/status vars
+  bool dmpReady = false;   // set true if DMP init was successful
+  uint8_t mpuIntStatus;    // holds actual interrupt status byte from MPU
+  uint8_t devStatus;       // return status after each device operation (0 = success, !0 = error)
+  uint16_t packetSize;     // expected DMP packet size (default is 42 bytes)
+  uint16_t fifoCount;      // count of all bytes currently in FIFO
+  uint8_t fifoBuffer[64];  // FIFO storage buffer
+  
+  // orientation/motion vars
+  Quaternion q;         // [w, x, y, z]         quaternion container
+  VectorFloat gravity;  // [x, y, z]            gravity vector
+  float ypr[3];         // [yaw, pitch, roll]   yaw/pitch/roll container and gravity vector
+  
+  // ================================================================
+  // ===               INTERRUPT DETECTION ROUTINE                ===
+  // ================================================================
+  
+  volatile bool mpuInterrupt = false;  // indicates whether MPU interrupt pin has gone high
+  void dmpDataReady() {
+    mpuInterrupt = true;
+  }
+  
+  // ================================================================
+  // ===                      INITIAL SETUP                       ===
+  // ================================================================
+  
+  void setup() {
+    Wire.begin(I2C_SDA_PIN, I2C_SCL_PIN);
+    Wire.setClock(400000); 
+  
+    Serial.begin(115200);
+  
+    // initialize device
+    Serial.println(F("Initializing I2C devices..."));
+    mpu.initialize();
+    pinMode(INTERRUPT_PIN, INPUT);
+  
+    // verify connection
+    Serial.println(F("Testing device connections..."));
+    Serial.println(mpu.testConnection() ? F("MPU6050 connection successful") : F("MPU6050 connection failed"));
+  
+    // wait for ready
+    Serial.println(F("\nSend any character to begin DMP programming and demo: "));
+    while (Serial.available() && Serial.read())
+      ;  // empty buffer
+    while (!Serial.available())
+      ;  // wait for data
+    while (Serial.available() && Serial.read())
+      ;  // empty buffer again
+  
+    // load and configure the DMP
+    Serial.println(F("Initializing DMP..."));
+    devStatus = mpu.dmpInitialize();
+  
+    // make sure it worked (returns 0 if so)
+    if (devStatus == 0) {
+      // Calibration Time: generate offsets and calibrate our MPU6050
+      mpu.CalibrateAccel(6);
+      mpu.CalibrateGyro(6);
+      mpu.PrintActiveOffsets();
+  
+      // turn on the DMP, now that it's ready
+      Serial.println(F("Enabling DMP..."));
+      mpu.setDMPEnabled(true);
+  
+      // enable  interrupt detection
+      Serial.print(F("Enabling interrupt detection (external interrupt "));
+      Serial.print(digitalPinToInterrupt(INTERRUPT_PIN));
+      Serial.println(F(")..."));
+      attachInterrupt(digitalPinToInterrupt(INTERRUPT_PIN), dmpDataReady, RISING);
+      mpuIntStatus = mpu.getIntStatus();
+  
+      // set our DMP Ready flag so the main loop() function knows it's okay to use it
+      Serial.println(F("DMP ready! Waiting for first interrupt..."));
+      dmpReady = true;
+  
+      // get expected DMP packet size for later comparison
+      packetSize = mpu.dmpGetFIFOPacketSize();
+    } else {
+      // ERROR!
+      // 1 = initial memory load failed
+      // 2 = DMP configuration updates failed
+      // (if it's going to break, usually the code will be 1)
+      Serial.print(F("DMP Initialization failed (code "));
+      Serial.print(devStatus);
+      Serial.println(F(")"));
+    }
+  }
+  
+  
+  
+  // ================================================================
+  // ===                    MAIN PROGRAM LOOP                     ===
+  // ================================================================
+  
+  void loop() {
+    // if programming failed, don't try to do anything
+    if (!dmpReady) return;
+    // read a packet from FIFO
+    if (mpu.dmpGetCurrentFIFOPacket(fifoBuffer)) {  // Get the Latest packet
+      mpu.dmpGetQuaternion(&q, fifoBuffer);
+      mpu.dmpGetGravity(&gravity, &q);
+      mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
+      Serial.print(ypr[0] * 180 / M_PI);
+      Serial.print(",");
+      Serial.print(ypr[1] * 180 / M_PI);
+      Serial.print(",");
+      Serial.println(ypr[2] * 180 / M_PI);
+    }
+  }
+  
+</pre>
+
+<p class="mb-p">
+  For the code to work you just have to replace the 3 pins defined in lines 9, 12, and 13.
+</p>
+
+<h2 class="text-xl underline">Code explanation</h2>
+
+<p class="mb-p">The setup function runs only at the begining of the program and starts the I2C communication protocol.
+  It then initializes the MPU6050 with the help of the library, and then makes sure the connection is working. It then
+  waits for the user to send any message through serial communication (to avoid starting calibration and setup before
+  you're ready) and begins initializing DMP. Explaining exactly how DMP works is really complicated as there are not
+  that many resources online, so we won't get into the details of how it works.</p>
+
+<p class="mb-p">After uploading the program, open the serial monitor to send the required character and then open the
+  serial plotter. There, you will see something similar to this: </p>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/vQImK21apNk" title="YouTube video player"
+  frameborder="0" class="w-[50%] mb-p"
+  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+<p class="mb-p">As you can see, when I rotate the sensor forwards and backwards, the green line goes up and down. That
+  means that the green line represents pitch. The blue lines is yaw, and the red line is roll. We can get this
+  information by just looking at how the lines move, but that's not really what we're interested in. That is way I
+  decided to search online how to simulate that data in 3D space. I found a great tutorial that explained how to get it
+  to work. If you want to take a look at it just follow <a
+    href="https://maker.pro/arduino/tutorial/how-to-interface-arduino-and-the-mpu-6050-sensor" class="link">this
+    link</a>. You can see the result below:</p>
+
+<iframe class="mb-p w-[50%]" width="560" height="315" src="https://www.youtube-nocookie.com/embed/DE0h8jR9NOc"
+  title="YouTube video player" frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
+
+<p class="mb-p2">Overall, this is a really interesting sensor which I will definitely use in my <a
+    href="{{'/finalproject.html' | relative_url}}" class="link">final project</a>.</p>
+
+<h2 class="text-xl underline">Making a capacitive sensor</h2>
+
+<p class="mb-p">Capacitive sensing is a technology that can measure capacitance, but we are going to specifically be
+  using Transmit-Receive capacitive sensing (Tx-Rx for short). Tx-Rx works by charging and discharging one electrode
+  (which can be copper tape, for example) and reading the voltage of another electrode (which should be pretty close to
+  the other, but without touching it). The voltage on the second electrode will vary depending on the distance of the
+  two electrodes, the amount of overlap, material in-between, and other factors. </p>
+
+<p class="mb-p">For my project, I decided to attach two pieces of metal tape in opposites sides of a syringe to try and
+  measure the amount of water inside the syringe. After finished the project, I realied that the results of the Tx-Rx
+  would depend on the liquid inside the syringe, and that I would have to know what the liquid inside the syringe is to
+  be able to measure any possible liquid, but for the sake of simpicity we will just assume that the syringe will only
+  be filled with water.</p>
+
+<p class="mb-p">To send and measure the signals needed for Tx-Rx, I soldered two wires on the two pieces of copper tape
+  and connected them to two analog-capable pins in an ESP32. </p>
+
+<img class="w-[50%] mb-p" src="{{'/assets/images/syringe.jpg' | relative_url}}">
+
+<p class="mb-p">Based on the example code provided in class, I coded a basic program that measures and stores values received from the Tx-Rx to be able to calibrate the sensor. This is a slighly modified Tx-Rx function, which can take a specified number of samples to get an accurate reading:</p>
+
+<pre class="code prettyprint mb-p">
+  long tx_rx(int N_samples) {  
+    // Function to execute rx_tx algorithm and return a value
+    // that depends on coupling of two electrodes.
+    // Value returned is a long integer.
+    int read_high;
+    int read_low;
+    int diff;
+    long int sum;
+  
+    sum = 0;
+  
+    for (int i = 0; i < N_samples; i++) {
+      digitalWrite(tx_pin, HIGH);          // Step the voltage high on conductor 1.
+      read_high = analogRead(analog_pin);  // Measure response of conductor 2.
+      delayMicroseconds(100);              // Delay to reach steady state.
+      digitalWrite(tx_pin, LOW);           // Step the voltage to zero on conductor 1.
+      read_low = analogRead(analog_pin);   // Measure response of conductor 2.
+      diff = read_high - read_low;         // desired answer is the difference between high and low.
+      sum += diff;                         // Sums up N_samples of these measurements.
+    }
+    return sum;
+  }
+</pre>
+
+<p class="mb-p">After understand how this function works, I programmed a sketch that can read commands for easy usage: if you send any numeric value, it will perform 50,000 readings and have the total sum and the amount of samples to an array of "calibrationValues", which is a struct I created. We will call that command calibration. To calibrate the sensor, I filled the syringe with 1 mL of water then ran the simulation command (typing 1 on the serial monitor) 3 times, to make sure the readings are as accurate as possible. I would then repeat this for each value of the syringe (10 mL in this case) and then export the values, using the "data" command. Here's an actual data output from the program:</p>
+<div class="bg-slate-400/40 p-2 w-fit">
+  <p class="mb-p">
+  Value: 0 | total sum: 477263344 | total samples: 200000 | average: 2386 <br>
+  Value: 1 | total sum: 364642896 | total samples: 150000 | average: 2430 <br>
+  Value: 2 | total sum: 393393068 | total samples: 150000 | average: 2622 <br>
+  Value: 3 | total sum: 422553620 | total samples: 150000 | average: 2817 <br>
+  Value: 4 | total sum: 489632302 | total samples: 150000 | average: 3264 <br>
+  Value: 5 | total sum: 535462058 | total samples: 150000 | average: 3569 <br>
+  Value: 6 | total sum: 541097142 | total samples: 150000 | average: 3607 <br>
+  Value: 7 | total sum: 583678850 | total samples: 150000 | average: 3891 <br>
+  Value: 8 | total sum: 594854510 | total samples: 150000 | average: 3965 <br>
+  Value: 9 | total sum: 618753080 | total samples: 150000 | average: 4124 <br>
+  Value: 10 | total sum: 667108406 | total samples: 150000 | average: 4447
+  </p>
+</div>
+
+<p class="mb-p">After getting the results, I plotted them in a Google Spreadsheet and got the equation for the line of best fit. It turned out the equation was the following:</p>
+
+<img class="w-[75%] mb-p" src="{{'/assets/images/capacitivedata.png' | relative_url}}">
+
+<img class="w-[30%] inline-block" src="{{'/assets/images/capacitivemath.png' | relative_url}}">
+<p class="mb-p italic text-left ml-[2.5%] inline-block w-[30%] text-base">Using this equation we can guess the amount of water in mL for any give Tx-Rx output.</p>
+
+<p class="mb-p">I finally added a "sample" command to my program, which would take 3000 samples of the syringe and try to guess the amount of water inside. First using calculating the closest point based on the array of data we measured earlier and then using the equation. The full code can be found below:</p>
+
+<pre class="prettyprint code mb-p">
+#define analog_pin 15
+#define tx_pin 16
+
+long result;  //variable for the result of the tx_rx measurement.
+
+void setup() {
+  pinMode(tx_pin, OUTPUT);  //tx-rx pin provides the voltage step
+  Serial.begin(9600);
+}
+
+struct calibrationValues {
+  uint8_t mlValue;
+  long sum;
+  long samples;
+};
+
+calibrationValues vals[] = {
+  { 0, 0, 0 },
+  { 1, 0, 0 },
+  { 2, 0, 0 },
+  { 3, 0, 0 },
+  { 4, 0, 0 },
+  { 5, 0, 0 },
+  { 6, 0, 0 },
+  { 7, 0, 0 },
+  { 8, 0, 0 },
+  { 9, 0, 0 },
+  { 10, 0, 0 }
+};
+
+// Values after calibration with 150000 samples for each mL (0-10)
+int values[] = {
+  2186,
+  2430,
+  2622,
+  2817,
+  3264,
+  3569,
+  3607,
+  3891,
+  3965,
+  4124,
+  4447
+};
+
+void loop() {
+
+  String content = "";
+  char character;
+
+  // Wait for command through serial
+  while (Serial.available()) {
+    character = Serial.read();
+    content.concat(character);
+    delay(10);
+  }
+
+  if (content != "") {
+    content.trim();
+    int x = content.toInt();
+    if (content == "data") {
+      for (int i = 0; i < 11; i++) {
+        // Prints the CalibrationValues array
+        Serial.print("Value: ");
+        Serial.print(i);
+        Serial.print(" | total sum: ");
+        Serial.print(vals[i].sum);
+        Serial.print(" | total samples: ");
+        Serial.print(vals[i].samples);
+        Serial.print(" | average: ");
+        Serial.println(vals[i].sum / (vals[i].samples + 1));
+      }
+    } else if (content == "sample") {
+      // Sample current status of syringe and print result
+      int samples = 3000;
+      result = tx_rx(samples) / samples;
+      int minDistance = 0;
+      for (int i = 0; i < 11; i++) {
+        int distance = abs(result - values[i]);
+        if (distance < abs(result - values[minDistance])) minDistance = i;
+      }
+      Serial.print("-> Estimation based on distance from calibration points: ");
+      Serial.print(minDistance);
+      Serial.println(" mL");
+
+      Serial.print("-> Estimation based on line of best fit: ");
+      Serial.print((result-2238.0)/224.0);
+      Serial.println(" mL");
+    } else {
+      // Calibration: Samples 50000 times and adds the results to the CalibrationValues array
+      int samples = 50000;
+      result = tx_rx(samples);
+      vals[x].sum += result;
+      vals[x].samples += samples;
+      Serial.print("For ");
+      Serial.print(x);
+      Serial.print(" mL : ");
+      Serial.println((vals[x].sum / vals[x].samples));
+    }
+    content = "";
+  }
+}
+
+
+long tx_rx(int N_samples) {  
+  // Function to execute rx_tx algorithm and return a value
+  // that depends on coupling of two electrodes.
+  // Value returned is a long integer.
+  int read_high;
+  int read_low;
+  int diff;
+  long int sum;
+
+  sum = 0;
+
+  for (int i = 0; i < N_samples; i++) {
+    digitalWrite(tx_pin, HIGH);          // Step the voltage high on conductor 1.
+    read_high = analogRead(analog_pin);  // Measure response of conductor 2.
+    delayMicroseconds(100);              // Delay to reach steady state.
+    digitalWrite(tx_pin, LOW);           // Step the voltage to zero on conductor 1.
+    read_low = analogRead(analog_pin);   // Measure response of conductor 2.
+    diff = read_high - read_low;         // desired answer is the difference between high and low.
+    sum += diff;                         // Sums up N_samples of these measurements.
+  }
+  return sum;
+}
+</pre>
