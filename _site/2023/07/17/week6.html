@@ -60,7 +60,7 @@
   After wiring everything up, I started working on the software. I first installed a <a
     href="https://github.com/ElectronicCats/mpu6050" class="link">library to interface with the MPU6050</a>. I then used
   one of the examples to make sure it worked. I struggeled a lot trying to figure out how to change the default SDA and
-  SCL pins, but evetually got it working by adding the following line of code before initializing the mpu:
+  SCL pins, but evetually got it working by adding the following lines of code before initializing the mpu:
 </p>
 
 <pre class="code prettyprint mb-p">
@@ -219,11 +219,11 @@
   allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowfullscreen></iframe>
 <p class="mb-p">As you can see, when I rotate the sensor forwards and backwards, the green line goes up and down. That
-  means that the green line represents pitch. The blue lines is yaw, and the red line is roll. We can get this
+  means that the green line represents pitch. The blue line is yaw, and the red line is roll. We can get this
   information by just looking at how the lines move, but that's not really what we're interested in. That is way I
   decided to search online how to simulate that data in 3D space. I found a great tutorial that explained how to get it
   to work. If you want to take a look at it just follow <a
-    href="https://maker.pro/arduino/tutorial/how-to-interface-arduino-and-the-mpu-6050-sensor" class="link">this
+    href="https://maker.pro/arduino/tutorial/how-to-interface-arduino-and-the-mpu-6050-sensor" target="_blank" class="link">this
     link</a>. You can see the result below:</p>
 
 <iframe class="mb-p w-[50%]" width="560" height="315" src="https://www.youtube-nocookie.com/embed/DE0h8jR9NOc"
@@ -243,7 +243,7 @@
   two electrodes, the amount of overlap, material in-between, and other factors. </p>
 
 <p class="mb-p">For my project, I decided to attach two pieces of metal tape in opposites sides of a syringe to try and
-  measure the amount of water inside the syringe. After finished the project, I realied that the results of the Tx-Rx
+  measure the amount of water inside the syringe. After finishing the project, I realized that the results of the Tx-Rx
   would depend on the liquid inside the syringe, and that I would have to know what the liquid inside the syringe is to
   be able to measure any possible liquid, but for the sake of simpicity we will just assume that the syringe will only
   be filled with water.</p>

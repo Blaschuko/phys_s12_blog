@@ -1,4 +1,239 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/phys_s12_blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/phys_s12_blog/" rel="alternate" type="text/html" /><updated>2023-07-18T03:14:18-04:00</updated><id>http://localhost:4000/phys_s12_blog/feed.xml</id><title type="html">Blas Kozicki PHYS S-12 2023 Blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Input devices, a.k.a. sensors</title><link href="http://localhost:4000/phys_s12_blog/2023/07/17/week6.html" rel="alternate" type="text/html" title="Input devices, a.k.a. sensors" /><published>2023-07-17T00:00:00-04:00</published><updated>2023-07-17T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/17/week6</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/17/week6.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/phys_s12_blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/phys_s12_blog/" rel="alternate" type="text/html" /><updated>2023-07-24T15:48:22-04:00</updated><id>http://localhost:4000/phys_s12_blog/feed.xml</id><title type="html">Blas Kozicki PHYS S-12 2023 Blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Output devices, making things do things</title><link href="http://localhost:4000/phys_s12_blog/2023/07/18/week7.html" rel="alternate" type="text/html" title="Output devices, making things do things" /><published>2023-07-18T00:00:00-04:00</published><updated>2023-07-18T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/18/week7</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/18/week7.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 class=&quot;text-xl underline&quot;&gt;Choosing an output device&lt;/h2&gt;
+
+
+&lt;p class=&quot;mb-p&quot;&gt;The first part of this week&apos;s assignment is to choose and use an output device using a microcontroller.
+  My &lt;a href=&quot;/phys_s12_blog/finalproject.html&quot; class=&quot;link&quot;&gt;final project&lt;/a&gt; requires some way to show its
+  status in realtime to the user, so I decided to try to use an RGB LED. &lt;/p&gt;
+
+&lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/rgb_config.png&quot;&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;This image shows us that the longest leg is the common ground, the first leg corresponds to red, the
+  third one to blue, and the fourth to green.&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;As many probably know, the color blue has a higher wavelength than red and green. This means the LED
+  needs more energy to emit that color. This is why if we use the same resistance values for each color, you will notice
+  that the blue will be a lot fainter than the red. I used a 1000 ohm resistor for the red and green leg (you could use
+  a lower value for the green too, but I don&apos;t think it makes that much of a difference), and a 500 ohm resistor for the
+  blue leg.&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;I wired everything up in the same breadboard I used in the &lt;a href=&quot;/phys_s12_blog/2023/07/17/week6.html&quot;
+    target=&quot;_blank&quot; class=&quot;link&quot;&gt;previous assignment&lt;/a&gt; to be able to combine the MPU6050 and the RGB LED to make
+  something
+  interesting, but we&apos;ll get to that in a bit. After everything was wired, I set the pin where the RED leg was
+  connected HIGH to see if it was working:&lt;/p&gt;
+&lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/RGBledWired.png&quot;&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;As you can see, the LED is working as expected. I then decided to try to make it change colors using
+  3 loops. The program goes through each possible value for blue (0-255), and then increments the green by one and does
+  the blue loop all over again. When the green reaches 256, it goes back to 0 and red increases by one, starting the
+  whole loop again. This technically goes through each possible color, but what I did not think about is the amount of
+  possible colors we can &quot;make&quot; using an RGB light. Each channel (red, green, blue) can go from 0 to 255, so each has
+  256 possible values, if we do the math, it turns out that the total amount of combination equals 255^3 which is equal
+  to 16,777,216. If we stayed in one color for 10 miliseconds before switching to the next one, it would take us 0.001 *
+  16777216 = 167772.16 seconds, or 46.6 hours to see every color. I do not intend to stare a tiny RGB Led for nearly 2
+  days with no breaks, so I was going to have to do something different.&lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;I found some code online which had an array of &quot;key&quot; rainbow colors, so I modified for it to work with
+  my setup and ran it:&lt;/p&gt;
+
+&lt;img class=&quot;w-[50%]&quot; src=&quot;/phys_s12_blog/assets/images/rgbtest.gif&quot;&gt;
+&lt;p class=&quot;mb-p italic text-right w-[50%] text-base&quot;&gt;Sped up video&lt;/p&gt;
+
+
+&lt;pre class=&quot;prettyprint code mb-p&quot;&gt;
+#define redpin 4
+#define greenpin 5
+#define bluepin 6
+
+const uint8_t lights[360] = {
+  0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 15, 17, 18, 20, 22, 24, 26, 28, 30, 
+  32, 35, 37, 39, 42, 44, 47, 49, 52, 55, 58, 60, 63, 66, 69, 72, 75, 78, 81, 85, 88, 91, 94, 97, 
+  101, 104, 107, 111, 114, 117, 121, 124, 127, 131, 134, 137, 141, 144, 147, 150, 154, 157, 160, 
+  163, 167, 170, 173, 176, 179, 182, 185, 188, 191, 194, 197, 200, 202, 205, 208, 210, 213, 215, 
+  217, 220, 222, 224, 226, 229, 231, 232, 234, 236, 238, 239, 241, 242, 244, 245, 246, 248, 249, 
+  250, 251, 251, 252, 253, 253, 254, 254, 255, 255, 255, 255, 255, 255, 255, 254, 254, 253, 253, 
+  252, 251, 251, 250, 249, 248, 246, 245, 244, 242, 241, 239, 238, 236, 234, 232, 231, 229, 226, 
+  224, 222, 220, 217, 215, 213, 210, 208, 205, 202, 200, 197, 194, 191, 188, 185, 182, 179, 176, 
+  173, 170, 167, 163, 160, 157, 154, 150, 147, 144, 141, 137, 134, 131, 127, 124, 121, 117, 114, 
+  111, 107, 104, 101, 97, 94, 91, 88, 85, 81, 78, 75, 72, 69, 66, 63, 60, 58, 55, 52, 49, 47, 44, 
+  42, 39, 37, 35, 32, 30, 28, 26, 24, 22, 20, 18, 17, 15, 13, 12, 11, 9, 8, 7, 6, 5, 4, 3, 2, 2, 
+  1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+};
+
+int loopdelay = 100;
+int displaylength = 40;
+
+void setup() {
+}
+
+void loop() {
+  for (int k = 0; k &lt; 360; k++) {
+    analogWrite(redpin, lights[(k + 120) % 360]);
+    analogWrite(greenpin, lights[k]);
+    analogWrite(bluepin, lights[(k + 240) % 360]);
+    delay(displaylength);
+  }
+  delay(loopdelay);
+}
+&lt;/pre&gt;
+
+&lt;h2 class=&quot;text-xl underline&quot;&gt;Combining input and output&lt;/h2&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;After playing around with the LED, I decided to use it to make something that is actually useful. I had
+  the MPU6050 already wired, so I fixed upon an inclinometer, or tilt sensor. My idea was to make a device that turns
+  green when is on a 0 degree angle (parallel to the floor), yellow when in a small angle, and red when very far from
+  perfect. I had wired the input and output devices in the same breadboard, so all that was left to do was the
+  software-side of the device. &lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;I started by making a class to control the rgb led, and then used the code from the last post to get the
+  angle. Here is the full program:&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint code mb-p&quot;&gt;
+#include &quot;Wire.h&quot;
+#include &quot;MPU6050_6Axis_MotionApps20.h&quot;
+
+class rgbLED {
+private:
+  byte redPin;
+  byte bluePin;
+  byte greenPin;
+
+public:
+  rgbLED(byte _redPin, byte _greenPin, byte _bluePin) {
+    redPin = _redPin;
+    bluePin = _bluePin;
+    greenPin = _greenPin;
+  }
+
+  void color(int red, int green, int blue) {
+    analogWrite(redPin, red);
+    analogWrite(greenPin, green);
+    analogWrite(bluePin, blue);
+  }
+};
+
+MPU6050 mpu;
+
+#define INTERRUPT_PIN 18
+#define I2C_SDA_PIN 16
+#define I2C_SCL_PIN 17
+
+rgbLED led(4, 5, 6);
+
+bool dmpReady = false;   // set true if DMP init was successful
+uint8_t mpuIntStatus;    // holds actual interrupt status byte from MPU
+uint8_t devStatus;       // return status after each device operation (0 = success, !0 = error)
+uint16_t packetSize;     // expected DMP packet size (default is 42 bytes)
+uint16_t fifoCount;      // count of all bytes currently in FIFO
+uint8_t fifoBuffer[64];  // FIFO storage buffer
+
+Quaternion q;         // [w, x, y, z]         quaternion container
+VectorFloat gravity;  // [x, y, z]            gravity vector
+float ypr[3];         // [yaw, pitch, roll]   yaw/pitch/roll container and gravity vector
+
+volatile bool mpuInterrupt = false;  // indicates whether MPU interrupt pin has gone high
+void dmpDataReady() {
+  mpuInterrupt = true;
+}
+
+void setup() {
+  Wire.begin(I2C_SDA_PIN, I2C_SCL_PIN);
+  Wire.setClock(400000);
+  Serial.begin(115200);
+
+  // initialize device
+  Serial.println(F(&quot;Initializing I2C devices...&quot;));
+  mpu.initialize();
+  pinMode(INTERRUPT_PIN, INPUT);
+
+  // verify connection
+  Serial.println(F(&quot;Testing device connections...&quot;));
+  Serial.println(mpu.testConnection() ? F(&quot;MPU6050 connection successful&quot;) : F(&quot;MPU6050 connection failed&quot;));
+
+  // load and configure the DMP
+  Serial.println(F(&quot;Initializing DMP...&quot;));
+  devStatus = mpu.dmpInitialize();
+
+  if (devStatus == 0) {
+    mpu.CalibrateAccel(15);
+    mpu.CalibrateGyro(15);
+    mpu.PrintActiveOffsets();
+
+    Serial.println(F(&quot;Enabling DMP...&quot;));
+    mpu.setDMPEnabled(true);
+
+    // enable  interrupt detection
+    Serial.print(F(&quot;Enabling interrupt detection (external interrupt &quot;));
+    Serial.print(digitalPinToInterrupt(INTERRUPT_PIN));
+    Serial.println(F(&quot;)...&quot;));
+    attachInterrupt(digitalPinToInterrupt(INTERRUPT_PIN), dmpDataReady, RISING);
+    mpuIntStatus = mpu.getIntStatus();
+    dmpReady = true;
+
+    // get expected DMP packet size for later comparison
+    packetSize = mpu.dmpGetFIFOPacketSize();
+  } else {
+    // ERROR!
+    Serial.print(F(&quot;DMP Initialization failed (code &quot;));
+    Serial.print(devStatus);
+    Serial.println(F(&quot;)&quot;));
+  }
+}
+
+float yaw = 0;
+float pitch = 0;
+float sum = 0;
+
+void loop() {
+  if (!dmpReady) return; // Return if MPU6050 isn&apos;t ready
+
+  // read a packet from FIFO
+  if (mpu.dmpGetCurrentFIFOPacket(fifoBuffer)) {  // Get the Latest packet
+    mpu.dmpGetQuaternion(&amp;q, fifoBuffer);
+    mpu.dmpGetGravity(&amp;gravity, &amp;q);
+    mpu.dmpGetYawPitchRoll(ypr, &amp;q, &amp;gravity);
+
+    yaw = abs(ypr[1] * 180 / M_PI); // absolute yaw angle
+    pitch = abs(ypr[2] * 180 / M_PI); // absolute pitch angle
+    sum = yaw + pitch; // Total angle
+
+    if (sum &lt; 3) { // Less than 3 degrees -&gt; Green
+      led.color(0, 255, 0);
+    } else if (sum &lt; 30) { // Less than 30 degrees -&gt; Yellow
+      led.color(255, 165, 0);
+    } else { // 30 or more degrees -&gt; Red
+      led.color(255, 0, 0);
+    }
+  }
+}
+&lt;/pre&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;If you are actually interested in the code, I think that the most interesting part is in the loop. Be
+  aware that you won&apos;t find anything too complex or exciting. &lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;It turns out that the &quot;device&quot; works perfectly, and is very fun to play around with:&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; class=&quot;mb-p&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/XdEXAbcXugI&quot;
+  title=&quot;YouTube video player&quot; frameborder=&quot;0&quot;
+  allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot;
+  allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h2 class=&quot;text-xl underline&quot;&gt;Using an oscilloscope&lt;/h2&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;The output from each pin that is connected to the LED (except the ground pin) should be a PWM (pulse
+  width modulation) signal, as we&apos;re using a value from 0-255 to change the brightness of each color. I wanted to see
+  what that signal looked like, so I connected the oscilloscope probes to the fourth leg of the LED, which corresponds
+  to green. I chose that leg because it should only be turned on when the angle of the MPU6050 is less than 30 degrees,
+  so I will be able to &quot;turn the signal on and off&quot; by just tilting the whole thing. &lt;/p&gt;
+
+&lt;iframe class=&quot;mb-p&quot; width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/sFsh2BKg8Z8&quot;
+  title=&quot;YouTube video player&quot; frameborder=&quot;0&quot;
+  allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot;
+  allowfullscreen&gt;&lt;/iframe&gt;
+
+  &lt;p class=&quot;mb-p&quot;&gt;As you can see, when the device is parallel to the table, the signal doesn&apos;t show up. However, when I turn it slighly, we can wee a pattern that corresponds to a PWM signal. We know that because it isn&apos;t HIGH or LOW, but rather changes between the two very quickly. PWM works but switching between HIGH and LOW in a very specific time domain to create a specific signal. &lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Input devices, a.k.a. sensors</title><link href="http://localhost:4000/phys_s12_blog/2023/07/17/week6.html" rel="alternate" type="text/html" title="Input devices, a.k.a. sensors" /><published>2023-07-17T00:00:00-04:00</published><updated>2023-07-17T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/17/week6</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/17/week6.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
 
 &lt;h2 class=&quot;text-xl underline&quot;&gt;MPU6050&lt;/h2&gt;
 
@@ -37,7 +272,7 @@
   After wiring everything up, I started working on the software. I first installed a &lt;a
     href=&quot;https://github.com/ElectronicCats/mpu6050&quot; class=&quot;link&quot;&gt;library to interface with the MPU6050&lt;/a&gt;. I then used
   one of the examples to make sure it worked. I struggeled a lot trying to figure out how to change the default SDA and
-  SCL pins, but evetually got it working by adding the following line of code before initializing the mpu:
+  SCL pins, but evetually got it working by adding the following lines of code before initializing the mpu:
 &lt;/p&gt;
 
 &lt;pre class=&quot;code prettyprint mb-p&quot;&gt;
@@ -196,11 +431,11 @@
   allow=&quot;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot;
   allowfullscreen&gt;&lt;/iframe&gt;
 &lt;p class=&quot;mb-p&quot;&gt;As you can see, when I rotate the sensor forwards and backwards, the green line goes up and down. That
-  means that the green line represents pitch. The blue lines is yaw, and the red line is roll. We can get this
+  means that the green line represents pitch. The blue line is yaw, and the red line is roll. We can get this
   information by just looking at how the lines move, but that&apos;s not really what we&apos;re interested in. That is way I
   decided to search online how to simulate that data in 3D space. I found a great tutorial that explained how to get it
   to work. If you want to take a look at it just follow &lt;a
-    href=&quot;https://maker.pro/arduino/tutorial/how-to-interface-arduino-and-the-mpu-6050-sensor&quot; class=&quot;link&quot;&gt;this
+    href=&quot;https://maker.pro/arduino/tutorial/how-to-interface-arduino-and-the-mpu-6050-sensor&quot; target=&quot;_blank&quot; class=&quot;link&quot;&gt;this
     link&lt;/a&gt;. You can see the result below:&lt;/p&gt;
 
 &lt;iframe class=&quot;mb-p w-[50%]&quot; width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/DE0h8jR9NOc&quot;
@@ -220,7 +455,7 @@
   two electrodes, the amount of overlap, material in-between, and other factors. &lt;/p&gt;
 
 &lt;p class=&quot;mb-p&quot;&gt;For my project, I decided to attach two pieces of metal tape in opposites sides of a syringe to try and
-  measure the amount of water inside the syringe. After finished the project, I realied that the results of the Tx-Rx
+  measure the amount of water inside the syringe. After finishing the project, I realized that the results of the Tx-Rx
   would depend on the liquid inside the syringe, and that I would have to know what the liquid inside the syringe is to
   be able to measure any possible liquid, but for the sake of simpicity we will just assume that the syringe will only
   be filled with water.&lt;/p&gt;
@@ -786,7 +1021,7 @@ void runMotor(int pin, int min, int max) {
     width=&quot;640&quot; height=&quot;480&quot; allowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot; mozallowfullscreen=&quot;true&quot;
     frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</content><author><name></name></author><summary type="html">1) Modeling a lamp</summary></entry><entry><title type="html">Laser cutting: visiting Paris with cardboard</title><link href="http://localhost:4000/phys_s12_blog/2023/06/24/week2.html" rel="alternate" type="text/html" title="Laser cutting: visiting Paris with cardboard" /><published>2023-06-24T00:00:00-04:00</published><updated>2023-06-24T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/06/24/week2</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/06/24/week2.html">&lt;h2 class=&quot;text-xl underline&quot;&gt;Concept&lt;/h2&gt;
 &lt;p class=&quot;mb-p&quot;&gt;Laser cutting is an extremely useful technique to cut simple materials, such as cardboard. This week, we
-    learned how to operate a laser cutter and we were assigned to create a press-fit construction. To accomplish this, I
+    learned how to operate a laser cutter and were assigned to create a press-fit construction. To accomplish this, I
     decided to use a CAD software called Fusion360. I already had experience using it, and the only way to do parametric
     accurate modeling in the other software option, Blender, is by using the addon &lt;a class=&quot;link&quot;
         href=&quot;https://www.cadsketcher.com/&quot;&gt;CAD Sketcher&lt;/a&gt;. CAD Sketcher is an extremely new tool, and while it is
@@ -846,7 +1081,7 @@ void runMotor(int pin, int min, int max) {
 &lt;h2 class=&quot;text-xl underline&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;By working on this project, I learned how to use a laser cutter, deepened my CAD skills, and &lt;span class=&quot;hl&quot;&gt;visited
         Paris&lt;/span&gt;! Next time, I will make larger designs and make sure there is enough material near the joints so
-    the structure can be as strong as possible.&lt;/p&gt;</content><author><name></name></author><summary type="html">Concept Laser cutting is an extremely useful technique to cut simple materials, such as cardboard. This week, we learned how to operate a laser cutter and we were assigned to create a press-fit construction. To accomplish this, I decided to use a CAD software called Fusion360. I already had experience using it, and the only way to do parametric accurate modeling in the other software option, Blender, is by using the addon CAD Sketcher. CAD Sketcher is an extremely new tool, and while it is true it has a huge community supporting it, I don&apos;t think that it has enough features to be used in big projects. After choosing which software I was going to use, I modeled some simple press-fit squares to know how much material the laser burns when cutting through cardboard. This is called laser kerf. I found out that a good value for the laser kerf was 0.8 mm, which is less than I expected it to be. This meant I had to make my press-fit joints smaller than I initially thought.</summary></entry><entry><title type="html">Website creation and final project ideas</title><link href="http://localhost:4000/phys_s12_blog/2023/06/21/week1.html" rel="alternate" type="text/html" title="Website creation and final project ideas" /><published>2023-06-21T00:00:00-04:00</published><updated>2023-06-21T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/06/21/week1</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/06/21/week1.html">&lt;h2 class=&quot;text-xl underline&quot;&gt;Website technology&lt;/h2&gt;
+    the structure can be as strong as possible.&lt;/p&gt;</content><author><name></name></author><summary type="html">Concept Laser cutting is an extremely useful technique to cut simple materials, such as cardboard. This week, we learned how to operate a laser cutter and were assigned to create a press-fit construction. To accomplish this, I decided to use a CAD software called Fusion360. I already had experience using it, and the only way to do parametric accurate modeling in the other software option, Blender, is by using the addon CAD Sketcher. CAD Sketcher is an extremely new tool, and while it is true it has a huge community supporting it, I don&apos;t think that it has enough features to be used in big projects. After choosing which software I was going to use, I modeled some simple press-fit squares to know how much material the laser burns when cutting through cardboard. This is called laser kerf. I found out that a good value for the laser kerf was 0.8 mm, which is less than I expected it to be. This meant I had to make my press-fit joints smaller than I initially thought.</summary></entry><entry><title type="html">Website creation and final project ideas</title><link href="http://localhost:4000/phys_s12_blog/2023/06/21/week1.html" rel="alternate" type="text/html" title="Website creation and final project ideas" /><published>2023-06-21T00:00:00-04:00</published><updated>2023-06-21T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/06/21/week1</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/06/21/week1.html">&lt;h2 class=&quot;text-xl underline&quot;&gt;Website technology&lt;/h2&gt;
 &lt;p class=&quot;mb-p&quot;&gt;This site was created with the help of a static site generator: &lt;strong&gt;Jekyll&lt;/strong&gt;. Static site
     generators are really useful when content looks similar, which is exactly the case of a blog. That is why I decided
     to use Jekyll for this project. &lt;/p&gt;
