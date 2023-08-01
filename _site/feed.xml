@@ -1,4 +1,131 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/phys_s12_blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/phys_s12_blog/" rel="alternate" type="text/html" /><updated>2023-07-24T15:48:22-04:00</updated><id>http://localhost:4000/phys_s12_blog/feed.xml</id><title type="html">Blas Kozicki PHYS S-12 2023 Blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Output devices, making things do things</title><link href="http://localhost:4000/phys_s12_blog/2023/07/18/week7.html" rel="alternate" type="text/html" title="Output devices, making things do things" /><published>2023-07-18T00:00:00-04:00</published><updated>2023-07-18T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/18/week7</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/18/week7.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/phys_s12_blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/phys_s12_blog/" rel="alternate" type="text/html" /><updated>2023-07-31T20:55:43-04:00</updated><id>http://localhost:4000/phys_s12_blog/feed.xml</id><title type="html">Blas Kozicki PHYS S-12 2023 Blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">CNC Machining and Molding and Casting</title><link href="http://localhost:4000/phys_s12_blog/2023/07/25/week8.html" rel="alternate" type="text/html" title="CNC Machining and Molding and Casting" /><published>2023-07-25T00:00:00-04:00</published><updated>2023-07-25T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/25/week8</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/25/week8.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 class=&quot;text-xl underline&quot;&gt;Concept&lt;/h2&gt;
+
+
+
+&lt;p class=&quot;mb-p&quot;&gt;This week we learned how to use a CNC mill and router. The difference between the two is pretty
+  important: &lt;/p&gt;
+&lt;ul class=&quot;mb-p&quot;&gt;
+  &lt;li&gt;&lt;strong&gt;CNC Mill:&lt;/strong&gt; they have a greater Z-axis movement, allowing them to make deeper cuts. Very good for
+    cutting rigid materials accurately, but generally have a pretty low workpiece surface. Usually used for &lt;span
+      class=&quot;hl&quot;&gt;2.5D&lt;/span&gt; cuts (can only cut half of a sphere).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CNC Mill:&lt;/strong&gt; Very good for cutting relatively soft materials such as wood or aluminum, generally has
+    a big workpiece surface. Used mainly to cut &lt;span class=&quot;hl&quot;&gt;2D&lt;/span&gt; shapes, as their Z-axis movement range is
+    much lower&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;The second thing we learned this week is molding and casting. So for this assignment, I am going to try
+  to cut a wax block into my face using a 3D scanner and a CNC mill, and then use that wax mold to create a mold for
+  casting.&lt;/p&gt;
+
+
+&lt;h2 class=&quot;text-xl underline&quot;&gt;3D Scanning my face&lt;/h2&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;On &lt;a href=&quot;/phys_s12_blog/2023/07/12/week5.html&quot; target=&quot;_blank&quot; class=&quot;link&quot;&gt;week 5&lt;/a&gt; I played around
+  with the RevoPoint 3D scanner, but was not able to fully scan my face. However, the mold I want to create for this
+  week&apos;s assignment only requires the front of my face, so it shouldn&apos;t be too hard to scan. &lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;I openend the RevoPoint software and started trying to scan my face. After a few attemps, I finally got
+  a good result.&lt;/p&gt;
+
+
+&lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/initialfacescan.png&quot;&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;It took around 2 minutes to transfer the exported file from the computer where the software is to an SD
+  card, which at the moment didn&apos;t mean a lot, but would explain a lot later. &lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;After importing the STL model in fusion, the first thing I tried to do was to scale the model down, as
+  the file we need to feed the CNC Mill needs to have specific dimensions (specially depth, we&apos;ll talk more about that
+  later). As soon as I tried to scale down the 3D mesh, Fusion360 stopped responding and I was forced to force quit the
+  application. Thinking it was just a random error, I tried the same things a few more time, but got the same outcome
+  every time. I then tried to use the &lt;span class=&quot;hl&quot;&gt;reduce&lt;/span&gt; tool in fusion, as I suspected the mesh had maybe
+  too many triangles, but that crashed Fusion aswell. I then found out that the mesh had 1,135,674 faces! This geometry
+  can easly be handled by a program designed to do so, but Fusion360 is definitely not. The waiting time when
+  transfering the file to the SD card can therefore be explained by the huge amount of information in the STL file.&lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;I was unable to reduce the mesh size using Fusion360, so I resorted to Blender. I didn&apos;t have any
+  previous experience using Blender, but what I needed to do was not a very complex task, so I just googled how to do
+  it. I first tired using something called &lt;span class=&quot;hl&quot;&gt;Decimate Modifier&lt;/span&gt;, which is very useful to simplify
+  the whole geometry of a mesh without loosing too much quality. However, while trying to find a good value, I realized
+  that most of the &quot;useless&quot; geometry was found in my hair (which makes sense), so lowering the geometry a lot
+  would result in a very detailed hair and a very poly-looking face, which was not what I was looking for. So with some
+  help of the internet, I found &lt;a target=&quot;_blank&quot;
+    href=&quot;https://blender.stackexchange.com/questions/5136/reducing-vertex-density-as-distance-from-point-increases/5564#5564&quot;
+    class=&quot;link&quot;&gt;a solution on StackExchange&lt;/a&gt; which was exactly what I needed. I used a brush tool to only &quot;simplify&quot;
+  the areas of the mesh I wanted, which was the hair. This resulted in a model that looked pretty much the same, but had
+  less than &lt;/p&gt;
+
+
+&lt;img class=&quot;w-[50%]&quot; src=&quot;/phys_s12_blog/assets/images/simplifiedfacescan.png&quot;&gt;
+&lt;p class=&quot;mb-p italic text-right w-[50%] text-base&quot;&gt;Click &lt;a class=&quot;link&quot;
+    href=&quot;/phys_s12_blog/assets/stl/blasface_simplified.stl&quot;&gt;here&lt;/a&gt; to download the .stl file&lt;/p&gt;
+
+
+&lt;p class=&quot;mb-p&quot;&gt;The next step was to figure out the dimensions for the stl model we are going to give to the CNC mill.
+  We are going to use a 1/16 inch drill bit so we have a fair amount of detail, and the ones we have at the lab have a
+  deptch of around 12 mm, but after some testing, it turns out that the best maximum depth that always seems to work is
+  &lt;span class=&quot;hl&quot;&gt;10 mm&lt;/span&gt;. The model has a depth of around &lt;span class=&quot;hl&quot;&gt;25 mm&lt;/span&gt;, so I was forced to
+  strech the model quite a lot, which resulted in something less &quot;3D&quot; than I expected, but still looks good. I then
+  wrapped the whole thing in a box by first creating a solid box, and then used the &lt;span class=&quot;hl&quot;&gt;shell&lt;/span&gt; tool
+  to make it hollow. The final STL file is &lt;span class=&quot;hl&quot;&gt;30x39x9.413 mm&lt;/span&gt;.
+&lt;/p&gt;
+
+&lt;img class=&quot;w-[50%]&quot; src=&quot;/phys_s12_blog/assets/images/facemodelexport.png&quot;&gt;
+&lt;p class=&quot;mb-p italic text-right w-[50%] text-base&quot;&gt;Click &lt;a class=&quot;link&quot;
+    href=&quot;/phys_s12_blog/assets/stl/face_export.stl&quot;&gt;here&lt;/a&gt; to download the .stl file&lt;/p&gt;
+
+
+&lt;h2 class=&quot;text-xl underline&quot;&gt;CNC Milling&lt;/h2&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;The CNC mill we are going to use is a &lt;span class=&quot;hl&quot;&gt;SRM-20&lt;/span&gt;, and we are going to use machinable
+  wax. The setup of the mill will depend on each machine, so we are not going to get into how to do it. If you are
+  interested in knowing that, google the name of your CNC mill and I&apos;m sure you&apos;ll find a lot of tutorials. &lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/cYgIyJyOb_Q&quot; title=&quot;YouTube video player&quot;
+  frameborder=&quot;0&quot;
+  allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot;
+  allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p class=&quot;mb-p italic w-fit text-right text-base&quot;&gt;The light-blue material is residue from the wax block, which does not
+  let us see the actuall drill&lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;Even though the result is pretty small, it has an incredible level of detail (and it could&apos;ve had even
+  more if we had used a 1/32 inch drill bit!):&lt;/p&gt;
+
+&lt;img class=&quot;w-[50%]&quot; src=&quot;/phys_s12_blog/assets/images/facemillresult.jpg&quot;&gt;
+
+&lt;h2 class=&quot;text-xl underline&quot;&gt;Molding and Casting&lt;/h2&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;Now that we have the positive of our mold (wax block), we are going to use silicon to create the
+  negative, in which we will then cast different materials to create copies of our initial object (my face).&lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;I used an &lt;span class=&quot;hl&quot;&gt;Oomoo silicone rubber compound&lt;/span&gt; and poured it into the was block. When
+  doing so, I tried to be as careful as possible to avoid having air bubbles, but unfortunatly was not very successful,
+  as you&apos;ll see in the image below. &lt;/p&gt;
+
+&lt;img class=&quot;w-[50%]&quot; src=&quot;/phys_s12_blog/assets/images/siliconmold.jpg&quot;&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;The walls of the mold were a little bit too thin in some parts, so I added a rubber band to make sure
+  the mold would contain the material we would use for casting. &lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;I first used plaster to cast to cast my face. It only took about 15 minutes to dry, which really
+  surprised me. Besides, the result looks good, and some of my friends said it looked like an ancient greek statue,
+  which is pretty cool!.&lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;Then, with the help of a TA (Ibrahim), I melted some metal that was laying around in a furnace, and was
+  able to cast it into the mold with no issues. The setup was a little but suspicious, but it ended up working (although
+  it had a LOT of bubbles).&lt;/p&gt;
+
+&lt;img class=&quot;w-[30%] mx-auto&quot; src=&quot;/phys_s12_blog/assets/images/metalsetup.jpg&quot;&gt;Nigga
+&lt;p class=&quot;mb-p italic text-right w-[65%] text-base&quot;&gt;The setup to cast metal&lt;/p&gt;
+
+
+&lt;img class=&quot;w-[45%] ml-[2.5%] inline-block&quot; src=&quot;/phys_s12_blog/assets/images/plasterface.jpg&quot;&gt;
+&lt;img class=&quot;w-[45%] inline-block&quot; src=&quot;/phys_s12_blog/assets/images/metalface.jpg&quot;&gt;
+
+&lt;h2 class=&quot;text-xl underline&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p class=&quot;mb-p&quot;&gt;All in all, I had a lot of fun working on this project, specially when casting my face. Casting is
+  definitely very useful when you have to create a lot of copies of a single object, but can take a long time to get right (mainly due to air bubbles, as you can see above).&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Output devices, making things do things</title><link href="http://localhost:4000/phys_s12_blog/2023/07/18/week7.html" rel="alternate" type="text/html" title="Output devices, making things do things" /><published>2023-07-18T00:00:00-04:00</published><updated>2023-07-18T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/18/week7</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/18/week7.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
 
 &lt;h2 class=&quot;text-xl underline&quot;&gt;Choosing an output device&lt;/h2&gt;
 
@@ -233,7 +360,10 @@ void loop() {
   allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot;
   allowfullscreen&gt;&lt;/iframe&gt;
 
-  &lt;p class=&quot;mb-p&quot;&gt;As you can see, when the device is parallel to the table, the signal doesn&apos;t show up. However, when I turn it slighly, we can wee a pattern that corresponds to a PWM signal. We know that because it isn&apos;t HIGH or LOW, but rather changes between the two very quickly. PWM works but switching between HIGH and LOW in a very specific time domain to create a specific signal. &lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Input devices, a.k.a. sensors</title><link href="http://localhost:4000/phys_s12_blog/2023/07/17/week6.html" rel="alternate" type="text/html" title="Input devices, a.k.a. sensors" /><published>2023-07-17T00:00:00-04:00</published><updated>2023-07-17T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/17/week6</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/17/week6.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
+&lt;p class=&quot;mb-p&quot;&gt;As you can see, when the device is parallel to the table, the signal doesn&apos;t show up. However, when I
+  turn it slighly, we can wee a pattern that corresponds to a PWM signal. We know that because it isn&apos;t HIGH or LOW, but
+  rather changes between the two very quickly. PWM works but switching between HIGH and LOW in a very specific time
+  domain to create a specific signal. &lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Input devices, a.k.a. sensors</title><link href="http://localhost:4000/phys_s12_blog/2023/07/17/week6.html" rel="alternate" type="text/html" title="Input devices, a.k.a. sensors" /><published>2023-07-17T00:00:00-04:00</published><updated>2023-07-17T00:00:00-04:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/17/week6</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/17/week6.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
 
 &lt;h2 class=&quot;text-xl underline&quot;&gt;MPU6050&lt;/h2&gt;
 
