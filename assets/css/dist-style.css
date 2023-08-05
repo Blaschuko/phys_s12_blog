@@ -643,6 +643,10 @@ video {
   margin-left: 2.5%;
 }
 
+.ml-\[3\%\] {
+  margin-left: 3%;
+}
+
 .ml-\[5\%\] {
   margin-left: 5%;
 }
@@ -775,6 +779,10 @@ video {
   width: 50%;
 }
 
+.w-\[65\%\] {
+  width: 65%;
+}
+
 .w-\[70\%\] {
   width: 70%;
 }
@@ -794,22 +802,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-\[60\%\] {
-  width: 60%;
-}
-
-.w-\[55\%\] {
-  width: 55%;
-}
-
-.w-\[58\%\] {
-  width: 58%;
-}
-
-.w-\[65\%\] {
-  width: 65%;
 }
 
 .transform {

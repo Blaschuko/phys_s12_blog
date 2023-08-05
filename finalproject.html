@@ -1,6 +1,6 @@
 ---
 layout: defaultnav
-title: Final Project
+title: Thrust Vector Control - Final Project
 tab_title: "Final Project"
 ---
 
@@ -8,7 +8,7 @@ tab_title: "Final Project"
     <div class="mx-auto mt-[2%] text-lg w-[70%]">
         <h1 class="mt-8 text-4xl font-bold text-gray-900">{{ page.title }}</h1>
         <h1 class="text-xl font-bold text-gray-700 mb-p">Blas Kozicki</h1>
-
+        <iframe class width="1020" height="630" src="https://www.youtube-nocookie.com/embed/OrocrGnUDFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <h2 class="text-2xl bold underline">Idea</h2>
         <p class="mb-p">Modern rockets don't have fins but they still manage to point up and remain stable during ascent
             but, how? The answer is <strong>Thrust Vector Control</strong>, or <span class="hl">TVC</span> for short.
@@ -36,8 +36,59 @@ tab_title: "Final Project"
 
         <h2 class="text-2xl bold underline">Components</h2>
 
-        <p class="mb-p"></p>
+        <p class="mb-p">We will divide our TVC into two separate main parts to make the designing process easier:</p>
+
+        <h3 class="text-xl bold">Gimbal</h3>
+        <p class="mb-p">The gimbal is the part that will rotate the engine. It will be composed of two parts, the
+            <span class="hl">outer</span> and the <span class="hl">inner gimbal</span>. The outer gimbal will
+            rotate on the <span class="hl">pitch</span>(Y) axis, and the inner gimbal will rotate on the <span
+                class="hl">yaw</span> (X) axis. The inner gimbal will be attached to the engine, and the outer gimbal
+            will
+            be attached to the rocket body. We will need one servo for each gimbal.
+        </p>
+
+        <h3 class="text-xl bold">Electronics</h3>
+
+        <p class="mb-p">To control all of our different electronics we will use an ESP32. The ESP32 is much more poweful
+            than arduino, and this project needs high response times to accurately correct the trajectory of our rocket.
+            The microcontroller needs to control two servos and read the data from a sensor, from which we will get the
+            orientation of the rocket. </p>
+
+        <p class="mb-p">The sensor we are going to use is an <span class="hl">MPU6050</span>. I've worked with it <a
+                href="{% post_url 2023-07-17-week6 %}" class="link">in the past</a>, and it's a very capable IMU. </p>
+
+        <h2 class="text-2xl bold underline">BOM (bill of materials)</h2>
+        <ul class="list-disc mb-p ml-[3%]">
+            <li>ESP32</li>
+            <li>3D printing filament</li>
+            <li>x2 Micro Servo</li>
+            <li>Wires</li>
+            <li>MPU6050</li>
+            <li>M2 & M3 Screws (many lengths)</li>
+            <li>M2 & M3 Threaded inserts</li>
+        </ul>
+
+
+
+
+        <h2 class="text-2xl bold underline">Design</h2>
+
+        <p class="mb-p">The first idea I had for the gimbal was a three circle design, in which the outer cercle is
+            stationary (attached to the rocket) and the other two circles move in different axis. The sketch below
+            illustrates the design I had in mind: </p>
 
         <img class="w-[50%] mb-p" src="{{'/assets/images/gimballsketch.jpg' | relative_url}}">
+
+        <p class="mb-p">I quickly discarded this idea, as the <span class="hl">diameter of the TVC would've ended up
+                being really big in respect to the size of the motor</span>, which is something unrealistic that could
+            never fly. </p>
+
+        <p class="mb-p">I then started scouting the internet for ideas. <a
+                href="https://kassialove.github.io/PS70-assignments/" class="link">Kassia</a> (TA) suggested a very
+            interesting mechanism called a <span class="hl">Spherical Parallel Manipulator</span>. As you can see in <a
+                href="https://www.youtube.com/watch?v=soWiX1eqZq0" class="link">this video</a>, the device has 3 degrees
+            of rotational freedom, so it can also rotate in the roll axis. Our rocket only needs 2 degrees of freedom,
+            and adding that third one adds quite a lot of challenges as you can see in the video, so this solution was
+            too "advanced" for our needs. Then, I tried looking at people who had done TVC mounts before, to have an idea of what type of gimbal they used.</p>
 
     </div>
