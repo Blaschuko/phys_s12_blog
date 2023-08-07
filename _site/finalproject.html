@@ -20,7 +20,10 @@
     <div class="mx-auto mt-[2%] text-lg w-[70%]">
         <h1 class="mt-8 text-4xl font-bold text-gray-900">Thrust Vector Control - Final Project</h1>
         <h1 class="text-xl font-bold text-gray-700 mb-p">Blas Kozicki</h1>
-        <iframe class width="1020" height="630" src="https://www.youtube-nocookie.com/embed/OrocrGnUDFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe class="mb-p2" width="1020" height="630" src="https://www.youtube-nocookie.com/embed/OrocrGnUDFQ"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
         <h2 class="text-2xl bold underline">Idea</h2>
         <p class="mb-p">Modern rockets don't have fins but they still manage to point up and remain stable during ascent
             but, how? The answer is <strong>Thrust Vector Control</strong>, or <span class="hl">TVC</span> for short.
@@ -28,7 +31,7 @@
             and <span class="hl">yaw</span>.</p>
         <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/rocketrotations.png">
 
-        <p class="mb-p">While we I don't have the time, the experience, nor the resources to build a real TVC
+        <p class="mb-p">While I don't have the time, the experience, nor the resources to build a real TVC
             system, there is a very interesting "field" called <span class="hl">Model Rockets</span>. Model Rockets are
             small hobbyist rockets that can actually fly (sometimes <a
                 href="https://www.youtube.com/watch?v=7fxuscNM-GE" target="_blank" class="link">REALLY high!</a>) thanks
@@ -76,12 +79,10 @@
             <li>x2 Micro Servo</li>
             <li>Wires</li>
             <li>MPU6050</li>
+            <li>Protoboard</li>
             <li>M2 & M3 Screws (many lengths)</li>
             <li>M2 & M3 Threaded inserts</li>
         </ul>
-
-
-
 
         <h2 class="text-2xl bold underline">Design</h2>
 
@@ -101,8 +102,252 @@
                 href="https://www.youtube.com/watch?v=soWiX1eqZq0" class="link">this video</a>, the device has 3 degrees
             of rotational freedom, so it can also rotate in the roll axis. Our rocket only needs 2 degrees of freedom,
             and adding that third one adds quite a lot of challenges as you can see in the video, so this solution was
-            too "advanced" for our needs. Then, I tried looking at people who had done TVC mounts before, to have an idea of what type of gimbal they used.</p>
+            too "advanced" for our needs. Then, I tried looking at people who had done TVC mounts before, to have an
+            idea of what type of gimbal they used.</p>
 
+        <img class="w-[45%] inline-block mr-[2.5%] mb-p"
+            src="/phys_s12_blog/assets/images/finalproject/tvcexample1.png">
+        <img class="w-[45%] inline-block mb-p" src="/phys_s12_blog/assets/images/finalproject/tvcexample2.png">
+        <p class="mb-p2 italic text-right w-[45%] text-base inline-block mr-[2.5%]">Thrust Vector Control Mount by <a
+                href="https://www.thingiverse.com/thing:4627449" class="link">Contradius</a></p>
+        <p class="mb-p2 italic text-right w-[45%] text-base inline-block">Thrust Vector Control mount by <a
+                href="https://bps.space/products/thrust-vector-control" class="link">BPS.space</a></p>
+        <p class="mb-p">Both of the designs that I found were of great insipration, and gave me a really good idea of
+            how I wanted to design my own TVC.</p>
+
+        <p class="mb-p">The last design choice I needed to make before starting modeling, was how to attach the
+            different parts of the design. I found something called threaded inserts in lab. Threaded inserts are
+            inserted into an object to add a threaded hole, and is ideal for 3D prints, as they can be inserted using
+            only heat (coming from a soldering iron, for example). Below you will find an example from reddit of someone
+            adding a threaded insert ot a 3D print.</p>
+
+        <blockquote class="reddit-embed-bq" class="w-[50%] mb-p2" data-embed-height="500"> <a
+                href="https://www.reddit.com/r/3Dprinting/comments/10q79vp/threaded_inserts_in_3d_printsmake_the_walls_twice/">Threaded
+                Inserts in 3D Prints(make the walls twice as thick around the Insert ID)</a><br> by <a
+                href="https://www.reddit.com/user/JJCCENG">u/JJCCENG</a> in <a
+                href="https://www.reddit.com/r/3Dprinting/">3Dprinting</a> </blockquote>
+        <script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
+
+        <p class="mb-p">I knew that when modeling, the holes where the threaded inserts would be added needed to be
+            slightly smaller than the actual size of the insert, but I did not know exactly how smaller. That is why I
+            designed and 3D printed a small box with different sized holes to determined which worked the best for an M3
+            size insert. It turns out that the best hole diameter for M3 inserts is about <span>4.2 mm</span>.</p>
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/insertstest.jpg">
+
+        <h2 class="text-2xl bold underline mb-p">CAD Modeling</h2>
+
+        <h2 class="text-xl bold">Modeling Micro Servos</h2>
+        <p class="mb-p">To accurately design the TVC, we need to know the size of each component. To make modeling even
+            easier, I decided to 3D model the micro servo motors so we can then insert them into the design. </p>
+
+        <p class="mb-p">I took various measurements using a caliper:</p>
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/microservo.jpg">
+        <p class="mb-p">And ended up with the following design.</p>
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/microservomodel.png">
+
+        <h2 class="text-xl bold">Modeling the Inner Gimbal</h2>
+        <p class="mb-p">I had no idea how big the final diameter of the TVC would be, so I decided the best idea was
+            going to be to start from the inside. I started by created a motor holder with a <span class="hl">24
+                mm</span> inner diameter and <span class="hl">4 mm</span> thick walls. I then added small surface where
+            we will add a threaded insert, to attach the servo motor to the motor holder using a rod. The height of the
+            holder will change depending on how tall the TVC ends up being, and the height in the image is not the same
+            in the final revision.</p>
+
+        <img class="w-[50%] mb-p2" src="/phys_s12_blog/assets/images/finalproject/motorholder.png">
+
+        <p class="mb-p">I added a holder for the micro servo in the inner gimbal. As you can see, it has 2 holes to add
+            M2 threaded inserts (which is the size of the holes that the micro servo has), and a small opening on top
+            for the wires to fit. As a fun fact, the first revision did not have that small hole, and as you can
+            probably guess the micro servos did not fit at all (we do not really like to talk about that version!). </p>
+
+        <img class="w-[45%] inline-block mr-[2.5%] mb-p"
+            src="/phys_s12_blog/assets/images/finalproject/servoholder.png">
+        <img class="w-[45%] inline-block mb-p"
+            src="/phys_s12_blog/assets/images/finalproject/servoholderwithservo.png">
+
+
+        <p class="mb-p">I then attached the the servo and motor holder using a <span class="hl">35 mm</span> rod and
+            some joints.</p>
+
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/rod.png">
+
+        <p class="mb-p">After that, I made the motor holder taller and built an eliptcal structure to contstrain the
+            movement of the motor holder. I connected that to the servo holder we just built, and was left with the
+            basic structure for the inner gimbal.</p>
+
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/innergimbalstucture.png">
+
+        <p class="mb-p">For the inner gimbal to hold the motor holder but at the same time allow it to rotate freely, I
+            extruded to small cylinders from the motor holder, and cut a semi circle on the inner gimbal, as you can see
+            below.</p>
+
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/motorcircle.png">
+
+        <p class="mb-p">Then, I made a small "cap" for the thing that would be screwed in place with 2 M2 screws. The
+            whole thing was then mirrored ot the other side.</p>
+
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/innercaps.png">
+
+        <p class="mb-p">The last thing needed for the inner gimbal is an attach point for the rod that will be connected
+            to the servo on the outer gimbal. To make it, I just extruded a small cube out of the top of the servo
+            holder and added a hole for an M3 threaded insert. </p>
+
+        <img class="w-[50%] mb-p2" src="/phys_s12_blog/assets/images/finalproject/innergimbalconnector.png">
+
+        <h2 class="text-xl bold">Modeling the Outer Gimbal</h2>
+
+        <p class="mb-p">I started by duplicating the servo and its holder, and adding a rod to connect them to the inner
+            gimbal. The rod in this case is thicker, as it does not only need to move the motor holder, but also the
+            inner gimbal.</p>
+
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/outergimbal.png">
+
+        <p class="mb-p">The next step was to finish the general shape of the whole outer gimbal, so I sketched and
+            extruded a cercle on top of the outer servo holder.</p>
+
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/outergimbalstructure.png">
+
+        <p class="mb-p">Finally, I added a slot for the protoboard to be attached to the TVC. The length of the
+            protoboard was around <span class="hl">60.5 mm</span>, but to make sure it fitted I made the slot <span
+                class="hl">63.5 mm </span>. The thickness was <span class="hl">1.5 mm</span>, which I did not increase
+            so the would not fall off the TVC. Additionally, I added a small extrusion with some holes where it is
+            possible to add threaded inserts to attach the protoboard with screws, which is necessary if the thing is
+            actually flown, but I found that for testing it is just better to press-fit it in place as it is easier to
+            remove. </p>
+
+
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/finished.png">
+
+        <img class="w-[45%] inline-block mr-[2.5%] mb-p"
+            src="/phys_s12_blog/assets/images/finalproject/xcrosssection.png">
+        <img class="w-[45%] inline-block mb-p" src="/phys_s12_blog/assets/images/finalproject/ycrosssection.png">
+
+        <p class="mb-p">You can take a look at the whole 3D model here, or you can download the files at the end of the
+            page.</p>
+        <iframe class="mb-p2"
+            src="https://icloud83866.autodesk360.com/shares/public/SHd38bfQT1fb47330c99da77caaf7c5d6448?mode=embed"
+            width="800" height="600" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"
+            frameborder="0"></iframe>
+
+        <p class="mb-p2 italic text-right w-[45%] text-base inline-block mr-[2.5%]">X axis cross section of finished TVC
+        </p>
+        <p class="mb-p2 italic text-right w-[45%] text-base inline-block">Y axis cross section of finished TVC</a></p>
+
+        <h2 class="text-2xl bold underline">3D Printing</h2>
+
+        <p class="mb-p">3D printing was pretty straightforward. I exported all the different parts of the design to
+            Prusa Slicer, and oriented them in the best way possible. I obviously activated supports, and used a 20%
+            infill to make sure the parts were strong. The whole print takes around 9 hours in a Prusa i3 MK3S+.</p>
+
+        <img class="w-[75%] mb-p" src="/phys_s12_blog/assets/images/finalproject/slicer.png">
+
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/3dprinting.jpg">
+
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/3dprintresult.jpg">
+
+        <p class="mb-p">The color of the filament may be different in other images, as the TVC was printed several
+            times.</p>
+
+        <h2 class="text-2xl bold underline">Electronics</h2>
+
+        <p class="mb-p">The elctronics were pretty simple. We need an ESP32, two servos, and an MPU6050. The ESP32 will
+            be connected to the protoboard using header pins, so we can avoid soldering the ESP32 to the protoboard and
+            leaving it there forever. the two servos will be connected to power and ground from the ESP32, and each of
+            them to one PWM-capable pin. The MPU wiring was covered on <a href="/phys_s12_blog/2023/07/17/week6.html"
+                class="link">Week 6</a>.</p>
+
+        <p class="mb-p">The first thing I did was to draw a simple schematic (not my finest work, I have to admit):</p>
+
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/schematic.jpg">
+
+        <p class="mb-p">I then wired everything up in a breadboard to make sure everything worked before upgrading to a
+            "permanent" protoboard. The green connectors you can see are where the servos are connected.</p>
+
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/breadboard.jpg">
+
+        <p class="mb-p">After testing everything with some very basic code that is not worth showing, I soldered
+            everything.</p>
+
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/protoboard.jpg">
+
+
+        <h2 class="text-2xl bold underline">Assembly</h2>
+
+        <p class="mb-p">The assembly process took way less than I anticipated. Adding the threaded inserts was quite
+            easy, but on the other hand finding the appropiate screws was pretty difficult (you would be surprised by
+            the different types of screw that the lab has). </p>
+
+        <img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/finalproject/finalassembly.png">
+
+        <h2 class="text-2xl bold underline">Programming</h2>
+
+        <p class="mb-p">The code I used to get the TVC to work is by no means complete, and is only a proof of concept.
+            To get this TVC to fly flawlessly, I would need to tune a PID controller with the correct gains, and take
+            into account the thrust curve of the motor. All these things are definitely possible, but take quite a lot
+            of time, which I did not have. So for this MVP we will content ourselves by inversing the angle readings
+            from the MPU6050 and clamping them to the clearances of the micro servos. </p>
+
+        <p class="mb-p">The first few lines include the libraries we'll be using, and define some basic variables. There
+            are many "fifo" and "dmp" variables which are necessary to setup the MPU6050 library, so I wont be
+            explaining what those are. The calibration values are basically angles I hand-picket by just sending
+            different values to the servo and seeing where a good limit seems good, and is therefore not at all
+            accurate. At the end of the page we will talk more about accuracy, but keep in mind we are using $4 servos,
+            so the precision of our calibration doesn't really matter THAT much.</p>
+
+        <script class="mb-p"
+            src="https://gist.github.com/Blaschuko/8ca38ef5f6680d904af30b6329e114df.js?file=tvcstart.ino"></script>
+
+        <p class="mb-p">I then wrote a simple servo initialization function that attaches the servos to their pins, and
+            then tests their full range of motion based on the calibration values we wrote earlier.</p>
+        <p class="mb-p">The setup function then begins serial communication, which is useful for debugging, and starts
+            the I2C protocol to communicate with the MPU-6050. Then I use slightly modified code from the MPU6050
+            library examples to initialize the sensor and calibrate it. </p>
+
+        <script class="mb-p"
+            src="https://gist.github.com/Blaschuko/8ca38ef5f6680d904af30b6329e114df.js?file=init.ino"></script>
+
+
+        <p class="mb-p">The final part of the code is the loop function, which is what reads the orientation from the
+            sensor and then moves the servos. The servos don't move instantly, so I added a .1 second "cooldown" for the
+            servos. I stored in some variables the yaw and pitch raw readings, the clamped values (according to the
+            calubration values), and then the correction needed. All the weird if else logic you see is just a way to
+            deal with negative and positive numbers, because the readings start at zero and can go to negative and
+            positive values, but the servo angles start at 0, and can't be negative. That portion of the code can
+            definitely be simplified and made for efficient, and is something I want to work on in the future. </p>
+        <script class="mb-p"
+            src="https://gist.github.com/Blaschuko/8ca38ef5f6680d904af30b6329e114df.js?file=loop.ino"></script>
+
+
+        <h2 class="text-2xl bold underline">Conclusion</h2>
+
+        <p class="mb-p">After some testing, I determined that the TVC worked really well, but is very incaccurate for a
+            number of reasons. First, we are using really cheap and even obsolete electronic components. The micro
+            servos are great for many small projects that don't require precision, which is not out case. They have a
+            precision of around 3 degrees, or even more. On the other hand, the MPU6050 has a lot of noise and is even
+            obsolete. There are many other more expensive choices that might be a good idea to get now that we have a
+            basic TVC working, and I think that is the next step on this project. The TVC design can definitely be
+            improved, by adding a contrain on the outer gimbal, so that the pivot of the rotation stops being the servo,
+            that is off-centered, and works just like the inner gimbal. Overall, I had lots of fun working on this
+            project and will continue working on it (will probably add an URL here redirecting to a new page where I
+            will post updates!). </p>
+
+        <iframe class="mb-p2" width="560" height="315" src="https://www.youtube-nocookie.com/embed/1UK1thoki4I"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+
+        <h2 class="text-2xl bold underline">Downloads</h2>
+
+        <ul class="list-disc">
+            <li><a href="/phys_s12_blog/assets/stl/TVCgcode_0.2mm_PLA_MK3S_9h2m.gcode" class="link">GCode
+                    for Thrust Vector Control</a></li>
+            <li><a href="/phys_s12_blog/assets/stl/tvcstl.stl" class="link">Thrust Vector Control STL
+                    Model</a></li>
+            <li><a href="/phys_s12_blog/assets/stl/tvcf3z.f3z" class="link">Thrust Vector Control
+                    Fusion360 Project File</a></li>
+                    <li><a target="_blank" href="https://gist.github.com/Blaschuko/7807a105f08e7d122a644a6d7a04b523" class="link">Full code</a></li>
+    
+        </ul>
     </div>
   </body>
 </html>
