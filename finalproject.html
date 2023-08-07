@@ -143,7 +143,8 @@ tab_title: "Final Project"
 
         <img class="w-[50%] mb-p2" src="{{'/assets/images/finalProject/motorholder.png' | relative_url}}">
 
-        <p class="mb-p">I added a holder for the micro servo in the inner gimbal. As you can see, it has 2 holes to add
+        <p class="mb-p">I added a holder for the micro servo that will be part of the inner gimbal. As you can see, it
+            has 2 holes to add
             M2 threaded inserts (which is the size of the holes that the micro servo has), and a small opening on top
             for the wires to fit. As a fun fact, the first revision did not have that small hole, and as you can
             probably guess the micro servos did not fit at all (we do not really like to talk about that version!). </p>
@@ -166,12 +167,13 @@ tab_title: "Final Project"
         <img class="w-[50%] mb-p" src="{{'/assets/images/finalProject/innergimbalstucture.png' | relative_url}}">
 
         <p class="mb-p">For the inner gimbal to hold the motor holder but at the same time allow it to rotate freely, I
-            extruded to small cylinders from the motor holder, and cut a semi circle on the inner gimbal, as you can see
+            extruded two small cylinders from the motor holder, and cut a semi-circle on the inner gimbal, as you can
+            see
             below.</p>
 
         <img class="w-[50%] mb-p" src="{{'/assets/images/finalProject/motorcircle.png' | relative_url}}">
 
-        <p class="mb-p">Then, I made a small "cap" for the thing that would be screwed in place with 2 M2 screws. The
+        <p class="mb-p">Then, I made a small "cap", that would be screwed in place with 2 M2 screws and would hold everything in place. The
             whole thing was then mirrored ot the other side.</p>
 
         <img class="w-[50%] mb-p" src="{{'/assets/images/finalProject/innercaps.png' | relative_url}}">
@@ -209,6 +211,9 @@ tab_title: "Final Project"
         <img class="w-[45%] inline-block mr-[2.5%] mb-p"
             src="{{'/assets/images/finalProject/xcrosssection.png' | relative_url}}">
         <img class="w-[45%] inline-block mb-p" src="{{'/assets/images/finalProject/ycrosssection.png' | relative_url}}">
+        <p class="mb-p2 italic text-right w-[45%] text-base inline-block mr-[2.5%]">X axis cross section of finished TVC
+        </p>
+        <p class="mb-p2 italic text-right w-[45%] text-base inline-block">Y axis cross section of finished TVC</a></p>
 
         <p class="mb-p">You can take a look at the whole 3D model here, or you can download the files at the end of the
             page.</p>
@@ -217,9 +222,6 @@ tab_title: "Final Project"
             width="800" height="600" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"
             frameborder="0"></iframe>
 
-        <p class="mb-p2 italic text-right w-[45%] text-base inline-block mr-[2.5%]">X axis cross section of finished TVC
-        </p>
-        <p class="mb-p2 italic text-right w-[45%] text-base inline-block">Y axis cross section of finished TVC</a></p>
 
         <h2 class="text-2xl bold underline">3D Printing</h2>
 
@@ -263,7 +265,7 @@ tab_title: "Final Project"
 
         <p class="mb-p">The assembly process took way less than I anticipated. Adding the threaded inserts was quite
             easy, but on the other hand finding the appropiate screws was pretty difficult (you would be surprised by
-            the different types of screw that the lab has). </p>
+            the different types of screws that the lab has). </p>
 
         <img class="w-[50%] mb-p" src="{{'/assets/images/finalProject/finalassembly.png' | relative_url}}">
 
@@ -277,8 +279,8 @@ tab_title: "Final Project"
 
         <p class="mb-p">The first few lines include the libraries we'll be using, and define some basic variables. There
             are many "fifo" and "dmp" variables which are necessary to setup the MPU6050 library, so I wont be
-            explaining what those are. The calibration values are basically angles I hand-picket by just sending
-            different values to the servo and seeing where a good limit seems good, and is therefore not at all
+            explaining what those are. The calibration values are basically angles I hand-picked by just sending
+            different values to the servo and eye-balling a good limit, and are therefore not at all
             accurate. At the end of the page we will talk more about accuracy, but keep in mind we are using $4 servos,
             so the precision of our calibration doesn't really matter THAT much.</p>
 
@@ -296,12 +298,12 @@ tab_title: "Final Project"
 
 
         <p class="mb-p">The final part of the code is the loop function, which is what reads the orientation from the
-            sensor and then moves the servos. The servos don't move instantly, so I added a .1 second "cooldown" for the
-            servos. I stored in some variables the yaw and pitch raw readings, the clamped values (according to the
-            calubration values), and then the correction needed. All the weird if else logic you see is just a way to
+            sensor and then moves the servos. The servos don't move instantly, so I added a .1 second "cooldown". I
+            stored in some variables the yaw and pitch raw readings, the clamped values (clamped using the calibration
+            values), and then the correction needed. All the weird "if else" logic you see is just a way to
             deal with negative and positive numbers, because the readings start at zero and can go to negative and
             positive values, but the servo angles start at 0, and can't be negative. That portion of the code can
-            definitely be simplified and made for efficient, and is something I want to work on in the future. </p>
+            definitely be simplified and made more efficient, and is something I want to work on in the future. </p>
         <script class="mb-p"
             src="https://gist.github.com/Blaschuko/8ca38ef5f6680d904af30b6329e114df.js?file=loop.ino"></script>
 
@@ -310,13 +312,17 @@ tab_title: "Final Project"
 
         <p class="mb-p">After some testing, I determined that the TVC worked really well, but is very incaccurate for a
             number of reasons. First, we are using really cheap and even obsolete electronic components. The micro
-            servos are great for many small projects that don't require precision, which is not out case. They have a
+            servos are great for many small projects that don't require precision, which is not our case. They have a
             precision of around 3 degrees, or even more. On the other hand, the MPU6050 has a lot of noise and is even
             obsolete. There are many other more expensive choices that might be a good idea to get now that we have a
             basic TVC working, and I think that is the next step on this project. The TVC design can definitely be
-            improved, by adding a contrain on the outer gimbal, so that the pivot of the rotation stops being the servo,
-            that is off-centered, and works just like the inner gimbal. Overall, I had lots of fun working on this
-            project and will continue working on it (will probably add an URL here redirecting to a new page where I
+            improved, by adding a contraint on the outer gimbal, so that the pivot of the rotation stops being the
+            servo,
+            that is off-centered, and works just like the inner gimbal. Those are just a few things that can be improved
+            on this project, however, not everything is bad. We managed to get a basic Thrust Vector Control mount
+            working in just a few weeks, and learned TONS of extremely useful and interesting things. Overall, I had
+            lots of fun working on this project and will continue working on it (will probably add an URL here
+            redirecting to a new page where I
             will post updates!). </p>
 
         <iframe class="mb-p2" width="560" height="315" src="https://www.youtube-nocookie.com/embed/1UK1thoki4I"
@@ -333,7 +339,8 @@ tab_title: "Final Project"
                     Model</a></li>
             <li><a href="{{'/assets/stl/tvcf3z.f3z' | relative_url}}" class="link">Thrust Vector Control
                     Fusion360 Project File</a></li>
-                    <li><a target="_blank" href="https://gist.github.com/Blaschuko/7807a105f08e7d122a644a6d7a04b523" class="link">Full code</a></li>
-    
+            <li><a target="_blank" href="https://gist.github.com/Blaschuko/7807a105f08e7d122a644a6d7a04b523"
+                    class="link">Full code</a></li>
+
         </ul>
     </div>
