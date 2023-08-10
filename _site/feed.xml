@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/phys_s12_blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/phys_s12_blog/" rel="alternate" type="text/html" /><updated>2023-08-07T02:26:41-03:00</updated><id>http://localhost:4000/phys_s12_blog/feed.xml</id><title type="html">Blas Kozicki PHYS S-12 2023 Blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">CNC Machining and Molding and Casting</title><link href="http://localhost:4000/phys_s12_blog/2023/07/25/week8.html" rel="alternate" type="text/html" title="CNC Machining and Molding and Casting" /><published>2023-07-25T00:00:00-03:00</published><updated>2023-07-25T00:00:00-03:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/25/week8</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/25/week8.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/phys_s12_blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/phys_s12_blog/" rel="alternate" type="text/html" /><updated>2023-08-09T21:37:34-03:00</updated><id>http://localhost:4000/phys_s12_blog/feed.xml</id><title type="html">Blas Kozicki PHYS S-12 2023 Blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">CNC Machining and Molding and Casting</title><link href="http://localhost:4000/phys_s12_blog/2023/07/25/week8.html" rel="alternate" type="text/html" title="CNC Machining and Molding and Casting" /><published>2023-07-25T00:00:00-03:00</published><updated>2023-07-25T00:00:00-03:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/25/week8</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/25/week8.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
 
 &lt;h2 class=&quot;text-xl underline&quot;&gt;Concept&lt;/h2&gt;
 
@@ -130,9 +130,74 @@
 &lt;h2 class=&quot;text-xl underline&quot;&gt;Concept&lt;/h2&gt;
 
 
-&lt;p class=&quot;mb-p&quot;&gt;For this week&apos;s project, I decided to use an ESP32 cam and firebase to try to remotely upload pictures to a firebase database. I will base my work on &lt;a href=&quot;https://randomnerdtutorials.com/esp32-cam-save-picture-firebase-storage/&quot; class=&quot;link&quot;&gt;This tutorial&lt;/a&gt;, but will change a lot of things.&lt;/p&gt;
+&lt;p class=&quot;mb-p&quot;&gt;For this week&apos;s project, I decided to use an ESP32 cam and firebase to try to remotely upload pictures
+  to a firebase database. I will base my work on &lt;a
+    href=&quot;https://randomnerdtutorials.com/esp32-cam-save-picture-firebase-storage/&quot; class=&quot;link&quot;&gt;This tutorial&lt;/a&gt;, but
+  will change a lot of things.&lt;/p&gt;
 
-&lt;h1 class=&quot;text-3xl&quot;&gt;THE REST OF THIS POST WILL BE UPLOADED on the 7th of AUGUST (MONDAY), PROBABLY AT NIGHT, BECAUSE I AM STILL WAITING FOR THE ESP32 PROGRAMMER TO SHIP TO MY HOUSE. Sorry!&lt;/h1&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Output devices, making things do things</title><link href="http://localhost:4000/phys_s12_blog/2023/07/18/week7.html" rel="alternate" type="text/html" title="Output devices, making things do things" /><published>2023-07-18T00:00:00-03:00</published><updated>2023-07-18T00:00:00-03:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/18/week7</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/18/week7.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
+&lt;p class=&quot;mb-p&quot;&gt;The project didn&apos;t have a good start, as I did not have access to an FTDI programmer, which is necessary
+  to upload code to the ESP32 cam, as it doesn&apos;t have an USB programming port.&lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;As I didn&apos;t have one, I started looking for alternatives. I found some articles and videos that
+  described how to use an arduino uno as a programmer, so I followed the guide. The setup didn&apos;t seem too hard at first:
+&lt;/p&gt;
+
+
+&lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/esp32arduino.png&quot;&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;After setting all that up, I opened up the example project for the ESP32 cam (which is basicaly a web
+  server where you can see live video from the camera), and tried uploading it. I got an error, so looked for a solution
+  online. The problem was that I had not set up the uploading parameters correctly. The parameters I found are the
+  following: &lt;/p&gt;
+&lt;img class=&quot;w-[50%] mb-p&quot; src=&quot;/phys_s12_blog/assets/images/arduinoparameters.png&quot;&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;I then tried again, and of course got a brand new error. This time, it was written in the output that no
+  core memory was
+  allocated. After trying to solve the issue for many hours, I found a solution that involved changing the partition file
+  that is used to upload the code, and add memory for the partition that was missing. After waiting for the code to
+  upload, the error had now changed, and the board was resetting constantly, in a loop. I googled the error, and turns
+  out that this happens when there is a memory related issue. My best guess was that it happened because I allocated to
+  much memory, which the board did not have, so when writing something it would overwrite it&apos;s base memory containing
+  base instructions and therefore be forced to restart. So I then rechanged the partitions, decreasing the amount of
+  memory allocated for each partition to hopefully have enough for everything. Somewhow that worked, but I then got a
+  new error. &quot;brownout detector was triggered&quot;, which according to the internet means that the board doesn&apos;t have enough
+  current to work. Some posts suggested to add a 10 uF capacitor between the power and the ground of the power supply,
+  which I did, but didn&apos;t seem to have any effect on the error.&lt;/p&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;The next day, when I was about to give up, I found a post saying there was a way to diable that brownout
+  detector, so I tried it, and it miraculously worked. The lines I had to add are the following: &lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint code mb-p&quot;&gt;
+#include &quot;soc/soc.h&quot;
+#include &quot;soc/rtc_cntl_reg.h&quot;&lt;/pre&gt;
+
+&lt;p class=&quot;mb-p&quot;&gt;And then at the beggining of the setup function: &lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint code mb-p&quot;&gt;
+WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0);  //disable brownout detector &lt;/pre&gt;
+
+
+&lt;p class=&quot;mb-p&quot;&gt; After uploading the code, the ESP32 cam sent an output to the serial monitor, saying that it was
+  connected to the wifi, and that it was now a web server. I then opened the IP address in my browser, and it partially
+  worked. I was able to take still images, but as soon I tried to start a live stream from the camera, the ESP32 cam
+  would crash and stop working. It&apos;s honestly impossible to know why that is happening, due to the really big amount of
+  workarounds I used to get it this far. I am honestly really impressed that it even works. &lt;/p&gt;
+&lt;/p&gt;
+
+&lt;img class=&quot;w-[75%]&quot; src=&quot;/phys_s12_blog/assets/images/serverworking.png&quot;&gt;
+&lt;p class=&quot;mb-p italic text-right w-[75%] text-base&quot;&gt;Screenshot of the web interface I saw the first time I got it
+  working (I took a screenshot in a matter of miliseconds, knowing it could stop working at any time)&lt;/p&gt;
+
+
+&lt;img class=&quot;w-[75%]&quot; src=&quot;/phys_s12_blog/assets/images/esp32camimage.png&quot;&gt;
+&lt;p class=&quot;mb-p italic text-right w-[75%] text-base&quot;&gt;Got an image! I named it &quot;&lt;strong&gt;face of someone who has worked on
+    something that should be very simple for more than 6 hours&lt;/strong&gt;&quot;&lt;/p&gt;
+
+
+&lt;p class=&quot;mb-p&quot;&gt;Working with this setup and limitations was literally impossible. Uploading through the Arduino takes
+  around 2 minutes, and waiting that long EACH time I need to make a small change is extremely annoying, so I decided
+  this was a good point to stop for this project. I want to continue this, but only once I can get my hands on a FTDI
+  programmer, which I&apos;m sure will make my life a lot easier.&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Output devices, making things do things</title><link href="http://localhost:4000/phys_s12_blog/2023/07/18/week7.html" rel="alternate" type="text/html" title="Output devices, making things do things" /><published>2023-07-18T00:00:00-03:00</published><updated>2023-07-18T00:00:00-03:00</updated><id>http://localhost:4000/phys_s12_blog/2023/07/18/week7</id><content type="html" xml:base="http://localhost:4000/phys_s12_blog/2023/07/18/week7.html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
 
 &lt;h2 class=&quot;text-xl underline&quot;&gt;Choosing an output device&lt;/h2&gt;
 
