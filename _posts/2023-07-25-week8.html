@@ -15,10 +15,12 @@ front-image: week8.png
 
 <p class="mb-p">This week we learned how to use a CNC mill and router. The difference between the two is pretty
   important: </p>
+      
 <ul class="mb-p">
   <li><strong>CNC Mill:</strong> they have a greater Z-axis movement, allowing them to make deeper cuts. Very good for
     cutting rigid materials accurately, but generally have a pretty low workpiece surface. Usually used for <span
       class="hl">2.5D</span> cuts (can only cut half of a sphere).</li>
+  
   <li><strong>CNC Mill:</strong> Very good for cutting relatively soft materials such as wood or aluminum, generally has
     a big workpiece surface. Used mainly to cut <span class="hl">2D</span> shapes, as their Z-axis movement range is
     much lower</li>
@@ -31,21 +33,21 @@ front-image: week8.png
 
 <h2 class="text-xl underline">3D Scanning my face</h2>
 
-<p class="mb-p">On <a href="{% post_url 2023-07-12-week5 %}" target="_blank" class="link">week 5</a> I played around
+<p class="mb-p">On <a href="/phys_s12_blog/2023/07/12/week5.html" target="_blank" class="link">week 5</a> I played around
   with the RevoPoint 3D scanner, but was not able to fully scan my face. However, the mold I want to create for this
   week's assignment only requires the front of my face, so it shouldn't be too hard to scan. </p>
 
-<p class="mb-p">I openend the RevoPoint software and started trying to scan my face. After a few attemps, I finally got
+<p class="mb-p">I opened the RevoPoint software and started trying to scan my face. After a few attempts, I finally got
   a good result.</p>
 
 
-<img class="w-[50%] mb-p" src="{{'/assets/images/initialfacescan.png' | relative_url}}">
+<img class="w-[50%] mb-p" src="/phys_s12_blog/assets/images/initialfacescan.png">
 
 <p class="mb-p">It took around 2 minutes to transfer the exported file from the computer where the software is to an SD
-  card, which at the moment didn't mean a lot, but would explain a lot later. </p>
+  card, which at the moment didn't mean a lot, but would explain a lot later... </p>
 
 <p class="mb-p">After importing the STL model in fusion, the first thing I tried to do was to scale the model down, as
-  the file we need to feed the CNC Mill needs to have specific dimensions (specially depth, we'll talk more about that
+  the file we need to feed the CNC Mill needs to have specific dimensions (especially depth, we'll talk more about that
   later). As soon as I tried to scale down the 3D mesh, Fusion360 stopped responding and I was forced to force quit the
   application. Thinking it was just a random error, I tried the same things a few more time, but got the same outcome
   every time. I then tried to use the <span class="hl">reduce</span> tool in fusion, as I suspected the mesh had maybe
@@ -66,9 +68,9 @@ front-image: week8.png
   less than </p>
 
 
-<img class="w-[50%]" src="{{'/assets/images/simplifiedfacescan.png' | relative_url}}">
+<img class="w-[50%]" src="/phys_s12_blog/assets/images/simplifiedfacescan.png">
 <p class="mb-p italic text-right w-[50%] text-base">Click <a class="link"
-    href="{{'assets/stl/blasface_simplified.stl' | relative_url}}">here</a> to download the .stl file</p>
+    href="/phys_s12_blog/assets/stl/blasface_simplified.stl">here</a> to download the .stl file</p>
 
 
 <p class="mb-p">The next step was to figure out the dimensions for the stl model we are going to give to the CNC mill.
@@ -80,9 +82,9 @@ front-image: week8.png
   to make it hollow. The final STL file is <span class="hl">30x39x9.413 mm</span>.
 </p>
 
-<img class="w-[50%]" src="{{'/assets/images/facemodelexport.png' | relative_url}}">
+<img class="w-[50%]" src="/phys_s12_blog/assets/images/facemodelexport.png">
 <p class="mb-p italic text-right w-[50%] text-base">Click <a class="link"
-    href="{{'assets/stl/face_export.stl' | relative_url}}">here</a> to download the .stl file</p>
+    href="/phys_s12_blog/assets/stl/face_export.stl">here</a> to download the .stl file</p>
 
 
 <h2 class="text-xl underline">CNC Milling</h2>
@@ -101,7 +103,7 @@ front-image: week8.png
 <p class="mb-p">Even though the result is pretty small, it has an incredible level of detail (and it could've had even
   more if we had used a 1/32 inch drill bit!):</p>
 
-<img class="w-[50%]" src="{{'/assets/images/facemillresult.jpg' | relative_url}}">
+<img class="w-[50%]" src="/phys_s12_blog/assets/images/facemillresult.jpg">
 
 <h2 class="text-xl underline">Molding and Casting</h2>
 
@@ -112,7 +114,7 @@ front-image: week8.png
   doing so, I tried to be as careful as possible to avoid having air bubbles, but unfortunatly was not very successful,
   as you'll see in the image below. </p>
 
-<img class="w-[50%]" src="{{'/assets/images/siliconmold.jpg' | relative_url}}">
+<img class="w-[50%]" src="/phys_s12_blog/assets/images/siliconmold.jpg">
 
 <p class="mb-p">The walls of the mold were a little bit too thin in some parts, so I added a rubber band to make sure
   the mold would contain the material we would use for casting. </p>
@@ -125,13 +127,13 @@ front-image: week8.png
   able to cast it into the mold with no issues. The setup was a little but suspicious, but it ended up working (although
   it had a LOT of bubbles).</p>
 
-<img class="w-[30%] mx-auto" src="{{'/assets/images/metalsetup.jpg' | relative_url}}">Nigga
+<img class="w-[30%] mx-auto" src="/phys_s12_blog/assets/images/metalsetup.jpg">
 <p class="mb-p italic text-right w-[65%] text-base">The setup to cast metal</p>
 
 
-<img class="w-[45%] ml-[2.5%] inline-block" src="{{'/assets/images/plasterface.jpg' | relative_url}}">
-<img class="w-[45%] inline-block" src="{{'/assets/images/metalface.jpg' | relative_url}}">
+<img class="w-[45%] ml-[2.5%] inline-block" src="/phys_s12_blog/assets/images/plasterface.jpg">
+<img class="w-[45%] inline-block" src="/phys_s12_blog/assets/images/metalface.jpg">
 
 <h2 class="text-xl underline">Conclusion</h2>
 <p class="mb-p">All in all, I had a lot of fun working on this project, specially when casting my face. Casting is
-  definitely very useful when you have to create a lot of copies of a single object, but can take a long time to get right (mainly due to air bubbles, as you can see above).</p>
+  definitely very useful when you have to create a lot of copies of a single object, but can take a long time to get right (mainly due to air bubbles, as you can see above unfortunately).</p>
